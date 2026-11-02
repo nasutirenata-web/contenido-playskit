@@ -1,6 +1,7 @@
 <title>Playskit Contenido</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
 /* Layout: panel oscuro tipo dashboard. Barra lateral con iconos, línea de la semana (solo los días), tarjetas con degradé celeste, tabla de la semana. En celular la barra pasa abajo. */
 :root{
@@ -188,6 +189,33 @@ aside .brand{padding:0 18px 0 0}
 aside .sp{flex:1}
 .who{margin:0}
 main{margin:0 auto}
+
+/* referencia: aviso, pasos, semanas, grilla de piezas con imagen */
+.aviso{background:linear-gradient(150deg,rgba(240,179,74,.16),rgba(240,179,74,.05));border:1px solid rgba(240,179,74,.35);border-radius:16px;padding:13px 16px;color:#f2d6a0;margin-bottom:12px;font-size:14px}
+.aviso b{font-weight:600;color:#ffe2b0}.aviso i{font-style:normal}
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:0 0 16px;padding:0;list-style:none}
+.pasos li{background:var(--gl);border:1px solid var(--glb);border-radius:16px;padding:12px 15px;font-size:14px;color:var(--muted);box-shadow:var(--gls)}
+.pasos li b{display:block;font:400 19px var(--f-d);color:var(--ink);margin-bottom:3px}
+.wtabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.wt{appearance:none;text-align:left;font:inherit;color:var(--ink);background:var(--gl);border:1px solid var(--glb);border-radius:16px;padding:10px 14px;cursor:pointer;box-shadow:var(--gls);backdrop-filter:blur(14px)}
+.wt strong{display:block;font:400 20px var(--f-d)}.wt span{display:block;color:var(--muted);font:400 11px var(--f-m);letter-spacing:.04em}
+.wt[aria-selected=true]{background:var(--tint);border-color:rgba(95,227,234,.5)}
+.barra{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:18px 0 12px}
+.acciones{display:flex;gap:8px;flex-wrap:wrap}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:6px}
+.pc{background:var(--gl);border:1px solid var(--glb);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--gls);backdrop-filter:blur(16px);min-width:0}
+.pc .thumb{appearance:none;border:0;padding:0;margin:0;background:rgba(255,255,255,.05);display:block;width:100%;cursor:zoom-in;aspect-ratio:4/5;position:relative;overflow:hidden}
+.pc .thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.pc .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:18px;background:linear-gradient(160deg,rgba(130,190,255,.22),rgba(7,12,14,.9));color:var(--ink);text-align:left}
+.pc .ph small{font:400 10.5px var(--f-m);letter-spacing:.16em;color:var(--sky)}.pc .ph b{font:400 26px/1.1 var(--f-d)}
+.okb{position:absolute;top:10px;right:10px;font:500 11px var(--f-m);font-style:normal;background:rgba(61,220,132,.2);color:var(--ok);border:1px solid rgba(61,220,132,.4);border-radius:99px;padding:4px 10px;backdrop-filter:blur(8px)}
+.pc.done{opacity:.72}
+.pc .info{padding:13px 14px 14px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.pc .fila{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pc .id{font:500 11px var(--f-m);letter-spacing:.1em;color:var(--cy)}.pc .cuando{font:400 12px var(--f-m);color:var(--muted)}
+.pc .tema{margin:0;font:400 21px/1.15 var(--f-d)}.pc .gancho{margin:0;color:var(--muted);font-size:13.5px}
+.acc3{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}.acc3 .mini{margin-left:auto}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr 1fr;gap:10px}.pc .tema{font-size:18px}.pc .gancho{display:none}}
 /* móvil: barra abajo */
 nav.bn{display:none}
 @media(max-width:900px){
@@ -236,29 +264,56 @@ const vis=()=>posts.filter(p=>dt(p.fecha).getDay()!==0);
 const KIND={v:"Video",p:"Publicación",h:"Historias"};
 $("#hoy").onclick=()=>{sel=today>=START&&today<=END?today:START;tab="cal";show()};
 /* ---------- Calendario ---------- */
+let fk="Todos",fday="Todos";
+const HORA={v:"19:00",p:"12:00",h:"10:00 y 20:00"};
+function weeksList(){const out=[];let m=mondayOf(START);const end=dt(END);while(m<=end){const s=iso(m);const e=new Date(m);e.setDate(e.getDate()+5);out.push([s,iso(e)]);m=new Date(m);m.setDate(m.getDate()+7)}return out}
 function rCal(){
-  const mon=mondayOf(sel),days=[...Array(6)].map((_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return iso(d)});
-  const wk=days.flatMap(ofDay),tt=vis().filter(done).length;
-  const sw=wk.filter(done).length,narrow=innerWidth<620;
-  const pct=vis().length?Math.round(tt/vis().length*100):0,C=2*Math.PI*30;
-  $("#sub").textContent="Tocá un día para ver todas sus ideas";
+  const mon=mondayOf(sel),ms=iso(mon),W=weeksList(),days=[...Array(6)].map((_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return iso(d)});
+  const wk=days.flatMap(ofDay),tt=vis().filter(done).length,narrow=innerWidth<620;
+  const cnt=k=>vis().filter(p=>p.slot===k).length;
+  $("#sub").textContent=vis().length+" contenidos del "+dt(START).getDate()+"/"+(dt(START).getMonth()+1)+" al "+dt(END).getDate()+"/"+(dt(END).getMonth()+1);
+  const list=wk.filter(p=>(fk==="Todos"||KIND[p.slot]===fk)&&(fday==="Todos"||p.fecha===fday));
   $("#t-cal").innerHTML=`
-  <div class="sched"><div class="sh"><b>Tu semana</b><span>${dt(days[0]).getDate()}/${dt(days[0]).getMonth()+1} al ${dt(days[5]).getDate()}/${dt(days[5]).getMonth()+1}</span><span class="sp2"></span><button class="nv" id="pv" aria-label="Semana anterior">←</button><button class="nv" id="nx" aria-label="Semana siguiente">→</button></div>
+  <div class="aviso" role="note"><span><b>Todo está para revisar.</b> Las imágenes y los textos son borradores: no subas nada a Instagram sin tu OK. Lo que dice <i>⚠</i> en el guion necesita un dato tuyo (testimonio, precio, cupos).</span></div>
+  <ol class="pasos"><li><b>1. Elegí la semana y el día</b>Tocá una semana y filtrá por día o por tipo.</li><li><b>2. Copiá y descargá</b>El texto con “Copiar texto” y la imagen con “Descargar imagen”.</li><li><b>3. Subí a Instagram y tildá</b>Reel, carrusel, posteo o historias a la hora indicada. Después marcá ✓ subida.</li></ol>
+  <div class="wtabs" role="tablist" aria-label="Semana">${W.map(([s,e],i)=>{const a=dt(s),z=dt(e),n=ofW(s).filter(done).length,tot=ofW(s).length;return `<button class="wt" role="tab" data-w="${s}" aria-selected="${s===ms}"><strong>Semana ${i+1}</strong><span>${a.getDate()}/${a.getMonth()+1} al ${z.getDate()}/${z.getMonth()+1} · ${n}/${tot}</span></button>`}).join("")}</div>
+  <div class="sched"><div class="sh"><b>Días</b><span>tocá un día para abrirlo completo</span><span class="sp2"></span><button class="nv" id="pv" aria-label="Semana anterior">←</button><button class="nv" id="nx" aria-label="Semana siguiente">→</button></div>
   <div class="nums">${days.map(d=>{const x=dt(d),out=d<START||d>END,n=ofDay(d).filter(done).length,tot=ofDay(d).length;return `<button class="dn ${out?"out":""} ${d===today?"hoy":""} ${tot&&n===tot?"all":""}" data-d="${d}" aria-label="Abrir ${x.getDate()}"><i>${x.getDate()}</i></button>`}).join("")}</div>
-  <div class="nms">${days.map((d,i)=>{const out=d<START||d>END;return `<button class="dm ${out?"out":""} ${d===today?"hoy":""}" data-d="${d}">${narrow?DS[i]:DN[i]}</button>`}).join("")}</div></div>
-  <div class="stats">
-   <div class="st a"><span>Subidas esta semana</span><b>${sw}<small>/${wk.length||21}</small></b><div class="prog"><i style="width:${wk.length?sw/wk.length*100:0}%"></i></div></div>
-   <div class="st b"><span>Por día</span><b>${days.filter(d=>{const p=ofDay(d);return p.length&&p.every(done)}).length}<small>/6 completos</small></b><div class="bars">${days.map(d=>{const ps=ofDay(d),n=ps.filter(done).length;return `<u class="${n?"on":""}" style="height:${8+n*26}%"></u>`}).join("")}</div></div>
-   <div class="st c"><span>En total</span><b>${tt}<small>/${vis().length}</small></b><svg class="ring" viewBox="0 0 74 74"><circle cx="37" cy="37" r="30" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="37" cy="37" r="30" fill="none" stroke="var(--cy)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C*pct/100} ${C}" transform="rotate(-90 37 37)"/><text x="37" y="42" text-anchor="middle" fill="var(--ink)" font-size="15" font-weight="800" font-family="Manrope">${pct}%</text></svg></div>
-  </div>
-  <h2 class="s">La semana en una mirada <small>tocá una fila para abrir el día</small></h2>
-  <div class="tw"><table class="tbl-m"><thead><tr><th>DÍA</th><th>TIPO</th><th>CONTENIDO</th><th>TEMA</th><th>ESTADO</th><th></th></tr></thead><tbody>${wk.map(p=>{const x=dt(p.fecha);return `<tr class="cl" data-d="${p.fecha}"><td><b>${DS[(x.getDay()+6)%7]} ${x.getDate()}</b></td><td><span class="chp ${p.slot}">${KIND[p.slot]}</span></td><td>${esc(p.titulo)}</td><td><span class="chp">${esc(p.tema)}</span></td><td>${done(p)?'<span class="chp ok">Subida</span>':'<span class="chp">Pendiente</span>'}</td><td><button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" ${owner?"":"disabled"}>✓</button></td></tr>`}).join("")}</tbody></table></div>`;
+  <div class="nms">${days.map((d,i)=>`<button class="dm ${d===today?"hoy":""}" data-d="${d}">${narrow?DS[i]:DN[i]}</button>`).join("")}</div></div>
+  <div class="barra"><div><h2 class="s" style="margin:0">Semana del ${dt(days[0]).getDate()}/${dt(days[0]).getMonth()+1} al ${dt(days[5]).getDate()}/${dt(days[5]).getMonth()+1}</h2><div class="note">${wk.filter(done).length} de ${wk.length} subidas · ${tt} de ${vis().length} en total</div></div>
+   <div class="acciones"><button class="btn" id="zipw">Descargar la semana (zip)</button><button class="btn ghost" id="zipa">Descargar todo (zip)</button></div></div>
+  <div class="chips" id="fd" role="group" aria-label="Día"><button class="chip" data-fd="Todos" aria-pressed="${fday==="Todos"}">Todos los días</button>${days.map((d,i)=>`<button class="chip" data-fd="${d}" aria-pressed="${fday===d}">${DS[i]} ${dt(d).getDate()}</button>`).join("")}</div>
+  <div class="chips" id="fk" role="group" aria-label="Tipo">${["Todos","Video","Publicación","Historias"].map(k=>`<button class="chip" data-fk="${k}" aria-pressed="${fk===k}">${k==="Todos"?"Todos los tipos":k+" ("+(k==="Video"?cnt("v"):k==="Historias"?cnt("h"):cnt("p"))+")"}</button>`).join("")}</div>
+  <div class="pgrid">${list.map(pcard).join("")||'<div class="empty">No hay contenido con ese filtro.</div>'}</div>
+  <div id="msg" class="note" role="status" aria-live="polite"></div>`;
   document.querySelectorAll(".dn,.dm").forEach(b=>b.onclick=()=>openDay(b.dataset.d));
-  $("#pv").onclick=()=>{const d=new Date(mon);d.setDate(d.getDate()-7);sel=iso(d);rCal()};
-  $("#nx").onclick=()=>{const d=new Date(mon);d.setDate(d.getDate()+7);sel=iso(d);rCal()};
-  document.querySelectorAll("tr.cl").forEach(r=>r.onclick=e=>{if(e.target.closest(".mini"))return;openDay(r.dataset.d)});
-  document.querySelectorAll(".mini").forEach(b=>b.onclick=e=>{e.stopPropagation();tick(b.dataset.id)});
+  document.querySelectorAll(".wt").forEach(b=>b.onclick=()=>{sel=b.dataset.w;fday="Todos";rCal()});
+  $("#pv").onclick=()=>{const d=new Date(mon);d.setDate(d.getDate()-7);if(iso(d)>=iso(mondayOf(START))){sel=iso(d);fday="Todos";rCal()}};
+  $("#nx").onclick=()=>{const d=new Date(mon);d.setDate(d.getDate()+7);if(iso(d)<=END){sel=iso(d);fday="Todos";rCal()}};
+  document.querySelectorAll("[data-fk]").forEach(b=>b.onclick=()=>{fk=b.dataset.fk;rCal()});
+  document.querySelectorAll("[data-fd]").forEach(b=>b.onclick=()=>{fday=b.dataset.fd;rCal()});
+  document.querySelectorAll(".pc .thumb").forEach(b=>b.onclick=()=>openPiece(b.dataset.id));
+  document.querySelectorAll(".pc .cp2").forEach(b=>b.onclick=()=>copyText(b.dataset.id,b));
+  document.querySelectorAll(".pc .dl").forEach(b=>b.onclick=()=>dlImg(b.dataset.id,b));
+  document.querySelectorAll(".pc .mini").forEach(b=>b.onclick=()=>tick(b.dataset.id));
+  $("#zipw").onclick=()=>zipPosts(wk,"playskit-semana-"+ms);$("#zipa").onclick=()=>zipPosts(vis(),"playskit-todo");
 }
+const ofW=s=>{const m=dt(s);return [...Array(6)].flatMap((_,i)=>{const d=new Date(m);d.setDate(m.getDate()+i);return ofDay(iso(d))})};
+function pcard(p){const x=dt(p.fecha),tx=p.slot==="h"?"Historias":p.formato;
+  return `<article class="pc ${done(p)?"done":""}" data-id="${esc(p.id)}"><button class="thumb" data-id="${esc(p.id)}" aria-label="Abrir ${esc(p.titulo)}">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy">`:`<span class="ph"><small>HISTORIAS</small><b>${esc(p.titulo)}</b></span>`}${done(p)?'<em class="okb">✓ Subida</em>':""}</button>
+  <div class="info"><div class="fila"><span class="id">${KIND[p.slot].toUpperCase()} · ${esc(tx)}</span><span class="cuando">${DS[(x.getDay()+6)%7]} ${x.getDate()}/${x.getMonth()+1} · ${HORA[p.slot]}</span></div>
+  <p class="tema">${esc(p.titulo)}</p><p class="gancho">“${esc(p.hook)}”</p><div class="fila"><span class="chp">${esc(p.tema)}</span><span class="chp ${p.slot}">${esc(p.cta)}</span></div>
+  <div class="acc3"><button class="btn sm cp2" data-id="${esc(p.id)}">Copiar texto</button>${p.img?`<button class="btn sm ghost dl" data-id="${esc(p.id)}">Descargar imagen</button>`:""}<button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}" ${owner?"":"disabled"}>✓</button></div></div></article>`}
+function textOf(p){return p.slot==="h"?(p.titulo+"\n"+lines(p).join("")):caption(p)}
+async function copyText(id,b){const p=posts.find(x=>x.id===id),c=textOf(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar";const m=$("#msg");if(m)m.textContent="Copiá a mano desde la vista completa."}setTimeout(()=>{b.textContent="Copiar texto"},1800)}
+async function saveBlob(name,blob){
+  try{const d=await claude.use("downloads");if(d){await d.save({filename:name,data:blob});return true}}catch(e){}
+  try{const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return true}catch(e){return false}}
+async function dlImg(id,b){const p=posts.find(x=>x.id===id);try{const r=await fetch(p.img),bl=await r.blob();const ok=await saveBlob("playskit-"+p.fecha+"-"+p.slot+".jpg",bl);b.textContent=ok?"✓ Listo":"No se pudo"}catch(e){b.textContent="No se pudo"}setTimeout(()=>{b.textContent="Descargar imagen"},1800)}
+async function zipPosts(list,name){const m=$("#msg");if(typeof JSZip==="undefined"){m.textContent="No cargó el compresor. Probá de nuevo.";return}
+  m.textContent="Armando el zip…";const z=new JSZip();let txt="";
+  for(const p of list){const base=p.fecha+"-"+p.slot;txt+="=== "+p.fecha+" · "+KIND[p.slot]+" · "+p.titulo+" ==="+textOf(p)+"\n";if(p.img){try{z.file(base+".jpg",await (await fetch(p.img)).blob())}catch(e){}}}
+  z.file("textos.txt",txt);const bl=await z.generateAsync({type:"blob"});const ok=await saveBlob(name+".zip",bl);m.textContent=ok?"✓ Zip listo":"No se pudo guardar el zip."}
 function card(p){
   return `<div class="tk ${p.slot} ${done(p)?"done":""}" data-id="${esc(p.id)}" tabindex="0"><div class="hdr"><span class="tag">${KIND[p.slot]}</span>${p.slot==="h"?"":`<span class="tag">${esc(p.formato)}</span>`}<button class="ck" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" ${owner?"":"disabled"} title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}">✓</button></div>
   <div class="bd"><span class="chp" style="align-self:flex-start">${esc(p.tema)}</span><h3>${esc(p.titulo)}</h3><div class="hk">“${esc(p.hook)}”</div>
@@ -281,7 +336,7 @@ function caption(p){
   const tags=p.ebook?"#sellosdiscograficos #musicaelectronica #demo #dj #playskit":"#presskit #presskitdj #dj #djs #melodictechno #playskit";
   return `${p.hook}\n\n${msg}${/[.!?]$/.test(msg)?"":"."}\n\n`+(kw&&KW[kw]?`👉 Comentá “${kw}” y ${KW[kw]}.`:`👉 ${p.cta}`)+`\n\n${tags}`;
 }
-let openD=null;
+let openD=null,openOnly=null;
 function pubBlock(p){
   const L=lines(p).map(lab).filter((x,i)=>!(i===0&&p.img&&/^Slide 1$/.test(x[0])));
   const cover=p.img?`<div class="sl t0"><img src="${esc(p.img)}" alt="${esc(p.titulo)}"></div>`:"";
@@ -301,8 +356,8 @@ function pubBlock(p){
   </div></div></article>`;
 }
 function renderDay(){
-  const d=openD,dd=dt(d),ps=ofDay(d),sc=$("#dlg").scrollTop;
-  $("#fi").innerHTML=`<div class="fs"><div class="bar2"><div><h2>${DN[(dd.getDay()+6)%7]} ${dd.getDate()}/${dd.getMonth()+1}</h2><span class="note">${ps.length} ideas de contenido · ${ps.filter(done).length} subidas</span></div><span class="sp2"></span><button class="x" id="x" aria-label="Cerrar">×</button></div>
+  const d=openD,dd=dt(d),ps=openOnly?ofDay(d).filter(p=>p.id===openOnly):ofDay(d),sc=$("#dlg").scrollTop;
+  $("#fi").innerHTML=`<div class="fs"><div class="bar2"><div><h2>${DN[(dd.getDay()+6)%7]} ${dd.getDate()}/${dd.getMonth()+1}</h2><span class="note">${openOnly?"1 pieza":ps.length+" ideas de contenido"} · ${ps.filter(done).length} subidas</span></div><span class="sp2"></span><button class="x" id="x" aria-label="Cerrar">×</button></div>
   <div class="dnav">${ps.map(p=>`<a class="chp ${p.slot}" href="#pb-${p.slot}">${KIND[p.slot]}${done(p)?" ✓":""}</a>`).join("")}</div>
   ${ps.map(p=>`<div id="pb-${p.slot}">${pubBlock(p)}</div>`).join("")||'<div class="empty">No hay contenido para este día.</div>'}</div>`;
   $("#x").onclick=closeDay;
@@ -310,9 +365,10 @@ function renderDay(){
   document.querySelectorAll(".cp").forEach(b=>b.onclick=async()=>{const p=posts.find(x=>x.id===b.dataset.id),c=caption(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents($("#cap-"+p.id));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Seleccionado: copialo"}});
   $("#dlg").scrollTop=sc;
 }
-function openDay(d){openD=d;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
-function closeDay(){openD=null;$("#dlg").close()}
-$("#dlg").addEventListener("close",()=>{openD=null});
+function openPiece(id){const p=posts.find(x=>x.id===id);if(!p)return;openOnly=id;openD=p.fecha;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
+function openDay(d){openOnly=null;openD=d;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
+function closeDay(){openD=null;openOnly=null;$("#dlg").close()}
+$("#dlg").addEventListener("close",()=>{openD=null;openOnly=null});
 /* ---------- Qué funcionó ---------- */
 const fuente=c=>/alexisaasad/i.test(c.u)?"Alexis Asad":/cuenca/i.test(c.u)?"Cuenca":"Presskits y webs";
 function rFx(){
