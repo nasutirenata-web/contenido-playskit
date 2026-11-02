@@ -230,6 +230,29 @@ nav.bn{display:none}
 @media(max-width:560px){.stats{grid-template-columns:1fr}.st{min-height:0}.dy i{font-size:19px}}
 @media (prefers-reduced-motion:no-preference){.tk,.dy,.nv2{transition:transform .12s,background .15s}.tk:active{transform:scale(.985)}}
 .brand,.hd h1,.st b,h2.s,.tk h3,.fs .bar2 h2,.sl p,.pb h3,.pasos li b,.wt strong,.pc .ph b,.pc .tema,.num,.dy i,.dn i,th,.fs h4{font-style:italic!important;font-family:var(--f-b)!important;font-weight:700!important;letter-spacing:0!important}
+/* tema claro: blanco, letras oscuras */
+:root{--bg:#f6f8f9;--panel:#fff;--panel2:#eef3f4;--line:#d8e1e4;--ink:#0d1a1d;--muted:#55666c;--cy:#0a8f9b;--cy2:#0a7580;--sky:#0a6f8f;--paper:#fff;--cardink:#05181c;--ok:#16a34a;--warn:#b7791f;
+ --gl:#fff;--glb:#d8e1e4;--gls:0 1px 2px rgba(10,30,36,.06),0 10px 24px -14px rgba(10,30,36,.25);--tint:linear-gradient(150deg,#e6f6f8,#fff);color-scheme:light}
+body::before{background:radial-gradient(900px 500px at 80% -10%,rgba(10,143,155,.08),transparent 60%)}
+aside{background:rgba(255,255,255,.88)}
+dialog{background:#f6f8f9;background-image:none;color:var(--ink)}
+.fs .bar2{background:rgba(255,255,255,.9)}
+.dbar{background:rgba(10,30,36,.08)}.dbar i{background:linear-gradient(90deg,#0a8f9b,#38c3cf)}
+.sl.t0{background:linear-gradient(150deg,#d7f3f6,#fff);color:#071013}.sl.t2{background:linear-gradient(150deg,#dfeeff,#fff);color:#071013}.sl.t3{background:#eef3f4;color:#071013}
+.btn.ghost,.chip,.card,.st,.sched,.tw,.blk,.pb,.dn,.nms,.fx,.hr,.tk,.pasos li{background:#fff!important;color:var(--ink)}
+.chip.on,.btn:not(.ghost),.wt.on,.dn.on,.dm.on{color:#fff}
+th{color:var(--muted)}
+input,select,textarea{background:#fff;color:var(--ink);border-color:var(--line)}
+body{background:#f6f8f9!important;background-image:none!important;color:var(--ink)}
+body::after{display:none}
+.hd h1,h2.s,.brand,.pb h3,.pc .tema,.pc .ph b{color:var(--ink)}
+.hd h1 span,.brand span{color:var(--cy)}
+.chp.p{color:var(--ink);background:#e3ebed}.chp.v{color:var(--cy2)}.chp.h{color:var(--sky)}
+.btn,.btn.pri,.btn:not(.ghost){color:#fff}
+.aviso,.note{color:var(--ink)}
+.btn:not(.ghost){background:linear-gradient(135deg,#0a7580,#0a8f9b)!important;color:#fff!important}
+.aviso b,.aviso strong,.note b,.note strong{color:#8a5a00!important}
+
 </style>
 <div class="app">
 <aside><div class="brand"><i></i>Playskit</div><div id="side"></div><div class="sp"></div><div class="who" id="who">solo lectura</div></aside>
