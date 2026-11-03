@@ -275,31 +275,26 @@ body::after{display:none}
 .fondos{display:flex;gap:7px;align-items:center;padding:0 6px}
 .fondos button{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
 .fondos button[aria-pressed=true]{outline:2px solid var(--cy);outline-offset:2px}
-html[data-fondo=celeste]{--bg:#dff3fb;--panel:#f4fbfe;--panel2:#cfe9f4;--line:#b4d7e6;--glb:#b4d7e6;--tint:linear-gradient(150deg,#cfeaf5,#f4fbfe)}
-html[data-fondo=celeste] body{background:#dff3fb!important}
-html[data-fondo=celeste] aside{background:rgba(223,243,251,.92)}
-html[data-fondo=celeste] dialog{background:#dff3fb}
-html[data-fondo=celeste] .fs .bar2{background:rgba(223,243,251,.94)}
-html[data-fondo=celeste] .btn.ghost,html[data-fondo=celeste] .chip,html[data-fondo=celeste] .card,html[data-fondo=celeste] .st,html[data-fondo=celeste] .sched,html[data-fondo=celeste] .tw,html[data-fondo=celeste] .blk,html[data-fondo=celeste] .pb,html[data-fondo=celeste] .dn,html[data-fondo=celeste] .nms,html[data-fondo=celeste] .fx,html[data-fondo=celeste] .hr,html[data-fondo=celeste] .tk,html[data-fondo=celeste] .pasos li{background:#f4fbfe!important}
-html[data-fondo=crema]{--bg:#f4ede1;--panel:#fffaf1;--panel2:#ede3d1;--line:#dccfb8;--glb:#dccfb8;--cy:#c2410c;--cy2:#9a3412;--sky:#9a3412;--tint:linear-gradient(150deg,#f6e6d2,#fffaf1)}
-html[data-fondo=crema] body{background:#f4ede1!important}
-html[data-fondo=crema] aside{background:rgba(244,237,225,.92)}
-html[data-fondo=crema] dialog{background:#f4ede1}
-html[data-fondo=crema] .fs .bar2{background:rgba(244,237,225,.94)}
-html[data-fondo=crema] .btn.ghost,html[data-fondo=crema] .chip,html[data-fondo=crema] .card,html[data-fondo=crema] .st,html[data-fondo=crema] .sched,html[data-fondo=crema] .tw,html[data-fondo=crema] .blk,html[data-fondo=crema] .pb,html[data-fondo=crema] .dn,html[data-fondo=crema] .nms,html[data-fondo=crema] .fx,html[data-fondo=crema] .hr,html[data-fondo=crema] .tk,html[data-fondo=crema] .pasos li{background:#fffaf1!important}
-html[data-fondo=crema] .btn:not(.ghost){background:linear-gradient(135deg,#9a3412,#c2410c)!important}
-html[data-fondo=oscuro]{--bg:#07090b;--panel:#0e1215;--panel2:#141a1e;--line:#1e272c;--glb:#1e272c;--ink:#f1f6f7;--muted:#86949b;--cy:#5fe3ea;--cy2:#16b9c6;--sky:#9fd3ff;--paper:#eef3f4;--gl:linear-gradient(150deg,rgba(255,255,255,.085),rgba(255,255,255,.025) 60%,rgba(255,255,255,.05));--gls:inset 0 1px 0 rgba(255,255,255,.16),0 22px 50px -18px rgba(0,0,0,.7);color-scheme:dark}
-html[data-fondo=oscuro] body{background:#0a0c0e!important;color:var(--ink)}
-html[data-fondo=oscuro] aside{background:rgba(10,12,14,.8)}
-html[data-fondo=oscuro] dialog{background:#090b0d;color:var(--ink)}
-html[data-fondo=oscuro] .fs .bar2{background:rgba(9,11,13,.88)}
-html[data-fondo=oscuro] .btn.ghost,html[data-fondo=oscuro] .chip,html[data-fondo=oscuro] .card,html[data-fondo=oscuro] .st,html[data-fondo=oscuro] .sched,html[data-fondo=oscuro] .tw,html[data-fondo=oscuro] .blk,html[data-fondo=oscuro] .pb,html[data-fondo=oscuro] .dn,html[data-fondo=oscuro] .nms,html[data-fondo=oscuro] .fx,html[data-fondo=oscuro] .hr,html[data-fondo=oscuro] .tk,html[data-fondo=oscuro] .pasos li{background:var(--gl)!important;color:var(--ink)}
-html[data-fondo=oscuro] .hd h1,html[data-fondo=oscuro] h2.s,html[data-fondo=oscuro] .brand,html[data-fondo=oscuro] .pb h3,html[data-fondo=oscuro] .pc .tema,html[data-fondo=oscuro] .pc .ph b{color:var(--ink)}
-html[data-fondo=oscuro] input,html[data-fondo=oscuro] select,html[data-fondo=oscuro] textarea{background:#0e1215;color:var(--ink)}
-html[data-fondo=oscuro] .chp.p{color:var(--ink);background:rgba(238,243,244,.14)}
-html[data-fondo=oscuro] .msg.ia{background:var(--panel2)}
-
-
+/* marca: naranja, blanco y azul petróleo */
+:root{--bg:#f7f8f8;--panel:#fff;--panel2:#edf2f3;--line:#dbe4e6;--glb:#dbe4e6;--ink:#0b2f38;--muted:#4f6a72;--cy:#e8531d;--cy2:#c2410c;--sky:#0b4a57;--paper:#fff;--cardink:#062229;--ok:#2f855a;--warn:#c2410c;
+ --g1:linear-gradient(135deg,#f2631f,#e8531d);--g2:linear-gradient(135deg,#0b4a57,#0e6272);--g3:linear-gradient(135deg,#0b3a45,#0b4a57);--tint:linear-gradient(150deg,#fde9de,#fff)}
+body::before{background:radial-gradient(900px 500px at 80% -10%,rgba(232,83,29,.07),transparent 60%)!important}
+.btn:not(.ghost){background:linear-gradient(135deg,#f2631f,#e8531d)!important;color:#fff!important}
+.chp.v{background:rgba(232,83,29,.12);color:#c2410c}.chp.h{background:rgba(11,74,87,.12);color:#0b4a57}.chp.p{background:#e6edef;color:#0b2f38}
+.dbar i{background:linear-gradient(90deg,#e8531d,#f59e6c)!important}
+.sl.t0{background:linear-gradient(150deg,#fde3d3,#fff)!important;color:#0b2f38}.sl.t2{background:linear-gradient(150deg,#d7e8ec,#fff)!important;color:#0b2f38}
+.msg.yo{background:linear-gradient(135deg,#f2631f,#e8531d)!important}
+html[data-fondo=petroleo]{--bg:#083843;--panel:#0d4a58;--panel2:#11596a;--line:#1f6878;--glb:#1f6878;--ink:#ffffff;--muted:#b3cdd3;--cy:#ff8a4c;--cy2:#ff7a2f;--sky:#ffd2b8;--paper:#fff;--tint:linear-gradient(150deg,#11596a,#0d4a58);color-scheme:dark}
+html[data-fondo=petroleo] body{background:#083843!important;color:var(--ink)}
+html[data-fondo=petroleo] aside{background:rgba(8,56,67,.92)}
+html[data-fondo=petroleo] dialog{background:#083843;color:var(--ink)}
+html[data-fondo=petroleo] .fs .bar2{background:rgba(8,56,67,.94)}
+html[data-fondo=petroleo] .btn.ghost,html[data-fondo=petroleo] .chip,html[data-fondo=petroleo] .card,html[data-fondo=petroleo] .st,html[data-fondo=petroleo] .sched,html[data-fondo=petroleo] .tw,html[data-fondo=petroleo] .blk,html[data-fondo=petroleo] .pb,html[data-fondo=petroleo] .dn,html[data-fondo=petroleo] .nms,html[data-fondo=petroleo] .fx,html[data-fondo=petroleo] .hr,html[data-fondo=petroleo] .tk,html[data-fondo=petroleo] .pasos li{background:#0d4a58!important;color:var(--ink)}
+html[data-fondo=petroleo] .hd h1,html[data-fondo=petroleo] h2.s,html[data-fondo=petroleo] .brand,html[data-fondo=petroleo] .pb h3,html[data-fondo=petroleo] .pc .tema,html[data-fondo=petroleo] .pc .ph b{color:var(--ink)}
+html[data-fondo=petroleo] input,html[data-fondo=petroleo] select,html[data-fondo=petroleo] textarea{background:#0d4a58;color:var(--ink);border-color:var(--line)}
+html[data-fondo=petroleo] .chp.p{background:rgba(255,255,255,.14);color:#fff}html[data-fondo=petroleo] .chp.v{color:#ffb48a}html[data-fondo=petroleo] .chp.h{color:#cfe6ea;background:rgba(255,255,255,.1)}
+html[data-fondo=petroleo] .msg.ia{background:#11596a;color:#fff}
+html[data-fondo=petroleo] [aria-selected=true],html[data-fondo=petroleo] [aria-pressed=true]:not(.fondos button),html[data-fondo=petroleo] .wt.on,html[data-fondo=petroleo] .dn.on{background:rgba(255,138,76,.22)!important;color:#fff!important}
 .res{white-space:pre-wrap}
 html[data-fondo=oscuro] [aria-selected=true],html[data-fondo=oscuro] [aria-pressed=true]:not(.fondos button),html[data-fondo=oscuro] .wt.on,html[data-fondo=oscuro] .dn.on{background:rgba(95,227,234,.16)!important;color:var(--ink)!important}
 html[data-fondo=oscuro] .btn:not(.ghost){background:linear-gradient(135deg,#0a7580,#0a8f9b)!important;color:#fff!important}
@@ -354,7 +349,7 @@ function rChat(){
   const el=$("#t-chat");$("#sub").textContent="Chat para armar el contenido: copiás el prompt y lo pegás en Claude o ChatGPT";
   if(!el.dataset.ok){
     el.dataset.ok=1;
-    el.innerHTML='<div class="chat"><div class="cbox" id="cbox" aria-live="polite"></div><div class="cchips" id="cch"></div><div class="csel"><select id="c-fmt" aria-label="Formato"><option>Reel</option><option>Carrusel</option><option>Posteo</option><option>Historias</option></select><select id="c-emo" aria-label="Emoción"><option>Dolor</option><option>Emoción</option><option>Deseo</option></select><select id="c-pal" aria-label="Color"><option>Naranja</option><option>Amarillo limón</option><option>Violeta</option><option>Rosa</option><option>Celeste</option></select></div><div class="cin"><textarea id="c-in" placeholder="Contame qué contenido necesitás. Ej: un reel sobre el asunto del mail a un sello" aria-label="Mensaje"></textarea><button class="btn" id="c-send">Armar</button></div></div>';
+    el.innerHTML='<div class="chat"><div class="cbox" id="cbox" aria-live="polite"></div><div class="cchips" id="cch"></div><div class="csel"><select id="c-fmt" aria-label="Formato"><option>Reel</option><option>Carrusel</option><option>Posteo</option><option>Historias</option></select><select id="c-emo" aria-label="Emoción"><option>Dolor</option><option>Emoción</option><option>Deseo</option></select><select id="c-pal" aria-label="Color"><option>Naranja</option><option>Amarillo limón</option><option>Violeta</option><option>Rosa</option><option>Celeste</option></select></div><label class="csel" style="align-items:center;gap:8px;color:var(--muted);font-size:13px"><input type="checkbox" id="c-auto" checked style="width:auto"> Crear también la foto y el video solo (usa créditos de Higgsfield)</label><div class="cin"><textarea id="c-in" placeholder="Contame qué contenido necesitás. Ej: un reel sobre el asunto del mail a un sello" aria-label="Mensaje"></textarea><button class="btn" id="c-send">Armar</button></div></div>';
     $("#cch").innerHTML=CH_ATAJOS.map((x,i)=>'<button data-a="'+i+'">'+x[0]+'</button>').join("");
     $("#cch").onclick=e=>{const b=e.target.closest("[data-a]");if(b){$("#c-in").value=CH_ATAJOS[+b.dataset.a][1];$("#c-in").focus()}};
     $("#c-send").onclick=chatEnviar;
@@ -365,10 +360,42 @@ function rChat(){
 }
 function chatDraw(){
   const b=$("#cbox");if(!b)return;
-  b.innerHTML=chatMsgs.map((m,i)=>'<div class="msg '+(m.r==="yo"?"yo":"ia")+'"><small>'+(m.r==="yo"?"Vos":m.k||"Playskit")+'</small>'+esc(m.t)+(m.copy?'<div class="row2"><button class="btn sm" data-cp="'+i+'">Copiar</button></div>':'')+'</div>').join("");
+  b.innerHTML=chatMsgs.map((m,i)=>'<div class="msg '+(m.r==="yo"?"yo":"ia")+'"><small>'+(m.r==="yo"?"Vos":m.k||"Playskit")+'</small>'+esc(m.t)+(m.img?'<img src="'+esc(m.img)+'" alt="" style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px">':'')+(m.vid?'<video src="'+esc(m.vid)+'" controls playsinline style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px"></video>':'')+(m.copy?'<div class="row2"><button class="btn sm" data-cp="'+i+'">Copiar</button></div>':'')+'</div>').join("");
   b.querySelectorAll("[data-cp]").forEach(x=>x.onclick=async()=>{const m=chatMsgs[+x.dataset.cp];try{await navigator.clipboard.writeText(m.copy);x.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents(x.closest(".msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);x.textContent="Seleccionado: Ctrl+C"}});
   b.scrollTop=b.scrollHeight;
 }
+
+/* ---------- chat: foto y video con Higgsfield, esperando el resultado ---------- */
+async function hfCall(m,tool,input){const r=await m.callTool("host:higgsfield",tool,input);return r.payload??r.content}
+function hfJobId(p){try{const x=typeof p==="string"?JSON.parse(p):p;return (x.results&&x.results[0]&&x.results[0].id)||x.job_id||x.id||null}catch(e){return null}}
+async function hfEsperar(m,id,tipo,msg,veces){
+  for(let k=0;k<veces;k++){
+    let p;try{p=await hfCall(m,"jobs_wait",{jobs:[{index:0,job_id:id}],timeout_seconds:15})}catch(e){break}
+    let x=p;try{if(typeof p==="string")x=JSON.parse(p)}catch(e){}
+    const j=x&&x.jobs&&x.jobs[0];
+    if(j&&j.status==="completed"&&j.result_url){msg[tipo]=j.result_url;msg.t="Listo.";chatDraw();return true}
+    if(j&&(j.status==="failed"||j.status==="error")){msg.t="No se pudo generar. Probá con otra descripción.";chatDraw();return false}
+    msg.t="Generando… ("+(k+1)+")";chatDraw();
+  }
+  msg.t="Sigue en proceso. Lo ves en tu cuenta de Higgsfield.";chatDraw();return false;
+}
+async function chatMedia(q){
+  const m=await cuse("mcp");
+  if(!m){chatMsgs.push({r:"ia",k:"Foto y video",t:"La foto y el video se crean desde la versión de Claude: https://claude.ai/artifact/R7tfYnn94F1A8SwfHdGNzt"});chatDraw();return}
+  const base="Vertical 9:16 Instagram visual, DJ and club world, cinematic, dark petrol blue color grading with warm orange accent light, clean, no text, no logos, no real person's face. Topic: "+q;
+  const fm=chatMsgs[chatMsgs.push({r:"ia",k:"Foto",t:"Generando…"})-1];chatDraw();
+  try{
+    const p=await hfCall(m,"generate_image",{params:{model:"gpt_image_2_5",prompt:base,aspect_ratio:"9:16"}});
+    const id=hfJobId(p);if(!id){fm.t="No pude enviar la foto: "+(typeof p==="string"?p:JSON.stringify(p)).slice(0,160);chatDraw()}else await hfEsperar(m,id,"img",fm,10);
+  }catch(e){fm.t="No se pudo generar la foto: "+(e.code||"")+" "+(e.message||"");chatDraw()}
+  const vm=chatMsgs[chatMsgs.push({r:"ia",k:"Video",t:"Generando…"})-1];chatDraw();
+  try{
+    const p=await hfCall(m,"generate_video",{params:{model:"kling3_0",prompt:base+". Slow camera move.",aspect_ratio:"9:16",duration:3,mode:"std",sound:"off"}});
+    const id=hfJobId(p);if(!id){vm.t="No pude enviar el video: "+(typeof p==="string"?p:JSON.stringify(p)).slice(0,160);chatDraw()}else await hfEsperar(m,id,"vid",vm,16);
+  }catch(e){vm.t="No se pudo generar el video: "+(e.code||"")+" "+(e.message||"");chatDraw()}
+  try{const b=await hfCall(m,"balance",{});chatMsgs.push({r:"ia",k:"Créditos",t:"Te quedan: "+(typeof b==="string"?b:JSON.stringify(b))});chatDraw()}catch(e){}
+}
+
 async function chatEnviar(){
   const inp=$("#c-in"),q=inp.value.trim();if(!q){inp.focus();return}
   const fmt=$("#c-fmt").value,emo=$("#c-emo").value,pal=$("#c-pal").value;
@@ -378,6 +405,8 @@ async function chatEnviar(){
   const idea={id:"chat"+Date.now(),titulo:q,tipo:fmt==="Reel"?"Reel":fmt==="Carrusel"?"Carrusel":"Post",u:"tu pedido",porque:""};
   chatMsgs.push({r:"ia",k:"Idea rápida (sin IA)",t:adaptLocal(idea)});
   chatDraw();
+  const auto=$("#c-auto")&&$("#c-auto").checked;
+  const media=auto?chatMedia(q):null;
   try{const s=await cuse("sample");if(s){chatMsgs.push({r:"ia",k:"Claude",t:"Pensando…"});chatDraw();const i=chatMsgs.length-1;
     await s(prompt,{onText:({text})=>{chatMsgs[i].t=text;chatDraw()}});}}
   catch(e){}
@@ -385,7 +414,7 @@ async function chatEnviar(){
 
 
 /* ---------- fondo: blanco, celeste, crema u oscuro (se recuerda en este navegador) ---------- */
-const FONDOS=[["blanco","#f6f8f9","Blanco"],["celeste","#dff3fb","Celeste"],["crema","#f4ede1","Crema"],["oscuro","#0a0c0e","Oscuro"]];
+const FONDOS=[["blanco","#ffffff","Blanco"],["petroleo","#083843","Azul petróleo"]];
 function setFondo(k,guardar){
   if(k==="blanco")document.documentElement.removeAttribute("data-fondo");else document.documentElement.setAttribute("data-fondo",k);
   document.querySelectorAll("#fondos button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===k));
@@ -395,8 +424,8 @@ function setFondo(k,guardar){
   const box=document.getElementById("fondos");if(!box)return;
   box.innerHTML=FONDOS.map(f=>'<button type="button" data-f="'+f[0]+'" title="'+f[2]+'" aria-label="Fondo '+f[2]+'" aria-pressed="false" style="background:'+f[1]+'"></button>').join("");
   box.onclick=e=>{const b=e.target.closest("[data-f]");if(b)setFondo(b.dataset.f,true)};
-  let k="celeste";try{k=localStorage.ps_fondo||"celeste"}catch(e){}
-  if(!FONDOS.some(f=>f[0]===k))k="celeste";
+  let k="blanco";try{k=localStorage.ps_fondo||"blanco"}catch(e){}
+  if(!FONDOS.some(f=>f[0]===k))k="blanco";
   setFondo(k,false);
 })();
 
