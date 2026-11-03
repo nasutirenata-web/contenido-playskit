@@ -1,6 +1,6 @@
 <title>Playskit Contenido</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
 /* Layout: panel oscuro tipo dashboard. Barra lateral con iconos, línea de la semana (solo los días), tarjetas con degradé celeste, tabla de la semana. En celular la barra pasa abajo. */
@@ -276,15 +276,15 @@ body::after{display:none}
 .fondos button{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
 .fondos button[aria-pressed=true]{outline:2px solid var(--cy);outline-offset:2px}
 /* marca: naranja, blanco y azul petróleo */
-:root{--bg:#f7f8f8;--panel:#fff;--panel2:#edf2f3;--line:#dbe4e6;--glb:#dbe4e6;--ink:#0b2f38;--muted:#4f6a72;--cy:#e8531d;--cy2:#c2410c;--sky:#0b4a57;--paper:#fff;--cardink:#062229;--ok:#2f855a;--warn:#c2410c;
- --g1:linear-gradient(135deg,#f2631f,#e8531d);--g2:linear-gradient(135deg,#0b4a57,#0e6272);--g3:linear-gradient(135deg,#0b3a45,#0b4a57);--tint:linear-gradient(150deg,#fde9de,#fff)}
-body::before{background:radial-gradient(900px 500px at 80% -10%,rgba(232,83,29,.07),transparent 60%)!important}
-.btn:not(.ghost){background:linear-gradient(135deg,#f2631f,#e8531d)!important;color:#fff!important}
-.chp.v{background:rgba(232,83,29,.12);color:#c2410c}.chp.h{background:rgba(11,74,87,.12);color:#0b4a57}.chp.p{background:#e6edef;color:#0b2f38}
-.dbar i{background:linear-gradient(90deg,#e8531d,#f59e6c)!important}
-.sl.t0{background:linear-gradient(150deg,#fde3d3,#fff)!important;color:#0b2f38}.sl.t2{background:linear-gradient(150deg,#d7e8ec,#fff)!important;color:#0b2f38}
-.msg.yo{background:linear-gradient(135deg,#f2631f,#e8531d)!important}
-html[data-fondo=petroleo]{--bg:#083843;--panel:#0d4a58;--panel2:#11596a;--line:#1f6878;--glb:#1f6878;--ink:#ffffff;--muted:#b3cdd3;--cy:#ff8a4c;--cy2:#ff7a2f;--sky:#ffd2b8;--paper:#fff;--tint:linear-gradient(150deg,#11596a,#0d4a58);color-scheme:dark}
+:root{--bg:#f7f8f8;--panel:#fff;--panel2:#edf2f3;--line:#dbe4e6;--glb:#dbe4e6;--ink:#0b2f38;--muted:#4f6a72;--cy:#0e6272;--cy2:#0b4a57;--sky:#0b4a57;--paper:#fff;--cardink:#062229;--ok:#2f855a;--warn:#0b4a57;
+ --g1:linear-gradient(135deg,#5fe3ea,#35c9d3);--g2:linear-gradient(135deg,#0b4a57,#0e6272);--g3:linear-gradient(135deg,#0b3a45,#0b4a57);--tint:linear-gradient(150deg,#e3f6f8,#fff)}
+body::before{background:radial-gradient(900px 500px at 80% -10%,rgba(14,98,114,.07),transparent 60%)!important}
+.btn:not(.ghost){background:linear-gradient(135deg,#5fe3ea,#35c9d3)!important;color:#062229!important}
+.chp.v{background:rgba(14,98,114,.12);color:#0b4a57}.chp.h{background:rgba(11,74,87,.12);color:#0b4a57}.chp.p{background:#e6edef;color:#0b2f38}
+.dbar i{background:linear-gradient(90deg,#0e6272,#8bdde3)!important}
+.sl.t0{background:linear-gradient(150deg,#d7f3f6,#fff)!important;color:#0b2f38}.sl.t2{background:linear-gradient(150deg,#d7e8ec,#fff)!important;color:#0b2f38}
+.msg.yo{background:linear-gradient(135deg,#0b4a57,#0e6272)!important;color:#fff}
+html[data-fondo=petroleo]{--bg:#083843;--panel:#0d4a58;--panel2:#11596a;--line:#1f6878;--glb:#1f6878;--ink:#ffffff;--muted:#b3cdd3;--cy:#5fe3ea;--cy2:#5fe3ea;--sky:#bff3f6;--paper:#fff;--tint:linear-gradient(150deg,#11596a,#0d4a58);color-scheme:dark}
 html[data-fondo=petroleo] body{background:#083843!important;color:var(--ink)}
 html[data-fondo=petroleo] aside{background:rgba(8,56,67,.92)}
 html[data-fondo=petroleo] dialog{background:#083843;color:var(--ink)}
@@ -292,12 +292,24 @@ html[data-fondo=petroleo] .fs .bar2{background:rgba(8,56,67,.94)}
 html[data-fondo=petroleo] .btn.ghost,html[data-fondo=petroleo] .chip,html[data-fondo=petroleo] .card,html[data-fondo=petroleo] .st,html[data-fondo=petroleo] .sched,html[data-fondo=petroleo] .tw,html[data-fondo=petroleo] .blk,html[data-fondo=petroleo] .pb,html[data-fondo=petroleo] .dn,html[data-fondo=petroleo] .nms,html[data-fondo=petroleo] .fx,html[data-fondo=petroleo] .hr,html[data-fondo=petroleo] .tk,html[data-fondo=petroleo] .pasos li{background:#0d4a58!important;color:var(--ink)}
 html[data-fondo=petroleo] .hd h1,html[data-fondo=petroleo] h2.s,html[data-fondo=petroleo] .brand,html[data-fondo=petroleo] .pb h3,html[data-fondo=petroleo] .pc .tema,html[data-fondo=petroleo] .pc .ph b{color:var(--ink)}
 html[data-fondo=petroleo] input,html[data-fondo=petroleo] select,html[data-fondo=petroleo] textarea{background:#0d4a58;color:var(--ink);border-color:var(--line)}
-html[data-fondo=petroleo] .chp.p{background:rgba(255,255,255,.14);color:#fff}html[data-fondo=petroleo] .chp.v{color:#ffb48a}html[data-fondo=petroleo] .chp.h{color:#cfe6ea;background:rgba(255,255,255,.1)}
+html[data-fondo=petroleo] .chp.p{background:rgba(255,255,255,.14);color:#fff}html[data-fondo=petroleo] .chp.v{color:#9fe9ee}html[data-fondo=petroleo] .chp.h{color:#cfe6ea;background:rgba(255,255,255,.1)}
 html[data-fondo=petroleo] .msg.ia{background:#11596a;color:#fff}
-html[data-fondo=petroleo] [aria-selected=true],html[data-fondo=petroleo] [aria-pressed=true]:not(.fondos button),html[data-fondo=petroleo] .wt.on,html[data-fondo=petroleo] .dn.on{background:rgba(255,138,76,.22)!important;color:#fff!important}
+html[data-fondo=petroleo] [aria-selected=true],html[data-fondo=petroleo] [aria-pressed=true]:not(.fondos button),html[data-fondo=petroleo] .wt.on,html[data-fondo=petroleo] .dn.on{background:rgba(95,227,234,.22)!important;color:#fff!important}
+html[data-fondo=negro]{--bg:#0a0c0e;--panel:#101417;--panel2:#171d21;--line:#242d33;--glb:#242d33;--ink:#ffffff;--muted:#b3cdd3;--cy:#5fe3ea;--cy2:#5fe3ea;--sky:#bff3f6;--paper:#fff;--tint:linear-gradient(150deg,#171d21,#101417);color-scheme:dark}
+html[data-fondo=negro] body{background:#0a0c0e!important;color:var(--ink)}
+html[data-fondo=negro] aside{background:rgba(10,12,14,.92)}
+html[data-fondo=negro] dialog{background:#0a0c0e;color:var(--ink)}
+html[data-fondo=negro] .fs .bar2{background:rgba(10,12,14,.94)}
+html[data-fondo=negro] .btn.ghost,html[data-fondo=negro] .chip,html[data-fondo=negro] .card,html[data-fondo=negro] .st,html[data-fondo=negro] .sched,html[data-fondo=negro] .tw,html[data-fondo=negro] .blk,html[data-fondo=negro] .pb,html[data-fondo=negro] .dn,html[data-fondo=negro] .nms,html[data-fondo=negro] .fx,html[data-fondo=negro] .hr,html[data-fondo=negro] .tk,html[data-fondo=negro] .pasos li{background:#101417!important;color:var(--ink)}
+html[data-fondo=negro] .hd h1,html[data-fondo=negro] h2.s,html[data-fondo=negro] .brand,html[data-fondo=negro] .pb h3,html[data-fondo=negro] .pc .tema,html[data-fondo=negro] .pc .ph b{color:var(--ink)}
+html[data-fondo=negro] input,html[data-fondo=negro] select,html[data-fondo=negro] textarea{background:#101417;color:var(--ink);border-color:var(--line)}
+html[data-fondo=negro] .chp.p{background:rgba(255,255,255,.14);color:#fff}html[data-fondo=negro] .chp.v{color:#9fe9ee}html[data-fondo=negro] .chp.h{color:#cfe6ea;background:rgba(255,255,255,.1)}
+html[data-fondo=negro] .msg.ia{background:#171d21;color:#fff}
+html[data-fondo=negro] [aria-selected=true],html[data-fondo=negro] [aria-pressed=true]:not(.fondos button),html[data-fondo=negro] .wt.on,html[data-fondo=negro] .dn.on{background:rgba(95,227,234,.22)!important;color:#fff!important}
 .res{white-space:pre-wrap}
 html[data-fondo=oscuro] [aria-selected=true],html[data-fondo=oscuro] [aria-pressed=true]:not(.fondos button),html[data-fondo=oscuro] .wt.on,html[data-fondo=oscuro] .dn.on{background:rgba(95,227,234,.16)!important;color:var(--ink)!important}
 html[data-fondo=oscuro] .btn:not(.ghost){background:linear-gradient(135deg,#0a7580,#0a8f9b)!important;color:#fff!important}
+.lam{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:12px}.lam figure{margin:0;display:flex;flex-direction:column;gap:6px}.lam img{width:100%;border-radius:12px;border:1px solid var(--line)}
 </style>
 <div class="app">
 <aside><div class="brand"><i></i>Playskit</div><div id="side"></div><div class="sp"></div><div class="fondos" id="fondos" role="group" aria-label="Color de fondo"></div><div class="who" id="who">solo lectura</div></aside>
@@ -311,6 +323,7 @@ html[data-fondo=oscuro] .btn:not(.ghost){background:linear-gradient(135deg,#0a75
 const cuse=n=>window.claude?window.claude.use(n):Promise.resolve(null);
 
 
+const NLX=String.fromCharCode(10);
 /* generador propio: sirve sin Claude y varía cada vez */
 const HH=s=>[...String(s)].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
 const KWL=["WEB","PRESSKIT","SELLOS","PACK","BIO","LINK"];
@@ -330,12 +343,12 @@ function adaptLocal(c){
   const k=m?m[1].toUpperCase():KWL[HH(c.id)%KWL.length];
   const a=ANGL[(HH(c.id)+adN2++)%ANGL.length](k,{id:c.id,o:"bio"});
   const fmt=c.tipo==="Reel"?"Reel de 20 s":c.tipo==="Carrusel"?"Carrusel de 6 láminas":"Posteo con una imagen";
-  return "Formato: "+fmt+"\nGancho (0-5 s): "+a.g+"\nEstructura:"+a.e.map((s,i)=>(i+1)+". "+s).join("")+"\nCTA: "+a.c+"\nBase: lo que funcionó en "+c.u+" (“"+c.titulo+"”), adaptado a Playskit.";
+  return "Formato: "+fmt+"\nGancho (0-5 s): "+a.g+"\nEstructura:"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c+"\nBase: lo que funcionó en "+c.u+" (“"+c.titulo+"”), adaptado a Playskit.";
 }
 function guionLocal(){
   const tema=$("#g-tema").value.trim()||"webs presskit para DJs",fmt=$("#g-fmt").value,emo=$("#g-emo").value;
   const k=KWL[adN2%KWL.length],a=ANGL[(adN2++*3+HH(tema))%ANGL.length](k,{id:tema,o:"presskit"});
-  return "Tema: "+tema+" · "+fmt+" · emoción: "+emo+"\nGancho (0-5 s): "+a.g+"\nGuion:"+a.e.map((s,i)=>(i+1)+". "+s).join("")+"\nCTA: "+a.c;
+  return "Tema: "+tema+" · "+fmt+" · emoción: "+emo+"\nGancho (0-5 s): "+a.g+"\nGuion:"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c;
 }
 
 
@@ -360,7 +373,8 @@ function rChat(){
 }
 function chatDraw(){
   const b=$("#cbox");if(!b)return;
-  b.innerHTML=chatMsgs.map((m,i)=>'<div class="msg '+(m.r==="yo"?"yo":"ia")+'"><small>'+(m.r==="yo"?"Vos":m.k||"Playskit")+'</small>'+esc(m.t)+(m.img?'<img src="'+esc(m.img)+'" alt="" style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px">':'')+(m.vid?'<video src="'+esc(m.vid)+'" controls playsinline style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px"></video>':'')+(m.copy?'<div class="row2"><button class="btn sm" data-cp="'+i+'">Copiar</button></div>':'')+'</div>').join("");
+  b.innerHTML=chatMsgs.map((m,i)=>'<div class="msg '+(m.r==="yo"?"yo":"ia")+'"><small>'+(m.r==="yo"?"Vos":m.k||"Playskit")+'</small>'+esc(m.t)+(m.img?'<img src="'+esc(m.img)+'" alt="" style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px">':'')+(m.vid?'<video src="'+esc(m.vid)+'" controls playsinline style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px"></video>':'')+(m.slides?'<div class="lam">'+m.slides.map((u,k)=>'<figure><img src="'+u+'" alt="Lámina '+(k+1)+'"><button type="button" class="btn sm ghost" data-dl="'+i+':'+k+'">Descargar</button></figure>').join("")+'</div>':'')+(m.copy?'<div class="row2"><button class="btn sm" data-cp="'+i+'">Copiar</button></div>':'')+'</div>').join("");
+  b.querySelectorAll("[data-dl]").forEach(x=>x.onclick=async()=>{const [i,k]=x.dataset.dl.split(":").map(Number);const u=chatMsgs[i].slides[k];const bl=await (await fetch(u)).blob();saveBlob(bl,"playskit-lamina-"+(k+1)+".png")});
   b.querySelectorAll("[data-cp]").forEach(x=>x.onclick=async()=>{const m=chatMsgs[+x.dataset.cp];try{await navigator.clipboard.writeText(m.copy);x.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents(x.closest(".msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);x.textContent="Seleccionado: Ctrl+C"}});
   b.scrollTop=b.scrollHeight;
 }
@@ -396,17 +410,64 @@ async function chatMedia(q){
   try{const b=await hfCall(m,"balance",{});chatMsgs.push({r:"ia",k:"Créditos",t:"Te quedan: "+(typeof b==="string"?b:JSON.stringify(b))});chatDraw()}catch(e){}
 }
 
+
+function leerIdea(q){
+  const g=(q.match(/Gancho[^:]*:\s*([^\n]+)/i)||[])[1];
+  const est=(q.match(/Estructura:\s*([\s\S]*?)(?:CTA:|Base:|$)/i)||[])[1]||"";
+  const pasos=est.split(/\s*\d\.\s*/).map(s=>s.trim()).filter(Boolean);
+  const cta=(q.match(/CTA:\s*([^\n]+)/i)||[])[1];
+  const fmt=(q.match(/Formato:\s*([^\n]+)/i)||[])[1]||"";
+  if(!g&&!pasos.length)return null;
+  return {gancho:(g||pasos[0]||q).trim(),pasos,cta:(cta||"Comentá PRESSKIT").trim(),fmt:fmt.trim()};
+}
+function lamLines(cx,text,maxW,font){cx.font=font;const w=text.split(" "),L=[];let c="";for(const x of w){const tt=c?c+" "+x:x;if(cx.measureText(tt).width>maxW&&c){L.push(c);c=x}else c=tt}if(c)L.push(c);return L}
+async function dibujarLaminas(idea){
+  try{await document.fonts.load("100px Anton");await document.fonts.load("700 40px 'DM Sans'")}catch(e){}
+  const W=1080,H=1920,out=[],tot=idea.pasos.length+2;
+  const items=[{k:"hook",t:idea.gancho}].concat(idea.pasos.map(p=>({k:"paso",t:p}))).concat([{k:"cta",t:idea.cta}]);
+  items.forEach((it,n)=>{
+    const c=document.createElement("canvas");c.width=W;c.height=H;const cx=c.getContext("2d");
+    const claro=it.k==="paso"&&n%2===0,bg=claro?"#ffffff":"#083843",ink=claro?"#083843":"#ffffff",or=claro?"#0e6272":"#5fe3ea";
+    const gr=cx.createLinearGradient(0,0,0,H);if(claro){gr.addColorStop(0,"#ffffff");gr.addColorStop(1,"#eef3f4")}else{gr.addColorStop(0,"#0e6272");gr.addColorStop(.6,"#083843");gr.addColorStop(1,"#052a33")}
+    cx.fillStyle=gr;cx.fillRect(0,0,W,H);
+    cx.fillStyle=ink;cx.font="800 30px 'DM Sans',sans-serif";cx.textBaseline="alphabetic";cx.fillText("PLAYSKIT",80,120);
+    cx.fillStyle=or;cx.textAlign="right";cx.fillText((n+1)+" / "+tot,W-80,120);cx.textAlign="left";
+    const size=it.k==="paso"?112:it.k==="cta"?104:132;
+    const lines=lamLines(cx,it.t.toUpperCase(),W-160,"italic "+size+"px Anton,Impact,sans-serif").slice(0,6);
+    cx.save();cx.setTransform(1,0,0,1,0,0);
+    const lh=size*1.02,y0=it.k==="cta"?760:(H-lines.length*lh)/2-60;
+    lines.forEach((ln,i)=>{cx.save();cx.transform(1,0,-.2,1,0,0);cx.font=size+"px Anton,Impact,sans-serif";cx.fillStyle=(i===lines.length-1&&it.k!=="cta")?or:ink;cx.fillText(ln,80+(y0+i*lh)*.2,y0+i*lh+size*.82);cx.restore()});
+    cx.restore();
+    if(it.k==="cta"){const by=1280;cx.fillStyle=or;const r=70;cx.beginPath();cx.roundRect(80,by,W-160,140,r);cx.fill();cx.fillStyle="#052a33";cx.font="800 48px 'DM Sans',sans-serif";cx.textAlign="center";cx.fillText("Comentá y te lo mando →",W/2,by+88);cx.textAlign="left"}
+    if(it.k==="hook"){cx.fillStyle=or;cx.fillRect(80,H-250,160,10)}
+    cx.fillStyle=claro?"#4f6a72":"#8fb3bb";cx.font="700 28px 'DM Sans',sans-serif";cx.fillText("@PLAYSKIT.DJ",80,H-120);
+    out.push(c.toDataURL("image/png"));
+  });
+  return out;
+}
+function guionDeIdea(i){
+  return "Gancho (0-5 s): "+i.gancho+NLX+NLX+"Guion, lámina por lámina:"+NLX+i.pasos.map((p,k)=>"Lámina "+(k+2)+": "+p).join(NLX)+NLX+NLX+"Última lámina (CTA): "+i.cta+NLX+NLX+"Texto del posteo: "+i.gancho+" Guardalo para cuando armes el tuyo."+NLX+NLX+"Hora sugerida: 12:00";
+}
+
 async function chatEnviar(){
   const inp=$("#c-in"),q=inp.value.trim();if(!q){inp.focus();return}
   const fmt=$("#c-fmt").value,emo=$("#c-emo").value,pal=$("#c-pal").value;
   const prompt=CTX+"\n\nPedido: "+q+"\nFormato: "+fmt+". El gancho habla de: "+emo.toLowerCase()+". Color principal: "+pal.toLowerCase()+".\nEntregá: gancho (0-5 s), guion o texto por pantalla, texto de la imagen, CTA con palabra clave, y 2 variantes distintas.";
   chatMsgs.push({r:"yo",t:q});inp.value="";
   chatMsgs.push({r:"ia",k:"Prompt para copiar y pegar",t:prompt,copy:prompt});
-  const idea={id:"chat"+Date.now(),titulo:q,tipo:fmt==="Reel"?"Reel":fmt==="Carrusel"?"Carrusel":"Post",u:"tu pedido",porque:""};
-  chatMsgs.push({r:"ia",k:"Idea rápida (sin IA)",t:adaptLocal(idea)});
-  chatDraw();
+  const ide=leerIdea(q);
+  if(ide){
+    chatMsgs.push({r:"ia",k:"Guion",t:guionDeIdea(ide),copy:guionDeIdea(ide)});chatDraw();
+    const lm=chatMsgs[chatMsgs.push({r:"ia",k:"Láminas",t:"Armando las imágenes…"})-1];chatDraw();
+    try{lm.slides=await dibujarLaminas(ide);lm.t="Listas: "+lm.slides.length+" láminas en naranja, blanco y azul petróleo. Tocá Descargar en cada una."}catch(e){lm.t="No pude dibujar las láminas: "+(e.message||"")}
+    chatDraw();
+  }else{
+    const idea={id:"chat"+Date.now(),titulo:q,tipo:fmt==="Reel"?"Reel":fmt==="Carrusel"?"Carrusel":"Post",u:"tu pedido",porque:""};
+    chatMsgs.push({r:"ia",k:"Idea rápida (sin IA)",t:adaptLocal(idea)});
+    chatDraw();
+  }
   const auto=$("#c-auto")&&$("#c-auto").checked;
-  const media=auto?chatMedia(q):null;
+  const media=auto?chatMedia((leerIdea(q)||{}).gancho||q):null;
   try{const s=await cuse("sample");if(s){chatMsgs.push({r:"ia",k:"Claude",t:"Pensando…"});chatDraw();const i=chatMsgs.length-1;
     await s(prompt,{onText:({text})=>{chatMsgs[i].t=text;chatDraw()}});}}
   catch(e){}
@@ -414,7 +475,7 @@ async function chatEnviar(){
 
 
 /* ---------- fondo: blanco, celeste, crema u oscuro (se recuerda en este navegador) ---------- */
-const FONDOS=[["blanco","#ffffff","Blanco"],["petroleo","#083843","Azul petróleo"]];
+const FONDOS=[["blanco","#ffffff","Blanco"],["petroleo","#083843","Azul petróleo"],["negro","#0a0c0e","Negro"]];
 function setFondo(k,guardar){
   if(k==="blanco")document.documentElement.removeAttribute("data-fondo");else document.documentElement.setAttribute("data-fondo",k);
   document.querySelectorAll("#fondos button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===k));
@@ -497,7 +558,7 @@ function pcard(p){const x=dt(p.fecha),tx=p.slot==="h"?"Historias":p.formato;
   <div class="info"><div class="fila"><span class="id">${KIND[p.slot].toUpperCase()} · ${esc(tx)}</span><span class="cuando">${DS[(x.getDay()+6)%7]} ${x.getDate()}/${x.getMonth()+1} · ${HORA[p.slot]}</span></div>
   <p class="tema">${esc(p.titulo)}</p><p class="gancho">“${esc(p.hook)}”</p><div class="fila"><span class="chp">${esc(p.tema)}</span><span class="chp ${p.slot}">${esc(p.cta)}</span></div>
   <div class="acc3"><button class="btn sm cp2" data-id="${esc(p.id)}">Copiar texto</button>${p.img?`<button class="btn sm ghost dl" data-id="${esc(p.id)}">Descargar imagen</button>`:""}<button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}" ${owner?"":"disabled"}>✓</button></div></div></article>`}
-function textOf(p){return p.slot==="h"?(p.titulo+"\n"+lines(p).join("")):caption(p)}
+function textOf(p){return p.slot==="h"?(p.titulo+"\n"+lines(p).join(NLX)):caption(p)}
 async function copyText(id,b){const p=posts.find(x=>x.id===id),c=textOf(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar";const m=$("#msg");if(m)m.textContent="Copiá a mano desde la vista completa."}setTimeout(()=>{b.textContent="Copiar texto"},1800)}
 async function saveBlob(name,blob){
   try{const d=await cuse("downloads");if(d){await d.save({filename:name,data:blob});return true}}catch(e){}
@@ -581,7 +642,7 @@ function vList(){const q=vq.toLowerCase().trim();
   <ol class="esc">${v[5].map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
   <p class="note"><b>Qué grabar:</b> ${esc(v[6])}</p><p class="note">${esc(v[9])}</p>
   <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
-  document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:"+v[5].map((s,k)=>(k+1)+". "+s).join("")+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
+  document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:"+v[5].map((s,k)=>(k+1)+". "+s).join(NLX)+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
 }
 /* ---------- Qué funcionó ---------- */
 const fuente=c=>/alexisaasad/i.test(c.u)?"Alexis Asad":/cuenca/i.test(c.u)?"Cuenca":"Presskits y webs";
