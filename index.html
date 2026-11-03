@@ -356,10 +356,10 @@ function guionLocal(){
 const CTX=`Sos un creador de contenido profesional para Instagram. Marca: Playskit (@playskit.dj). Vende webs presskit a medida para DJs (plan Professional US$80, Premium US$150, entrega en 48 h, se pide por chat) y un ebook de US$20 con los mensajes para escribirle a los sellos. Caso real: Lucas Ramos. Público: DJs que quieren fechas y que los sellos les contesten.
 Reglas de contenido: el gancho va en los primeros 5 segundos y combina voz, texto y imagen; habla de un dolor, una emoción o un deseo del DJ; usá "errores / métodos / trucos", nunca "tips"; estructura gancho, problema, solución, prueba, CTA; el CTA es una sola palabra clave (WEB, PRESSKIT, SELLOS) con un beneficio para el otro. Español rioplatense, corto, sin relleno ni emojis de adorno. No uses fotos reales de personas ni nombres de DJs que no sean clientes.
 Estilo visual: títulos enormes en cursiva con una sola palabra de color, fondos con foto oscura, una idea por lámina, contraste alto. Paletas: naranja, amarillo limón, violeta, rosa y celeste.`;
-const CH_ATAJOS=[["Idea de reel","Dame 3 ideas de reel originales para esta semana, distintas entre sí, con gancho, escenas y CTA."],["Carrusel","Armame un carrusel de 7 láminas, con el texto exacto de cada lámina y el CTA en la última."],["Historias","Armame 5 historias para hoy: encuesta, caja de preguntas, prueba social, mini tutorial y CTA."],["10 ganchos","Escribime 10 ganchos distintos para los primeros 5 segundos, cada uno de dolor, emoción o deseo."],["Responder DM","Un DJ me escribió esto: [pegá acá su mensaje]. Respondele en 3 mensajes cortos que cierren con una pregunta."],["Mejorar mi texto","Mejorá este texto para que sea más directo y original: [pegá acá tu texto]"]];
+const CH_ATAJOS=[["Idea de reel","Dame 3 ideas de reel originales para esta semana, distintas entre sí, con gancho, escenas y CTA."],["Carrusel","Armame un carrusel de 7 láminas, con el texto exacto de cada lámina y el CTA en la última."],["Historias","Armame 5 historias para hoy: encuesta, caja de preguntas, prueba social, mini tutorial y CTA."],["10 ganchos","Escribime 10 ganchos distintos para los primeros 5 segundos, cada uno de dolor, emoción o deseo."],["Responder DM","Un DJ me escribió esto: [pegá acá su mensaje]. Respondele en 3 mensajes cortos que cierren con una pregunta."],["Ver créditos","¿Cuántos créditos me quedan?"],["Mejorar mi texto","Mejorá este texto para que sea más directo y original: [pegá acá tu texto]"]];
 let chatMsgs=[];
 function rChat(){
-  const el=$("#t-chat");$("#sub").textContent="Chat para armar el contenido: copiás el prompt y lo pegás en Claude o ChatGPT";
+  const el=$("#t-chat");$("#sub").textContent="Pedile al chat lo que necesites: guion, láminas, foto y video";
   if(!el.dataset.ok){
     el.dataset.ok=1;
     el.innerHTML='<div class="chat"><div class="cbox" id="cbox" aria-live="polite"></div><div class="cchips" id="cch"></div><div class="csel"><select id="c-fmt" aria-label="Formato"><option>Reel</option><option>Carrusel</option><option>Posteo</option><option>Historias</option></select><select id="c-emo" aria-label="Emoción"><option>Dolor</option><option>Emoción</option><option>Deseo</option></select><select id="c-pal" aria-label="Color"><option>Naranja</option><option>Amarillo limón</option><option>Violeta</option><option>Rosa</option><option>Celeste</option></select></div><label class="csel" style="align-items:center;gap:8px;color:var(--muted);font-size:13px"><input type="checkbox" id="c-auto" checked style="width:auto"> Crear también la foto y el video solo (usa créditos de Higgsfield)</label><div class="cin"><textarea id="c-in" placeholder="Contame qué contenido necesitás. Ej: un reel sobre el asunto del mail a un sello" aria-label="Mensaje"></textarea><button class="btn" id="c-send">Armar</button></div></div>';
@@ -367,7 +367,7 @@ function rChat(){
     $("#cch").onclick=e=>{const b=e.target.closest("[data-a]");if(b){$("#c-in").value=CH_ATAJOS[+b.dataset.a][1];$("#c-in").focus()}};
     $("#c-send").onclick=chatEnviar;
     $("#c-in").addEventListener("keydown",e=>{if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();chatEnviar()}});
-    chatMsgs=[{r:"ia",t:"Hola Renata. Escribime qué contenido querés (o tocá un atajo) y te armo el prompt completo, con la marca, las reglas y el estilo. Lo copiás y lo pegás en Claude o ChatGPT.\n\nTambién te dejo una idea lista acá abajo, sin esperar."}];
+    chatMsgs=[{r:"ia",t:"Hola Renata. Pedime lo que necesites: ideas, guiones, carruseles, la foto o el video. También podés pegar una idea y te armo el guion y las láminas."}];
     chatDraw();
   }
 }
@@ -451,6 +451,13 @@ function guionDeIdea(i){
 
 async function chatEnviar(){
   const inp=$("#c-in"),q=inp.value.trim();if(!q){inp.focus();return}
+  if(/cr[eé]dito|saldo|cu[aá]nto me queda/i.test(q)&&q.length<60){
+    inp.value="";chatMsgs.push({r:"yo",t:q});chatDraw();
+    const m=await cuse("mcp");
+    if(!m){chatMsgs.push({r:"ia",k:"Créditos",t:"Los créditos se ven desde la versión de Claude: https://claude.ai/artifact/R7tfYnn94F1A8SwfHdGNzt"})}
+    else{try{const b=await hfCall(m,"balance",{});chatMsgs.push({r:"ia",k:"Créditos",t:"Te quedan: "+(typeof b==="string"?b:JSON.stringify(b))})}catch(e){chatMsgs.push({r:"ia",k:"Créditos",t:"No pude consultar Higgsfield: "+(e.code||"")+" "+(e.message||"")})}}
+    chatDraw();return;
+  }
   const fmt=$("#c-fmt").value,emo=$("#c-emo").value,pal=$("#c-pal").value;
   const prompt=CTX+"\n\nPedido: "+q+"\nFormato: "+fmt+". El gancho habla de: "+emo.toLowerCase()+". Color principal: "+pal.toLowerCase()+".\nEntregá: gancho (0-5 s), guion o texto por pantalla, texto de la imagen, CTA con palabra clave, y 2 variantes distintas.";
   chatMsgs.push({r:"yo",t:q});inp.value="";
@@ -504,7 +511,7 @@ const mondayOf=s=>{const d=dt(s);d.setDate(d.getDate()-((d.getDay()+6)%7));retur
 const today=iso(new Date());
 sel=today>=START&&today<=END?today:START;
 const ICO={chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/></svg>',cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',fx:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',vid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="M16 10l5-3v10l-5-3z"/></svg>',gen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg>'};
-const TABS=[["cal","Calendario"],["vid","Ideas de videos"],["fx","Qué funcionó"],["gen","Crear"],["chat","Chat"]];
+const TABS=[["cal","Calendario"],["vid","Ideas de videos"],["fx","Qué funcionó"],["chat","Chat"]];
 function drawTabs(){
   $("#side").innerHTML=TABS.map(([k,n])=>`<button class="nv2" role="tab" data-k="${k}" aria-selected="${k===tab}">${ICO[k]}${n}</button>`).join("");
   $("#tabs").innerHTML=TABS.map(([k,n])=>`<button role="tab" data-k="${k}" aria-selected="${k===tab}">${n}</button>`).join("");
