@@ -362,7 +362,7 @@ function rChat(){
   const el=$("#t-chat");$("#sub").textContent="Pedile al chat lo que necesites: guion, láminas, foto y video";
   if(!el.dataset.ok){
     el.dataset.ok=1;
-    el.innerHTML='<div class="chat"><div class="cbox" id="cbox" aria-live="polite"></div><div class="cchips" id="cch"></div><div class="csel"><select id="c-fmt" aria-label="Formato"><option>Reel</option><option>Carrusel</option><option>Posteo</option><option>Historias</option></select><select id="c-emo" aria-label="Emoción"><option>Dolor</option><option>Emoción</option><option>Deseo</option></select><select id="c-pal" aria-label="Color"><option>Naranja</option><option>Amarillo limón</option><option>Violeta</option><option>Rosa</option><option>Celeste</option></select></div><label class="csel" style="align-items:center;gap:8px;color:var(--muted);font-size:13px"><input type="checkbox" id="c-auto" checked style="width:auto"> Crear también la foto y el video solo (usa créditos de Higgsfield)</label><div class="cin"><textarea id="c-in" placeholder="Contame qué contenido necesitás. Ej: un reel sobre el asunto del mail a un sello" aria-label="Mensaje"></textarea><button class="btn" id="c-send">Armar</button></div></div>';
+    el.innerHTML='<div class="chat"><div class="cbox" id="cbox" aria-live="polite"></div><div class="cchips" id="cch"></div><div class="csel"><select id="c-est" aria-label="Estilo de las láminas"><option value="marca">Estilo marca</option><option value="cromado">Estilo cromado multicolor</option></select><select id="c-fmt" aria-label="Formato"><option>Reel</option><option>Carrusel</option><option>Posteo</option><option>Historias</option></select><select id="c-emo" aria-label="Emoción"><option>Dolor</option><option>Emoción</option><option>Deseo</option></select><select id="c-pal" aria-label="Color"><option>Naranja</option><option>Amarillo limón</option><option>Violeta</option><option>Rosa</option><option>Celeste</option></select></div><label class="csel" style="align-items:center;gap:8px;color:var(--muted);font-size:13px"><input type="checkbox" id="c-auto" checked style="width:auto"> Crear también la foto y el video solo (usa créditos de Higgsfield)</label><div class="cin"><textarea id="c-in" placeholder="Contame qué contenido necesitás. Ej: un reel sobre el asunto del mail a un sello" aria-label="Mensaje"></textarea><button class="btn" id="c-send">Armar</button></div></div>';
     $("#cch").innerHTML=CH_ATAJOS.map((x,i)=>'<button data-a="'+i+'">'+x[0]+'</button>').join("");
     $("#cch").onclick=e=>{const b=e.target.closest("[data-a]");if(b){$("#c-in").value=CH_ATAJOS[+b.dataset.a][1];$("#c-in").focus()}};
     $("#c-send").onclick=chatEnviar;
@@ -471,14 +471,43 @@ function lamTextoCurvo(cx,txt,x,y,r,col){
   for(let i=0;i<txt.length;i++){cx.save();cx.rotate(i*paso-Math.PI/2);cx.fillText(txt[i],0,-r);cx.restore()}
   cx.restore();
 }
+
+/* estilo cromado multicolor: violeta, turquesa, rosa, vidrio y estrellas */
+function estrellaCro(cx,x,y,r){
+  cx.save();cx.translate(x,y);
+  cx.shadowColor="rgba(150,90,255,.75)";cx.shadowBlur=70;
+  const g=cx.createLinearGradient(-r,-r,r,r);g.addColorStop(0,"#ffffff");g.addColorStop(.35,"#d9c6ff");g.addColorStop(.6,"#7ee9f5");g.addColorStop(1,"#ff9be0");
+  cx.beginPath();cx.moveTo(0,-r);cx.quadraticCurveTo(0,0,r,0);cx.quadraticCurveTo(0,0,0,r);cx.quadraticCurveTo(0,0,-r,0);cx.quadraticCurveTo(0,0,0,-r);cx.closePath();
+  cx.fillStyle=g;cx.fill();cx.shadowBlur=0;cx.strokeStyle="rgba(255,255,255,.9)";cx.lineWidth=4;cx.stroke();
+  cx.beginPath();cx.moveTo(0,-r*.7);cx.quadraticCurveTo(r*.05,-r*.05,r*.7,0);cx.strokeStyle="rgba(255,255,255,.7)";cx.lineWidth=3;cx.stroke();
+  cx.restore();
+}
+function lamFondoCro(cx,W,H,n){
+  const g=cx.createLinearGradient(0,0,W*.5,H);g.addColorStop(0,"#1a0a45");g.addColorStop(.5,"#4a1d9e");g.addColorStop(1,"#0b5f78");
+  cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  [[W*.15,H*.16,560,"255,95,210,.55"],[W*.92,H*.42,600,"120,70,255,.65"],[W*.12,H*.86,640,"25,211,218,.55"],[W*.75,H*.97,460,"255,255,255,.22"]].forEach(([x,y,r,c])=>{const rg=cx.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,"rgba("+c+")");rg.addColorStop(1,"rgba("+c.split(",").slice(0,3).join(",")+",0)");cx.fillStyle=rg;cx.fillRect(0,0,W,H)});
+  // cintas de cromo brillante
+  [[.18,"rgba(255,255,255,.55)","rgba(126,233,245,.0)",70],[.52,"rgba(255,155,224,.5)","rgba(255,255,255,0)",54],[.86,"rgba(180,150,255,.55)","rgba(255,255,255,0)",90]].forEach(([p,c1,c2,lw],i)=>{
+    const y0=H*p+(n%3)*30;const gr=cx.createLinearGradient(0,y0-200,W,y0+200);gr.addColorStop(0,c2);gr.addColorStop(.45,c1);gr.addColorStop(1,c2);
+    cx.beginPath();cx.moveTo(-100,y0);cx.bezierCurveTo(W*.3,y0-260+i*60,W*.6,y0+300-i*40,W+100,y0-120);cx.strokeStyle=gr;cx.lineWidth=lw;cx.lineCap="round";cx.stroke();
+    cx.lineWidth=lw*.18;cx.strokeStyle="rgba(255,255,255,.7)";cx.stroke();
+  });
+  // destellos
+  let s=n*97+13;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};
+  for(let i=0;i<46;i++){const x=rnd()*W,y=rnd()*H,r=3+rnd()*(i%7===0?26:8);cx.fillStyle="rgba(255,255,255,"+(.35+rnd()*.5)+")";
+    if(r>14){cx.beginPath();cx.moveTo(x,y-r);cx.quadraticCurveTo(x,y,x+r,y);cx.quadraticCurveTo(x,y,x,y+r);cx.quadraticCurveTo(x,y,x-r,y);cx.quadraticCurveTo(x,y,x,y-r);cx.fill()}else{cx.beginPath();cx.arc(x,y,r/2,0,7);cx.fill()}}
+  cx.strokeStyle="rgba(255,255,255,.55)";cx.lineWidth=4;const m=44,l=54;
+  [[m,m,1,1],[W-m,m,-1,1],[m,H-m,1,-1],[W-m,H-m,-1,-1]].forEach(([x,y,dx,dy])=>{cx.beginPath();cx.moveTo(x,y+dy*l);cx.lineTo(x,y);cx.lineTo(x+dx*l,y);cx.stroke()});
+}
+
 async function dibujarLaminas(idea){
   try{await document.fonts.load("100px Anton");await document.fonts.load("700 40px 'DM Sans'");await document.fonts.load("500 26px 'DM Mono'")}catch(e){}
   const W=1080,H=1920,out=[],tot=idea.pasos.length+2;
   const items=[{k:"hook",t:idea.gancho}].concat(idea.pasos.map(p=>({k:"paso",t:p}))).concat([{k:"cta",t:idea.cta}]);
   items.forEach((it,n)=>{
     const c=document.createElement("canvas");c.width=W;c.height=H;const cx=c.getContext("2d");
-    const dark=!(it.k==="paso"&&n%2===0),ink=dark?"#ffffff":PE,acc=dark?CE:PE2,soft=dark?"#9fc4cb":"#4f6a72";
-    lamFondo(cx,W,H,dark,n);
+    const cro=window.__estiloLam==="cromado",dark=cro?true:!(it.k==="paso"&&n%2===0),ink=dark?"#ffffff":PE,acc=cro?"#a8f2ff":(dark?CE:PE2),soft=cro?"#d6c6f7":(dark?"#9fc4cb":"#4f6a72");
+    if(cro){lamFondoCro(cx,W,H,n)}else lamFondo(cx,W,H,dark,n);
     // cabecera: logo y contador
     cx.beginPath();cx.arc(112,124,34,0,7);cx.strokeStyle=ink;cx.lineWidth=3;cx.stroke();lamIcon(cx,4,112,124,44,acc);
     cx.fillStyle=ink;cx.font="800 30px 'DM Sans',sans-serif";cx.textBaseline="alphabetic";cx.fillText("PLAYSKIT",166,135);
@@ -497,6 +526,7 @@ async function dibujarLaminas(idea){
     cx.font="700 26px 'DM Mono',monospace";const ew=cx.measureText(et).width+56;
     cx.beginPath();cx.roundRect(100,py-62,ew,50,25);cx.fillStyle=acc;cx.fill();cx.fillStyle=dark?NE:"#ffffff";cx.fillText(et,128,py-27);
     lines.forEach((ln,i)=>{cx.save();cx.transform(1,0,-.2,1,0,0);cx.font="italic "+size+"px Anton,Impact,sans-serif";cx.fillStyle=(i===lines.length-1&&it.k!=="cta")?acc:ink;cx.fillText(ln,150+(py+90+i*lh)*.2,py+80+size*.85+i*lh);cx.restore()});
+    if(cro){estrellaCro(cx,W-200,H-420,it.k==="paso"?120:190);estrellaCro(cx,170,H-330,56)}
     // detalle por tipo
     if(it.k==="hook"){
       lamTextoCurvo(cx,"PRESSKIT A MEDIDA ✦ DESDE US$80 ✦ ",W-250,420,118,acc);
@@ -546,9 +576,11 @@ async function chatEnviar(){
   chatMsgs.push({r:"ia",k:"Prompt para copiar y pegar",t:prompt,copy:prompt});
   const ide=leerIdea(q);
   if(ide){
-    chatMsgs.push({r:"ia",k:"Guion",t:guionDeIdea(ide),copy:guionDeIdea(ide)});chatDraw();
+    chatMsgs.push({r:"ia",k:"Guion",t:guionDeIdea(ide),copy:guionDeIdea(ide)});
+    const pim="Diseño de lámina de carrusel de Instagram vertical, estilo cromado holográfico: fondo degradé violeta, turquesa y rosa, objetos 3D de vidrio y cromo líquido brillante, estrellas de cuatro puntas, destellos, tarjetas de vidrio translúcido, tipografía moderna en cursiva blanca con una palabra resaltada, logo Playskit con estrella arriba a la izquierda, calidad editorial. Texto de la lámina: "+ide.gancho+". Sin personas reales.";
+    chatMsgs.push({r:"ia",k:"Prompt de imagen (pegalo en ChatGPT o Higgsfield)",t:pim,copy:pim});chatDraw();
     const lm=chatMsgs[chatMsgs.push({r:"ia",k:"Láminas",t:"Armando las imágenes…"})-1];chatDraw();
-    try{lm.slides=await dibujarLaminas(ide);lm.t="Listas: "+lm.slides.length+" láminas en naranja, blanco y azul petróleo. Tocá Descargar en cada una."}catch(e){lm.t="No pude dibujar las láminas: "+(e.message||"")}
+    try{window.__estiloLam=($("#c-est")||{}).value||"marca";lm.slides=await dibujarLaminas(ide);lm.t="Listas: "+lm.slides.length+" láminas ("+(window.__estiloLam==="cromado"?"cromado multicolor":"celeste, petróleo, blanco y negro")+"). Tocá Descargar en cada una."}catch(e){lm.t="No pude dibujar las láminas: "+(e.message||"")}
     chatDraw();
   }else{
     const idea={id:"chat"+Date.now(),titulo:q,tipo:fmt==="Reel"?"Reel":fmt==="Carrusel"?"Carrusel":"Post",u:"tu pedido",porque:""};
