@@ -310,6 +310,18 @@ html[data-fondo=negro] [aria-selected=true],html[data-fondo=negro] [aria-pressed
 html[data-fondo=oscuro] [aria-selected=true],html[data-fondo=oscuro] [aria-pressed=true]:not(.fondos button),html[data-fondo=oscuro] .wt.on,html[data-fondo=oscuro] .dn.on{background:rgba(95,227,234,.16)!important;color:var(--ink)!important}
 html[data-fondo=oscuro] .btn:not(.ghost){background:linear-gradient(135deg,#0a7580,#0a8f9b)!important;color:#fff!important}
 .lam{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:12px}.lam figure{margin:0;display:flex;flex-direction:column;gap:6px}.lam img{width:100%;border-radius:12px;border:1px solid var(--line)}
+
+/* arreglo: tarjetas y textos legibles en petróleo y negro */
+html[data-fondo=petroleo]{--gl:#0d4a58;--glb:#1f6878;--gls:0 12px 30px -14px rgba(0,0,0,.5)}
+html[data-fondo=negro]{--gl:#101417;--glb:#242d33;--gls:0 12px 30px -14px rgba(0,0,0,.6)}
+html[data-fondo=petroleo] .pc,html[data-fondo=negro] .pc{color:var(--ink)}
+html[data-fondo=petroleo] .pc .info,html[data-fondo=negro] .pc .info{background:transparent}
+html[data-fondo=petroleo] .pc .info *,html[data-fondo=negro] .pc .info *{color:var(--ink)}
+html[data-fondo=petroleo] .pc .info .tag,html[data-fondo=negro] .pc .info .tag{color:var(--muted)}
+html[data-fondo=petroleo] .chp,html[data-fondo=negro] .chp{background:rgba(255,255,255,.10);color:#e6f6f8;border-color:rgba(255,255,255,.25)}
+html[data-fondo=petroleo] [class*=pill],html[data-fondo=negro] [class*=pill]{color:#e6f6f8}
+.pc .ph{background:linear-gradient(160deg,#0e6272,#052a33)!important;color:#fff!important}
+.pc .ph *{color:#fff}
 </style>
 <div class="app">
 <aside><div class="brand"><i></i>Playskit</div><div id="side"></div><div class="sp"></div><div class="fondos" id="fondos" role="group" aria-label="Color de fondo"></div><div class="who" id="who">solo lectura</div></aside>
