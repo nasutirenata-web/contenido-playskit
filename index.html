@@ -363,12 +363,12 @@ function adaptLocal(c){
   const k=m?m[1].toUpperCase():KWL[HH(c.id)%KWL.length];
   const a=ANGL[(HH(c.id)+adN2++)%ANGL.length](k,{id:c.id,o:"bio"});
   const fmt=c.tipo==="Reel"?"Reel de 20 s":c.tipo==="Carrusel"?"Carrusel de 6 láminas":"Posteo con una imagen";
-  return "Formato: "+fmt+"\nGancho (0-5 s): "+a.g+"\nEstructura:"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c+"\nBase: lo que funcionó en "+c.u+" (“"+c.titulo+"”), adaptado a Playskit.";
+  return "Formato: "+fmt+"\nGancho (0-5 s): "+a.g+"\nEstructura:\n"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c+"\nBase: lo que funcionó en "+c.u+" (“"+c.titulo+"”), adaptado a Playskit.";
 }
 function guionLocal(){
   const tema=$("#g-tema").value.trim()||"webs presskit para DJs",fmt=$("#g-fmt").value,emo=$("#g-emo").value;
   const k=KWL[adN2%KWL.length],a=ANGL[(adN2++*3+HH(tema))%ANGL.length](k,{id:tema,o:"presskit"});
-  return "Tema: "+tema+" · "+fmt+" · emoción: "+emo+"\nGancho (0-5 s): "+a.g+"\nGuion:"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c;
+  return "Tema: "+tema+" · "+fmt+" · emoción: "+emo+"\nGancho (0-5 s): "+a.g+"\nGuion:\n"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c;
 }
 
 
@@ -747,7 +747,7 @@ function pcard(p){const x=dt(p.fecha),tx=p.slot==="h"?"Historias":p.formato;
   <div class="info"><div class="fila"><span class="id">${KIND[p.slot].toUpperCase()} · ${esc(tx)}</span><span class="cuando">${DS[(x.getDay()+6)%7]} ${x.getDate()}/${x.getMonth()+1} · ${HORA[p.slot]}</span></div>
   <p class="tema">${esc(p.titulo)}</p><p class="gancho">“${esc(p.hook)}”</p><div class="fila"><span class="chp">${esc(p.tema)}</span><span class="chp ${p.slot}">${esc(p.cta)}</span></div>
   <div class="acc3"><button class="btn sm cp2" data-id="${esc(p.id)}">Copiar texto</button>${p.img?`<button class="btn sm ghost dl" data-id="${esc(p.id)}">Descargar imagen</button>`:""}<button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}" ${owner?"":"disabled"}>✓</button></div></div></article>`}
-function textOf(p){return p.slot==="h"?(p.titulo+"\n"+lines(p).join(NLX)):caption(p)}
+function textOf(p){return p.slot==="h"?(p.titulo+"\n\n"+lines(p).join(NLX)):caption(p)}
 async function copyText(id,b){const p=posts.find(x=>x.id===id),c=textOf(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar";const m=$("#msg");if(m)m.textContent="Copiá a mano desde la vista completa."}setTimeout(()=>{b.textContent="Copiar texto"},1800)}
 async function saveBlob(name,blob){
   try{const d=await cuse("downloads");if(d){await d.save({filename:name,data:blob});return true}}catch(e){}
@@ -755,7 +755,7 @@ async function saveBlob(name,blob){
 async function dlImg(id,b){const p=posts.find(x=>x.id===id);try{const r=await fetch(p.img),bl=await r.blob();const ok=await saveBlob("playskit-"+p.fecha+"-"+p.slot+".jpg",bl);b.textContent=ok?"✓ Listo":"No se pudo"}catch(e){b.textContent="No se pudo"}setTimeout(()=>{b.textContent="Descargar imagen"},1800)}
 async function zipPosts(list,name){const m=$("#msg");if(typeof JSZip==="undefined"){m.textContent="No cargó el compresor. Probá de nuevo.";return}
   m.textContent="Armando el zip…";const z=new JSZip();let txt="";
-  for(const p of list){const base=p.fecha+"-"+p.slot;txt+="=== "+p.fecha+" · "+KIND[p.slot]+" · "+p.titulo+" ==="+textOf(p)+"\n";if(p.img){try{z.file(base+".jpg",await (await fetch(p.img)).blob())}catch(e){}}}
+  for(const p of list){const base=p.fecha+"-"+p.slot;txt+="=== "+p.fecha+" · "+KIND[p.slot]+" · "+p.titulo+" ===\n"+textOf(p)+"\n\n";if(p.img){try{z.file(base+".jpg",await (await fetch(p.img)).blob())}catch(e){}}}
   z.file("textos.txt",txt);const bl=await z.generateAsync({type:"blob"});const ok=await saveBlob(name+".zip",bl);m.textContent=ok?"✓ Zip listo":"No se pudo guardar el zip."}
 function card(p){
   return `<div class="tk ${p.slot} ${done(p)?"done":""}" data-id="${esc(p.id)}" tabindex="0"><div class="hdr"><span class="tag">${KIND[p.slot]}</span>${p.slot==="h"?"":`<span class="tag">${esc(p.formato)}</span>`}<button class="ck" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" ${owner?"":"disabled"} title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}">✓</button></div>
@@ -771,7 +771,7 @@ async function tick(id){
 }
 /* ----- la publicación entera ----- */
 const KW={WEB:"te mandamos ejemplos",PRESSKIT:"armamos la tuya",SELLOS:"te paso la guía",PROMPT:"te mando el prompt",CHECKLIST:"te llega por DM",LOGO:"te mando los 3 prompts",PACK:"te cuento cómo",DM:"te digo en 10 segundos"};
-function lines(p){return String(p.guion||"").split("").map(s=>s.replace(/^•\s*/,"").trim()).filter(s=>s&&!s.startsWith("⚠")&&!/^(CTA|REFERENCIA|YA FUNCIONÓ)/.test(s))}
+function lines(p){return String(p.guion||"").split("\n").map(s=>s.replace(/^•\s*/,"").trim()).filter(s=>s&&!s.startsWith("⚠")&&!/^(CTA|REFERENCIA|YA FUNCIONÓ)/.test(s))}
 function lab(s){const i=s.indexOf(" · ");return i>0&&i<22?[s.slice(0,i),s.slice(i+3)]:["",s]}
 function caption(p){
   const kw=(String(p.cta).match(/^[A-ZÁÉÍÓÚÑ]{3,}/)||[""])[0],L=lines(p).map(lab).map(x=>x[1]).filter(x=>x.length>12);
@@ -832,7 +832,7 @@ function vList(){const q=vq.toLowerCase().trim();
   <p class="note"><b>Qué grabar:</b> ${esc(v[6])}</p><p class="note">${esc(v[9])}</p>
   <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button><button class="btn sm ghost fhb" data-i="${i}">Fotos para Higgsfield</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
   document.querySelectorAll(".fhb").forEach(b=>b.onclick=()=>fotosVideo(+b.dataset.i));
-  document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:"+v[5].map((s,k)=>(k+1)+". "+s).join(NLX)+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
+  document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:\n"+v[5].map((s,k)=>(k+1)+". "+s).join(NLX)+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
 }
 /* ---------- Qué funcionó ---------- */
 const fuente=c=>/alexisaasad/i.test(c.u)?"Alexis Asad":/cuenca/i.test(c.u)?"Cuenca":"Presskits y webs";
@@ -897,10 +897,10 @@ let quoted=null,quotedTipo="img";
 const hfTool=(t=$("#h-tipo").value)=>t==="vid"?"generate_video":"generate_image";
 const hfParams=(p,t=$("#h-tipo").value)=>t==="vid"?{model:"kling3_0",prompt:p,aspect_ratio:"9:16",duration:3,mode:"std",sound:"off"}:{model:"gpt_image_2_5",prompt:p,aspect_ratio:"9:16"};
 async function cotizar(){const p=$("#h-prompt").value.trim();if(!p){$("#h-out").hidden=false;$("#h-out").textContent="⚠️ Escribí la descripción.";return}
-  quoted=null;$("#h-ok").hidden=true;const r=await hf(hfTool(),{params:{...hfParams(p),get_cost:true}},x=>"Cotización:"+(typeof x==="string"?x:JSON.stringify(x,null,1)));
+  quoted=null;$("#h-ok").hidden=true;const r=await hf(hfTool(),{params:{...hfParams(p),get_cost:true}},x=>"Cotización:\n"+(typeof x==="string"?x:JSON.stringify(x,null,1)));
   if(r){quoted=p;quotedTipo=$("#h-tipo").value;$("#h-ok").hidden=false;$("#h-chk").checked=false;$("#h-go").disabled=true}}
 async function generar(){if(!quoted||!$("#h-chk").checked)return;$("#h-go").disabled=true;
-  await hf(hfTool(quotedTipo),{params:hfParams(quoted,quotedTipo)},x=>"Enviado a Higgsfield:"+(typeof x==="string"?x:JSON.stringify(x,null,1)));$("#h-ok").hidden=true;quoted=null}
+  await hf(hfTool(quotedTipo),{params:hfParams(quoted,quotedTipo)},x=>"Enviado a Higgsfield:\n"+(typeof x==="string"?x:JSON.stringify(x,null,1)));$("#h-ok").hidden=true;quoted=null}
 /* ---------- arranque ---------- */
 try{tab=localStorage.ps_tab||"cal";if(!TABS.some(t=>t[0]===tab))tab="cal"}catch(e){}
 show();
