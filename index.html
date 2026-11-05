@@ -322,6 +322,14 @@ html[data-fondo=petroleo] .chp,html[data-fondo=negro] .chp{background:rgba(255,2
 html[data-fondo=petroleo] [class*=pill],html[data-fondo=negro] [class*=pill]{color:#e6f6f8}
 .pc .ph{background:linear-gradient(160deg,#0e6272,#052a33)!important;color:#fff!important}
 .pc .ph *{color:#fff}
+.fhov{position:fixed;inset:0;background:rgba(5,10,14,.84);z-index:90;overflow:auto;padding:20px}
+.fhbox{max-width:1040px;margin:0 auto;background:var(--bg);color:var(--ink);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.fhbox h3{margin:0;font:700 20px var(--f-b)}
+.fhg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.fhg figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.fhg img{width:100%;border-radius:14px;border:1px solid var(--line)}
+.fhg figcaption{font-size:13px;line-height:1.4;color:var(--muted)}
+.fhg .row2{display:flex;gap:6px;flex-wrap:wrap}
 </style>
 <div class="app">
 <aside><div class="brand"><i></i>Playskit</div><div id="side"></div><div class="sp"></div><div class="fondos" id="fondos" role="group" aria-label="Color de fondo"></div><div class="who" id="who">solo lectura</div></aside>
@@ -573,6 +581,40 @@ function guionDeIdea(i){
   return "Gancho (0-5 s): "+i.gancho+NLX+NLX+"Guion, lámina por lámina:"+NLX+i.pasos.map((p,k)=>"Lámina "+(k+2)+": "+p).join(NLX)+NLX+NLX+"Última lámina (CTA): "+i.cta+NLX+NLX+"Texto del posteo: "+i.gancho+" Guardalo para cuando armes el tuyo."+NLX+NLX+"Hora sugerida: 12:00";
 }
 
+
+/* ---------- fotos de arranque por escena para pasarle a Higgsfield ---------- */
+async function fotoEscena(texto,k,total,vid){
+  try{await document.fonts.load("500 26px 'DM Mono'")}catch(e){}
+  const W=1080,H=1920,c=document.createElement("canvas");c.width=W;c.height=H;const cx=c.getContext("2d");
+  lamFondoCro(cx,W,H,vid*7+k);
+  // objeto central de vidrio con ícono
+  const x=W/2,y=H*.46;
+  cx.save();cx.shadowColor="rgba(140,90,255,.7)";cx.shadowBlur=90;cx.beginPath();cx.roundRect(x-300,y-300,600,600,120);
+  const g=cx.createLinearGradient(x-300,y-300,x+300,y+300);g.addColorStop(0,"rgba(255,255,255,.34)");g.addColorStop(.5,"rgba(180,150,255,.18)");g.addColorStop(1,"rgba(126,233,245,.30)");cx.fillStyle=g;cx.fill();cx.restore();
+  cx.beginPath();cx.roundRect(x-300,y-300,600,600,120);cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=5;cx.stroke();
+  cx.beginPath();cx.moveTo(x-220,y-298);cx.lineTo(x+220,y-298);cx.strokeStyle="rgba(255,255,255,.95)";cx.lineWidth=4;cx.stroke();
+  lamIcon(cx,k,x,y,360,"#ffffff");
+  estrellaCro(cx,x+300,y-300,110);estrellaCro(cx,x-310,y+310,70);
+  cx.fillStyle="rgba(255,255,255,.75)";cx.font="500 28px 'DM Mono',monospace";cx.textAlign="center";cx.fillText("ESCENA "+String(k+1).padStart(2,"0")+" / "+String(total).padStart(2,"0"),W/2,H-150);
+  return c.toDataURL("image/png");
+}
+async function fotosVideo(i){
+  const v=VIDEOS[i];
+  const ov=document.createElement("div");ov.className="fhov";ov.innerHTML='<div class="fhbox"><h3>Fotos para Higgsfield · '+esc(v[0])+'</h3><p class="note">Una foto de arranque por escena, sin texto. Subila a Higgsfield como imagen inicial y pegá el prompt de movimiento.</p><div class="fhg" id="fhg">Armando las fotos…</div><div class="row2" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="fh-all">Descargar todas</button><button class="btn ghost" id="fh-x">Cerrar</button></div></div>';
+  document.body.appendChild(ov);
+  const cerrar=()=>ov.remove();ov.querySelector("#fh-x").onclick=cerrar;ov.onclick=e=>{if(e.target===ov)cerrar()};
+  const imgs=[],prompts=[];
+  for(let k=0;k<v[5].length;k++){
+    imgs.push(await fotoEscena(v[5][k],k,v[5].length,i));
+    prompts.push("Vertical 9:16, 3 a 5 segundos. Animá esta imagen: "+v[5][k]+". Movimiento de cámara lento hacia adelante, destellos cromados, luz violeta, turquesa y rosa, objetos de vidrio que brillan. Sin texto, sin logos, sin personas reales.");
+  }
+  ov.querySelector("#fhg").innerHTML=imgs.map((u,k)=>'<figure><img src="'+u+'" alt="Escena '+(k+1)+'"><figcaption><b>Escena '+(k+1)+':</b> '+esc(v[5][k])+'</figcaption><div class="row2"><button class="btn sm ghost" data-d="'+k+'">Descargar foto</button><button class="btn sm" data-p="'+k+'">Copiar prompt</button></div></figure>').join("");
+  const bajar=async(k)=>{const bl=await (await fetch(imgs[k])).blob();saveBlob(bl,"playskit-video"+String(i+1).padStart(2,"0")+"-escena"+(k+1)+".png")};
+  ov.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>bajar(+b.dataset.d));
+  ov.querySelectorAll("[data-p]").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(prompts[+b.dataset.p]);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar prompt"},1800)});
+  ov.querySelector("#fh-all").onclick=async()=>{for(let k=0;k<imgs.length;k++){await bajar(k);await new Promise(r=>setTimeout(r,400))}};
+}
+
 async function chatEnviar(){
   const inp=$("#c-in"),q=inp.value.trim();if(!q){inp.focus();return}
   if(/cr[eé]dito|saldo|cu[aá]nto me queda/i.test(q)&&q.length<60){
@@ -774,7 +816,8 @@ function vList(){const q=vq.toLowerCase().trim();
   <div class="fila"><span class="chp ${v[1]==="DOLOR"?"":"v"}">${esc(v[1])}</span><span class="chp">${esc(v[7])}</span></div>
   <ol class="esc">${v[5].map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
   <p class="note"><b>Qué grabar:</b> ${esc(v[6])}</p><p class="note">${esc(v[9])}</p>
-  <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
+  <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button><button class="btn sm ghost fhb" data-i="${i}">Fotos para Higgsfield</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
+  document.querySelectorAll(".fhb").forEach(b=>b.onclick=()=>fotosVideo(+b.dataset.i));
   document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:"+v[5].map((s,k)=>(k+1)+". "+s).join(NLX)+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
 }
 /* ---------- Qué funcionó ---------- */
