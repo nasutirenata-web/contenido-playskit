@@ -394,7 +394,7 @@ function rChat(){
 function chatDraw(){
   const b=$("#cbox");if(!b)return;
   b.innerHTML=chatMsgs.map((m,i)=>'<div class="msg '+(m.r==="yo"?"yo":"ia")+'"><small>'+(m.r==="yo"?"Vos":m.k||"Playskit")+'</small>'+esc(m.t)+(m.img?'<img src="'+esc(m.img)+'" alt="" style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px">':'')+(m.vid?'<video src="'+esc(m.vid)+'" controls playsinline style="display:block;margin-top:10px;max-width:260px;width:100%;border-radius:14px"></video>':'')+(m.slides?'<div class="lam">'+m.slides.map((u,k)=>'<figure><img src="'+u+'" alt="Lámina '+(k+1)+'"><button type="button" class="btn sm ghost" data-dl="'+i+':'+k+'">Descargar</button></figure>').join("")+'</div>':'')+(m.copy?'<div class="row2"><button class="btn sm" data-cp="'+i+'">Copiar</button></div>':'')+'</div>').join("");
-  b.querySelectorAll("[data-dl]").forEach(x=>x.onclick=async()=>{const [i,k]=x.dataset.dl.split(":").map(Number);const u=chatMsgs[i].slides[k];const bl=await (await fetch(u)).blob();saveBlob(bl,"playskit-lamina-"+(k+1)+".png")});
+  b.querySelectorAll("[data-dl]").forEach(x=>x.onclick=async()=>{const [i,k]=x.dataset.dl.split(":").map(Number);const u=chatMsgs[i].slides[k];const bl=await (await fetch(u)).blob();saveBlob("playskit-lamina-"+(k+1)+".png",bl)});
   b.querySelectorAll("[data-cp]").forEach(x=>x.onclick=async()=>{const m=chatMsgs[+x.dataset.cp];try{await navigator.clipboard.writeText(m.copy);x.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents(x.closest(".msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);x.textContent="Seleccionado: Ctrl+C"}});
   b.scrollTop=b.scrollHeight;
 }
@@ -598,9 +598,21 @@ async function fotoEscena(texto,k,total,vid){
   cx.fillStyle="rgba(255,255,255,.75)";cx.font="500 28px 'DM Mono',monospace";cx.textAlign="center";cx.fillText("ESCENA "+String(k+1).padStart(2,"0")+" / "+String(total).padStart(2,"0"),W/2,H-150);
   return c.toDataURL("image/png");
 }
+function briefVideo(i,prompts){
+  const v=VIDEOS[i],n=v[5].length,cod="playskit-video"+String(i+1).padStart(2,"0");
+  return "VIDEO "+String(i+1).padStart(2,"0")+": "+v[0]+NLX+"Gancho: "+v[2]+NLX+"Formato: "+v[3]+" · "+v[4]+NLX+"CTA final: Comentá "+v[7]+NLX+NLX
+   +"CÓMO ARMARLO EN HIGGSFIELD (cualquier cuenta)"+NLX
+   +"1. Entrá con la cuenta que tengas. Elegí un modelo de video económico: Kling 3.0 estándar, 3 segundos, sin sonido (cuesta unos 3,75 créditos por escena, salvo que cambie el precio). Con "+n+" escenas son unos "+(n*3.75).toFixed(2).replace(".",",")+" créditos."+NLX
+   +"2. Por cada escena: subí la foto como imagen inicial (start image) y pegá el prompt de abajo. Formato vertical 9:16."+NLX
+   +"3. Bajá los clips y juntalos en orden en CapCut o en Instagram. Agregá el texto en pantalla y la música desde ahí, no en Higgsfield."+NLX
+   +"4. Si querés gastar lo mínimo: probá primero con una sola escena, o armá el video con las fotos y un zoom lento en CapCut, que es gratis."+NLX+NLX
+   +"ESCENAS"+NLX+NLX
+   +v[5].map((s,k)=>"Escena "+(k+1)+" · foto: "+cod+"-escena"+(k+1)+".png"+NLX+"Qué pasa: "+s+NLX+"Texto en pantalla sugerido: "+s.replace(/^Texto final: /,"")+NLX+"Prompt para Higgsfield: "+prompts[k]).join(NLX+NLX)
+   +NLX+NLX+"QUÉ GRABAR / MATERIAL EXTRA: "+v[6]+NLX+"Estilo: cromado multicolor (violeta, turquesa y rosa), de la marca Playskit. Sin personas reales ni texto dentro de la imagen.";
+}
 async function fotosVideo(i){
   const v=VIDEOS[i];
-  const ov=document.createElement("div");ov.className="fhov";ov.innerHTML='<div class="fhbox"><h3>Fotos para Higgsfield · '+esc(v[0])+'</h3><p class="note">Una foto de arranque por escena, sin texto. Subila a Higgsfield como imagen inicial y pegá el prompt de movimiento.</p><div class="fhg" id="fhg">Armando las fotos…</div><div class="row2" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="fh-all">Descargar todas</button><button class="btn ghost" id="fh-x">Cerrar</button></div></div>';
+  const ov=document.createElement("div");ov.className="fhov";ov.innerHTML='<div class="fhbox"><h3>Fotos para Higgsfield · '+esc(v[0])+'</h3><p class="note">Cada escena trae su foto de arranque (sin texto) y su prompt. El brief completo explica cómo armarlo en cualquier cuenta de Higgsfield, también con la gratis. Más baratos: una sola escena de prueba, o un zoom lento en CapCut.</p><div class="fhg" id="fhg">Armando las fotos…</div><div class="row2" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="fh-zip">Descargar paquete (zip)</button><button class="btn ghost" id="fh-brief">Copiar brief completo</button><button class="btn ghost" id="fh-all">Descargar solo las fotos</button><button class="btn ghost" id="fh-x">Cerrar</button></div></div>';
   document.body.appendChild(ov);
   const cerrar=()=>ov.remove();ov.querySelector("#fh-x").onclick=cerrar;ov.onclick=e=>{if(e.target===ov)cerrar()};
   const imgs=[],prompts=[];
@@ -609,9 +621,11 @@ async function fotosVideo(i){
     prompts.push("Vertical 9:16, 3 a 5 segundos. Animá esta imagen: "+v[5][k]+". Movimiento de cámara lento hacia adelante, destellos cromados, luz violeta, turquesa y rosa, objetos de vidrio que brillan. Sin texto, sin logos, sin personas reales.");
   }
   ov.querySelector("#fhg").innerHTML=imgs.map((u,k)=>'<figure><img src="'+u+'" alt="Escena '+(k+1)+'"><figcaption><b>Escena '+(k+1)+':</b> '+esc(v[5][k])+'</figcaption><div class="row2"><button class="btn sm ghost" data-d="'+k+'">Descargar foto</button><button class="btn sm" data-p="'+k+'">Copiar prompt</button></div></figure>').join("");
-  const bajar=async(k)=>{const bl=await (await fetch(imgs[k])).blob();saveBlob(bl,"playskit-video"+String(i+1).padStart(2,"0")+"-escena"+(k+1)+".png")};
+  const bajar=async(k)=>{const bl=await (await fetch(imgs[k])).blob();saveBlob("playskit-video"+String(i+1).padStart(2,"0")+"-escena"+(k+1)+".png",bl)};
   ov.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>bajar(+b.dataset.d));
   ov.querySelectorAll("[data-p]").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(prompts[+b.dataset.p]);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar prompt"},1800)});
+  ov.querySelector("#fh-brief").onclick=async function(){try{await navigator.clipboard.writeText(briefVideo(i,prompts));this.textContent="✓ Brief copiado"}catch(e){this.textContent="No se pudo copiar"}setTimeout(()=>{this.textContent="Copiar brief completo"},1800)};
+  ov.querySelector("#fh-zip").onclick=async function(){if(typeof JSZip==="undefined"){this.textContent="No cargó el compresor";return}const z=new JSZip(),cod="playskit-video"+String(i+1).padStart(2,"0");z.file(cod+"-brief.txt",briefVideo(i,prompts));imgs.forEach((u,k)=>z.file(cod+"-escena"+(k+1)+".png",u.split(",")[1],{base64:true}));this.textContent="Armando el zip…";const bl=await z.generateAsync({type:"blob"});await saveBlob(cod+".zip",bl);this.textContent="Descargar paquete (zip)"};
   ov.querySelector("#fh-all").onclick=async()=>{for(let k=0;k<imgs.length;k++){await bajar(k);await new Promise(r=>setTimeout(r,400))}};
 }
 
