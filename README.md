@@ -1,5 +1,5 @@
 # Playskit · Calendario de contenido
 
-Calendario de contenido de Playskit (26/10 al 26/11/2026). Web: https://nasutirenata-web.github.io/contenido-playskit/
+Edición del 16/11 al 26/12/2026. [Abrir calendario](https://nasutirenata-web.github.io/contenido-playskit/).
 
-Los tildes de "subida" se guardan solo en tu navegador. El código fuente está en el repo privado `playskit-contenido`.
+Los tildes de publicación se guardan en el navegador. Las ideas de esta edición están en calendario-nov-dic.js.
