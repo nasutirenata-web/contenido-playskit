@@ -346,6 +346,13 @@ html[data-fondo=negro]{--gl:#0d0b09;--glb:#1a1612;--gls:0 12px 30px -14px rgba(0
 .blk .chp{white-space:normal;max-width:100%;overflow-wrap:anywhere}
 .ref-link{color:var(--cy);overflow-wrap:anywhere}
 @media(max-width:620px){.strip .sl.asset{width:min(70vw,300px);flex-basis:min(70vw,300px)}.mobile-brand{display:block;width:44px;height:44px;border-radius:8px;object-fit:cover;align-self:center}}
+.extra{margin-top:36px;scroll-margin-top:18px}
+.extra-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.extra-idea summary{cursor:pointer;list-style-position:inside}
+.extra-idea summary b{display:block;font-size:17px;margin-top:4px}
+.extra-idea p{margin:12px 0}
+.extra-link{text-decoration:none;white-space:nowrap}
+@media(max-width:620px){.extra-list{grid-template-columns:minmax(0,1fr)}}
 </style>
 <div class="app">
 <aside><div class="brand"><img src="playskit-estrella.jpg" alt="Playskit"><span>Calendario de contenido</span></div><div id="side"></div><div class="sp"></div><div class="fondos" id="fondos" role="group" aria-label="Color de fondo"></div><div class="who" id="who">solo lectura</div></aside>
@@ -727,6 +734,90 @@ $("#hoy").onclick=()=>{sel=today>=START&&today<=END?today:START;tab="cal";show()
 let fk="Todos",fday="Todos",allWeeks=false;
 const HORA={v:"19:00",p:"12:00",h:"10:00 y 20:00"};
 function weeksList(){const out=[];let m=mondayOf(START);const end=dt(END);while(m<=end){const s=iso(m);const e=new Date(m);e.setDate(e.getDate()+5);out.push([s,iso(e)]);m=new Date(m);m.setDate(m.getDate()+7)}return out}
+const IDEAS_EXTRA=[
+  [
+    "DJs principiantes",
+    "Reel",
+    "El video de mi primera fecha tenía todo menos mi mezcla",
+    "Decepción cuando tu único recuerdo de la noche es un clip donde no se escucha lo que hiciste.",
+    "Abrí con un clip propio real o recreado que corta antes de la transición. Volvé al ensayo y grabá 20 segundos de audio con el mismo cruce. Cerrá alternando el clip y la mezcla que querías mostrar.",
+    "¿Qué segundo de tu set te hubiera gustado que alguien grabe?"
+  ],
+  [
+    "DJs principiantes",
+    "Carrusel",
+    "En el grupo dijeron «cerramos el line-up» y nunca me enteré",
+    "Sentir que siempre llegás cuando el cartel ya está armado.",
+    "Placa 1: notificación ficticia de line-up cerrado. Placa 2: mirá qué ciclos programan tu sonido. Placa 3: elegí uno al que de verdad irías. Placa 4: anotá qué artista abrió y qué tipo de set hizo. Placa 5: prepará un set que muestre cómo abrirías vos esa noche.",
+    "¿Qué ciclo te gustaría abrir y con qué tema?"
+  ],
+  [
+    "DJs principiantes",
+    "Reel",
+    "Subí a la cabina y el sonido venía de atrás",
+    "Pánico cuando algo que hacías con los ojos cerrados en casa se siente distinto en un lugar nuevo.",
+    "Grabá el mismo empalme con el sonido ambiente y después con la escucha en auriculares. Usá el cambio de audio como remate. Mostrá la pregunta que harías al técnico antes de arrancar: «¿Me mostrás el control del monitor de cabina?».",
+    "¿Qué fue lo primero que te sorprendió del sonido en una cabina?",
+    "https://blog.pioneerdj.com/djtips/9-common-dj-issues-and-how-to-deal-with-them/",
+    "Pioneer DJ · problemas comunes en cabina"
+  ],
+  [
+    "DJs principiantes",
+    "Historias",
+    "El tema que sacaste porque te daba vergüenza ponerlo",
+    "Inseguridad por llevar un track que revela demasiado de tu gusto.",
+    "Historia 1: dos temas representados por sus fundas, uno seguro y otro que te encanta. Historia 2: votación sobre cuál llevarías. Historia 3: contá dónde sí pondrías ese tema y qué lo hace especial para vos.",
+    "Caja: ¿Qué tema te encanta pero todavía no te animás a tocar?"
+  ],
+  [
+    "DJs principiantes",
+    "Carrusel",
+    "La primera vez que el nombre del flyer era el tuyo",
+    "Mezcla de orgullo y miedo cuando la fecha deja de ser una idea.",
+    "Usá un flyer propio o autorizado. En cada placa, revelá una parte: nombre, horario y lugar. Sumá un recuerdo verificable que puedas contar de ese momento. La última placa deja una pregunta para quienes todavía esperan su primer flyer.",
+    "Si tu primera fecha fuera el sábado, ¿a quién le mandarías el flyer primero?"
+  ],
+  [
+    "Productores",
+    "Carrusel",
+    "El sello que pide dos tracks cuando vos tenés uno",
+    "Frustración después de encontrar un catálogo que encaja y topar con un requisito que cambia el envío.",
+    "Abrí con «Tengo el track. El formulario pide dos». Mostrá el caso real de Elektrax como ejemplo específico. En las siguientes placas, planteá dos decisiones: encontrar un segundo track que acompañe al primero o buscar un sello cuyas reglas se adapten a ese lanzamiento.",
+    "Comentá SELLOS y te paso una muestra del directorio por género.",
+    "https://www.elektraxmusic.com/demos/",
+    "Elektrax Music · condiciones oficiales de demos"
+  ],
+  [
+    "Productores",
+    "Carrusel",
+    "¿Cuál de estos dos temas abriría tu EP?",
+    "Parálisis cuando tenés dos demos terminadas y no sabés cuál representa mejor el proyecto.",
+    "Armá dos portadas A/B con tracks propios. Describilos con el rol que cumplirían en pista. En una placa, mostrá cómo cambiaría tu elección si pensás en un catálogo centrado en grooves largos o en tracks de hora pico.",
+    "Votá A o B. Si querés explorar sellos para tu sonido, comentá SELLOS."
+  ],
+  [
+    "Productores",
+    "Reel",
+    "Te dijeron «guardámelo» y cinco meses después sigue guardado",
+    "Ilusión al recibir interés y frustración cuando no hay un próximo paso claro.",
+    "Recreá una charla ficticia marcada como ejemplo. Mostrá el cambio de calendario y el archivo con el mismo nombre. Cerrá con una frase para pedir claridad: «¿Seguís pensando en el track para un lanzamiento? ¿Tenés una fecha estimada para decidirlo?».",
+    "¿Qué preguntarías para saber si ese intercambio sigue abierto?"
+  ]
+];
+function ideasExtra(){
+  return `<section class="extra" id="ideas-extra" aria-labelledby="extra-title">
+    <h2 class="s" id="extra-title">Ideas nuevas para probar</h2>
+    <p class="note">Ideas sin fecha para cuando quieras cambiar una publicación de la semana.</p>
+    <div class="extra-list">${IDEAS_EXTRA.map(([tema,formato,titulo,dolor,ejecucion,cta,url,fuente])=>`
+      <details class="card extra-idea">
+        <summary><span class="note">${esc(tema)} · ${esc(formato)}</span><b>${esc(titulo)}</b></summary>
+        <p><strong>Qué le pasa a tu público</strong><br>${esc(dolor)}</p>
+        <p><strong>Cómo hacerlo</strong><br>${esc(ejecucion)}</p>
+        <p><strong>Cierre</strong><br>${esc(cta)}</p>
+        ${url?`<a class="ref-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(fuente)}</a>`:""}
+      </details>`).join("")}</div>
+  </section>`;
+}
 function rCal(){
   const mon=mondayOf(sel),ms=iso(mon),W=weeksList(),days=[...Array(6)].map((_,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);return iso(d)});
   const wk=days.flatMap(ofDay),tt=vis().filter(done).length,narrow=innerWidth<620;
@@ -741,11 +832,11 @@ function rCal(){
   <div class="nums">${days.map(d=>{const x=dt(d),out=d<START||d>END,n=ofDay(d).filter(done).length,tot=ofDay(d).length;return `<button class="dn ${out?"out":""} ${d===today?"hoy":""} ${tot&&n===tot?"all":""}" data-d="${d}" aria-label="Abrir ${x.getDate()}"><i>${x.getDate()}</i></button>`}).join("")}</div>
   <div class="nms">${days.map((d,i)=>`<button class="dm ${d===today?"hoy":""}" data-d="${d}">${narrow?DS[i]:DN[i]}</button>`).join("")}</div></div>
   <div class="barra"><div><h2 class="s" style="margin:0">${allWeeks?"Todas las ideas":`Semana del ${dt(days[0]).getDate()}/${dt(days[0]).getMonth()+1} al ${dt(days[5]).getDate()}/${dt(days[5]).getMonth()+1}`}</h2><div class="note">${wk.filter(done).length} de ${wk.length} subidas · ${tt} de ${vis().length} en total</div></div>
-   <div class="acciones"><button class="btn ghost" id="all-weeks" aria-pressed="${allWeeks}">${allWeeks?"Volver a la semana":"Ver todas las ideas"}</button><button class="btn" id="zipw">Descargar la semana (zip)</button><button class="btn ghost" id="zipa">Descargar todo (zip)</button></div></div>
+   <div class="acciones"><a class="btn ghost extra-link" href="#ideas-extra">Ideas nuevas</a><button class="btn ghost" id="all-weeks" aria-pressed="${allWeeks}">${allWeeks?"Volver a la semana":"Ver todas las ideas"}</button><button class="btn" id="zipw">Descargar la semana (zip)</button><button class="btn ghost" id="zipa">Descargar todo (zip)</button></div></div>
   <div class="chips" id="fd" ${allWeeks?"hidden":""} role="group" aria-label="Día"><button class="chip" data-fd="Todos" aria-pressed="${fday==="Todos"}">Todos los días</button>${days.map((d,i)=>`<button class="chip" data-fd="${d}" aria-pressed="${fday===d}">${DS[i]} ${dt(d).getDate()}</button>`).join("")}</div>
   <div class="chips" id="fk" role="group" aria-label="Tipo">${["Todos","Video","Publicación","Historias"].map(k=>`<button class="chip" data-fk="${k}" aria-pressed="${fk===k}">${k==="Todos"?"Todos los tipos":k+" ("+(k==="Video"?cnt("v"):k==="Historias"?cnt("h"):cnt("p"))+")"}</button>`).join("")}</div>
   <div class="pgrid">${list.map(pcard).join("")||'<div class="empty">No hay contenido con ese filtro.</div>'}</div>
-  <div id="msg" class="note" role="status" aria-live="polite"></div>`;
+  <div id="msg" class="note" role="status" aria-live="polite"></div>${ideasExtra()}`;
   $("#all-weeks").onclick=()=>{allWeeks=!allWeeks;fday="Todos";rCal()};
   document.querySelectorAll(".dn,.dm").forEach(b=>b.onclick=()=>openDay(b.dataset.d));
   document.querySelectorAll(".wt").forEach(b=>b.onclick=()=>{sel=b.dataset.w;allWeeks=false;fday="Todos";rCal()});
