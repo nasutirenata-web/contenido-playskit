@@ -7,43 +7,44 @@ const SNAP_POSTS = [
     "formato": "Carrusel",
     "tema": "Productores y sellos",
     "titulo": "El mail que terminó en booking",
-    "hook": "Tu demo llegó. El problema es a quién.",
-    "ht": "Tu demo llegó. El problema es a quién.",
-    "hvis": "Mostrá una bandeja ficticia con un correo marcado BOOKING.",
-    "guion": "Placa 2 · ASUNTO: Nueva demo\nDESTINO: Booking\nPlaca 3 · Buscá estas palabras en los canales del sello: «Demos», «Submit» o «Demo policy».\nPlaca 4 · ¿Dice «closed»? Guardá el nombre y seguí. ¿Hay un formulario oficial activo? Mandala por ahí.\nCierre · Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
+    "hook": "A, B o C: ¿dónde mandás tu demo?",
+    "ht": "A, B o C: ¿dónde mandás tu demo?",
+    "hvis": "Tres botones de una bandeja ficticia: Booking, Prensa y Demos.",
+    "guion": "Portada · A, B o C: ¿dónde mandás tu demo?\nElegí antes de deslizar · A · Booking\nB · Prensa\nC · Demos\nRespuesta · C. Ahora viene lo difícil: el sitio solo muestra Booking y Prensa.\nAbrí estas pestañas · Bio del sello → web oficial → buscá «nombre del sello + demo submission». Verificá que siga abierto.\nCierre · ¿Querés encontrar sellos de tu género? Comentá SELLOS y te paso una página de muestra.",
     "cta": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
     "estado": "pendiente",
     "ebook": true,
-    "ref": "",
-    "caption": "Tu demo llegó. El problema es a quién.\n\nBuscá estas palabras en los canales del sello: «Demos», «Submit» o «Demo policy».\n\nComentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
+    "ref": "https://www.elektraxmusic.com/demos/",
+    "caption": "Tres contactos, una demo. ¿Dónde la mandarías?\n\nCuando el canal no aparece a primera vista, revisá la bio y la web oficial del sello.\n\nComentá SELLOS para ver una página de muestra del directorio por género.",
     "slides": [
       {
         "label": "Portada",
-        "text": "Tu demo llegó. El problema es a quién.",
-        "image": "edicion-nov-dic/2026-11-16-01.jpg"
+        "text": "A, B o C: ¿dónde mandás tu demo?",
+        "image": "visuales-oro/nov-dic-26-2026-11-16-p-01.jpg"
       },
       {
-        "label": "Placa 2",
-        "text": "ASUNTO: Nueva demo\nDESTINO: Booking",
-        "image": "edicion-nov-dic/2026-11-16-02.jpg"
+        "label": "Elegí antes de deslizar",
+        "text": "A · Booking\nB · Prensa\nC · Demos",
+        "image": "visuales-oro/nov-dic-26-2026-11-16-p-02.jpg"
       },
       {
-        "label": "Placa 3",
-        "text": "Buscá estas palabras en los canales del sello: «Demos», «Submit» o «Demo policy».",
-        "image": "edicion-nov-dic/2026-11-16-03.jpg"
+        "label": "Respuesta",
+        "text": "C. Ahora viene lo difícil: el sitio solo muestra Booking y Prensa.",
+        "image": "visuales-oro/nov-dic-26-2026-11-16-p-03.jpg"
       },
       {
-        "label": "Placa 4",
-        "text": "¿Dice «closed»? Guardá el nombre y seguí. ¿Hay un formulario oficial activo? Mandala por ahí.",
-        "image": "edicion-nov-dic/2026-11-16-04.jpg"
+        "label": "Abrí estas pestañas",
+        "text": "Bio del sello → web oficial → buscá «nombre del sello + demo submission». Verificá que siga abierto.",
+        "image": "visuales-oro/nov-dic-26-2026-11-16-p-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-11-16-05.jpg"
+        "text": "¿Querés encontrar sellos de tu género? Comentá SELLOS y te paso una página de muestra.",
+        "image": "visuales-oro/nov-dic-26-2026-11-16-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-16-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-16-p-01.jpg",
+    "refLabel": "Ejemplo de una página oficial de demos"
   },
   {
     "id": "nov-dic-26-2026-11-17-v",
@@ -66,30 +67,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Me sale hasta que aprieto grabar.",
-        "image": "edicion-nov-dic/2026-11-17-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-17-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Plano fijo. Repetís la misma transición en casa y cada vez frenás al ver la luz roja.",
-        "image": "edicion-nov-dic/2026-11-17-02.jpg"
+        "text": "Otra vez los mismos ocho compases.",
+        "image": "visuales-oro/nov-dic-26-2026-11-17-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Dejá correr la próxima toma diez minutos, aunque haya un error.",
-        "image": "edicion-nov-dic/2026-11-17-03.jpg"
+        "text": "Esta vez dejé correr la toma.",
+        "image": "visuales-oro/nov-dic-26-2026-11-17-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Escuchá después solo el punto donde entraste antes de tiempo. Mostrá el antes y la siguiente toma.",
-        "image": "edicion-nov-dic/2026-11-17-04.jpg"
+        "text": "Volví solo al segundo donde me apuré.",
+        "image": "visuales-oro/nov-dic-26-2026-11-17-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-11-17-05.jpg"
+        "text": "¿A vos también te cambia todo el botón REC?",
+        "image": "visuales-oro/nov-dic-26-2026-11-17-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-17-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-17-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-11-17-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-11-18-h",
@@ -112,30 +114,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Te acordás quién bailó primero con un tema tuyo?",
-        "image": "edicion-nov-dic/2026-11-18-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-18-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "¿Te acordás de la primera persona que bailó con un tema tuyo?",
-        "image": "edicion-nov-dic/2026-11-18-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-18-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Te acordás? · Sí / Todavía lo espero",
-        "image": "edicion-nov-dic/2026-11-18-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-18-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "¿Qué tema estaba sonando?",
-        "image": "edicion-nov-dic/2026-11-18-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-18-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-11-18-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-18-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-18-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-18-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-19-p",
@@ -158,30 +160,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "«Avisame cuando toques». ¿Y si todavía no tocaste?",
-        "image": "edicion-nov-dic/2026-11-19-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-19-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "«Avisame cuando toques».\nY vos: borrador sin enviar.",
-        "image": "edicion-nov-dic/2026-11-19-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-19-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "«Estoy armando mis primeros sets. Subí uno de 25 minutos; arrancá en el 8:40».",
-        "image": "edicion-nov-dic/2026-11-19-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-19-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Completá el tuyo: estilo + link + el minuto que mejor muestra cómo mezclás.",
-        "image": "edicion-nov-dic/2026-11-19-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-19-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-11-19-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-19-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-19-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-19-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-20-v",
@@ -204,30 +206,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "A vos te anda. Al sello le pide acceso.",
-        "image": "edicion-nov-dic/2026-11-20-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-20-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Pantalla partida: abrís el mismo enlace en tu sesión normal y en incógnito.",
-        "image": "edicion-nov-dic/2026-11-20-02.jpg"
+        "text": "Sesión normal: se reproduce.",
+        "image": "visuales-oro/nov-dic-26-2026-11-20-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Mostrá el pedido de acceso usando un link de prueba propio.",
-        "image": "edicion-nov-dic/2026-11-20-03.jpg"
+        "text": "Incógnito: «Solicitar acceso».",
+        "image": "visuales-oro/nov-dic-26-2026-11-20-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Corregí los permisos y abrilo de nuevo desde incógnito antes de pegarlo en la demo.",
-        "image": "edicion-nov-dic/2026-11-20-04.jpg"
+        "text": "Probá el link fuera de tu cuenta.",
+        "image": "visuales-oro/nov-dic-26-2026-11-20-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-11-20-05.jpg"
+        "text": "Comentá SELLOS para ver una ficha de muestra.",
+        "image": "visuales-oro/nov-dic-26-2026-11-20-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-20-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-20-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-11-20-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-11-21-p",
@@ -250,30 +253,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Así quedó dibujada la cabina de Faustino.",
-        "image": "edicion-nov-dic/2026-11-21-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-21-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "¿Qué va justo delante del DJ?",
-        "image": "edicion-nov-dic/2026-11-21-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-21-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "En la web de Faustino, el equipo aparece en un dibujo y en una lista.",
-        "image": "edicion-nov-dic/2026-11-21-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-21-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Producción puede consultar el mixer, los reproductores y el monitoreo desde el celular.",
-        "image": "edicion-nov-dic/2026-11-21-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-21-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá WEB y te muestro cómo queda un presskit con tu música y tu material.",
-        "image": "edicion-nov-dic/2026-11-21-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-21-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-21-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-21-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-23-v",
@@ -296,30 +299,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Qué track llevás por si te ganan los nervios?",
-        "image": "edicion-nov-dic/2026-11-23-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-23-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Plano detalle de la mano sobre la perilla. Dudás entre tres temas.",
-        "image": "edicion-nov-dic/2026-11-23-02.jpg"
+        "text": "Tengo tres tracks. La mano no se mueve.",
+        "image": "visuales-oro/nov-dic-26-2026-11-23-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Elegí uno que conozcas de memoria y que puedas mezclar cómodo con el que está sonando.",
-        "image": "edicion-nov-dic/2026-11-23-03.jpg"
+        "text": "Elijo el que conozco de memoria.",
+        "image": "visuales-oro/nov-dic-26-2026-11-23-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Mostrá en audio propio o autorizado el momento exacto en que harías la entrada.",
-        "image": "edicion-nov-dic/2026-11-23-04.jpg"
+        "text": "Escuchá dónde entra el segundo tema.",
+        "image": "visuales-oro/nov-dic-26-2026-11-23-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-11-23-05.jpg"
+        "text": "¿Cuál es tu track de confianza?",
+        "image": "visuales-oro/nov-dic-26-2026-11-23-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-23-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-23-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-11-23-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-11-24-p",
@@ -342,30 +346,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Te encanta su catálogo de 2019. ¿Y el de ahora?",
-        "image": "edicion-nov-dic/2026-11-24-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-24-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Pestaña 1: el disco que amabas en 2019.",
-        "image": "edicion-nov-dic/2026-11-24-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-24-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Pestaña 2: los tres lanzamientos más recientes del sello.",
-        "image": "edicion-nov-dic/2026-11-24-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-24-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "¿Lo que te gustaba del sello sigue ahí? Escuchá si tu track comparte groove, energía o textura con su sonido actual.",
-        "image": "edicion-nov-dic/2026-11-24-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-24-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-11-24-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-24-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-24-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-24-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-25-h",
@@ -388,30 +392,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Qué ponés cuando te hacen señas para el último tema?",
-        "image": "edicion-nov-dic/2026-11-25-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-25-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "Te hacen señas: queda un tema.",
-        "image": "edicion-nov-dic/2026-11-25-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-25-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Cerrás arriba o bajás la intensidad?",
-        "image": "edicion-nov-dic/2026-11-25-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-25-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "Dejá el nombre del último track que pondrías.",
-        "image": "edicion-nov-dic/2026-11-25-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-25-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-11-25-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-25-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-25-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-25-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-26-v",
@@ -434,30 +438,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "En la web de Faustino puse play antes de seguir leyendo.",
-        "image": "edicion-nov-dic/2026-11-26-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-26-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Grabá la portada y entrá al reproductor real de Faustino.",
-        "image": "edicion-nov-dic/2026-11-26-02.jpg"
+        "text": "Entrá por el set.",
+        "image": "visuales-oro/nov-dic-26-2026-11-26-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Pasá por las pestañas de temas propios, remixes y sets si están visibles en la versión publicada.",
-        "image": "edicion-nov-dic/2026-11-26-03.jpg"
+        "text": "Temas propios, remixes y sets.",
+        "image": "visuales-oro/nov-dic-26-2026-11-26-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Cerrá mostrando cómo volver al track que te interesó.",
-        "image": "edicion-nov-dic/2026-11-26-04.jpg"
+        "text": "Volvé a lo que querés escuchar.",
+        "image": "visuales-oro/nov-dic-26-2026-11-26-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Comentá WEB y te muestro cómo queda un presskit con tu música y tu material.",
-        "image": "edicion-nov-dic/2026-11-26-05.jpg"
+        "text": "Faustino Larroucau · web por Playskit.",
+        "image": "visuales-oro/nov-dic-26-2026-11-26-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-26-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-26-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-11-26-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-11-27-p",
@@ -480,30 +485,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Te lo pide mirándote a los ojos. ¿Y ahora?",
-        "image": "edicion-nov-dic/2026-11-27-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-27-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "«Poné esta. A vos te va a salir mezclarla».",
-        "image": "edicion-nov-dic/2026-11-27-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-27-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "¿Va con lo que está sonando? Guardala para cuando tengas una entrada que funcione.",
-        "image": "edicion-nov-dic/2026-11-27-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-27-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Podés decir «la guardo para más tarde» o «hoy estoy tocando otra onda». Una frase alcanza.",
-        "image": "edicion-nov-dic/2026-11-27-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-27-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-11-27-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-27-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-27-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-27-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-28-h",
@@ -526,30 +531,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "El WAV está. Falta decidir a quién se lo mandás.",
-        "image": "edicion-nov-dic/2026-11-28-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-28-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "¿Qué tenés listo para tu próximo envío?",
-        "image": "edicion-nov-dic/2026-11-28-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-28-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "Encuesta · Tengo el track / Tengo el sello",
-        "image": "edicion-nov-dic/2026-11-28-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-28-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "¿Qué género producís? Respondé SELLOS y te paso una muestra.",
-        "image": "edicion-nov-dic/2026-11-28-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-28-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Respondé esta historia con tu género y SELLOS.",
-        "image": "edicion-nov-dic/2026-11-28-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-28-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-28-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-28-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-11-30-p",
@@ -572,30 +577,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Quedan dos minutos y el próximo DJ recién llegó.",
-        "image": "edicion-nov-dic/2026-11-30-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-30-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "El próximo DJ ya está al lado tuyo. ¿Qué necesita saber?",
-        "image": "edicion-nov-dic/2026-11-30-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-30-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "«Estoy en 124. Te dejo correr este tema y salgo por este canal».",
-        "image": "edicion-nov-dic/2026-11-30-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-30-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Preguntá «¿Ya lo tenés?». Esperá el OK antes de tocar el último fader.",
-        "image": "edicion-nov-dic/2026-11-30-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-30-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-11-30-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-11-30-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-11-30-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-11-30-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-01-v",
@@ -618,30 +623,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Publicarías tu track al lado de estos tres discos?",
-        "image": "edicion-nov-dic/2026-12-01-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-01-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Abrí tres lanzamientos recientes de un sello. Mostrá fecha y portada desde la fuente oficial.",
-        "image": "edicion-nov-dic/2026-12-01-02.jpg"
+        "text": "Tres lanzamientos del mismo sello.",
+        "image": "visuales-oro/nov-dic-26-2026-12-01-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Pausá en un detalle que se repite. Puede ser el tempo, cómo entra el bajo o la función del track en pista.",
-        "image": "edicion-nov-dic/2026-12-01-03.jpg"
+        "text": "Escuchá qué se repite en los tres.",
+        "image": "visuales-oro/nov-dic-26-2026-12-01-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Probá ubicar tu demo en ese conjunto sin forzar la comparación.",
-        "image": "edicion-nov-dic/2026-12-01-04.jpg"
+        "text": "¿Dónde entraría tu track?",
+        "image": "visuales-oro/nov-dic-26-2026-12-01-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-01-05.jpg"
+        "text": "Comentá SELLOS para ver una muestra por género.",
+        "image": "visuales-oro/nov-dic-26-2026-12-01-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-01-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-01-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-01-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-02-h",
@@ -664,30 +670,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Cómo le pusiste a tu primer USB de DJ?",
-        "image": "edicion-nov-dic/2026-12-02-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-02-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "Mi primer USB se llamaba __________",
-        "image": "edicion-nov-dic/2026-12-02-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-02-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Ordenás por género o por momento de la noche?",
-        "image": "edicion-nov-dic/2026-12-02-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-02-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "Mostrame el nombre de tu carpeta más rara.",
-        "image": "edicion-nov-dic/2026-12-02-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-02-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-12-02-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-02-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-02-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-02-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-03-p",
@@ -710,30 +716,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "«¿Me mandás una horizontal? El flyer sale hoy».",
-        "image": "edicion-nov-dic/2026-12-03-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-03-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "23:08 · «¿Me mandás una foto horizontal? El flyer sale hoy».",
-        "image": "edicion-nov-dic/2026-12-03-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-03-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "En la web de Faustino, producción encuentra fotos y logo en la misma sección.",
-        "image": "edicion-nov-dic/2026-12-03-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-03-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Probá tu material desde un celu: ¿se abre la imagen? ¿se entiende cuál es la horizontal?",
-        "image": "edicion-nov-dic/2026-12-03-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-03-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá WEB y te muestro cómo queda un presskit con tu música y tu material.",
-        "image": "edicion-nov-dic/2026-12-03-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-03-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-03-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-03-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-04-v",
@@ -756,30 +762,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "La transición te salió. Te enteraste cuando dejaron de hablar.",
-        "image": "edicion-nov-dic/2026-12-04-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-04-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Grabá el mixer, dos amigos conversando y un plano de sus pies cuando entra el tema.",
-        "image": "edicion-nov-dic/2026-12-04-02.jpg"
+        "text": "Estaban hablando entre ellos.",
+        "image": "visuales-oro/nov-dic-26-2026-12-04-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Dejá que se escuche la transición sin voz. Usá un loop propio o autorizado.",
-        "image": "edicion-nov-dic/2026-12-04-03.jpg"
+        "text": "Entró el tema y miraron la cabina.",
+        "image": "visuales-oro/nov-dic-26-2026-12-04-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Cerrá con una mirada a la cabina. Texto final: «¿Te acordás de la primera vez?».",
-        "image": "edicion-nov-dic/2026-12-04-04.jpg"
+        "text": "Ese segundo me quedó grabado.",
+        "image": "visuales-oro/nov-dic-26-2026-12-04-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Cerrá con una mirada a la cabina. Texto final: «¿Te acordás de la primera vez?».",
-        "image": "edicion-nov-dic/2026-12-04-05.jpg"
+        "text": "¿Te acordás de la primera vez?",
+        "image": "visuales-oro/nov-dic-26-2026-12-04-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-04-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-04-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-04-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-05-p",
@@ -802,30 +809,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Tu lista de demos se parece a un cartel de festival.",
-        "image": "edicion-nov-dic/2026-12-05-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-05-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Si tu lista parece un cartel de festival, probá por la discografía de un artista.",
-        "image": "edicion-nov-dic/2026-12-05-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-05-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Buscá un EP suyo que te guste y fijate quién lo editó.",
-        "image": "edicion-nov-dic/2026-12-05-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-05-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Escuchá a otros dos artistas de ese sello. Si encontrás parentesco con tu track, revisá su canal de demos.",
-        "image": "edicion-nov-dic/2026-12-05-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-05-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-05-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-05-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-05-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-05-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-07-v",
@@ -848,30 +855,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Planeaste la hora entera. El tercer tema te cambió el plan.",
-        "image": "edicion-nov-dic/2026-12-07-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-07-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Mostrá una lista armada y resaltá el próximo tema.",
-        "image": "edicion-nov-dic/2026-12-07-02.jpg"
+        "text": "Tenía toda la hora armada.",
+        "image": "visuales-oro/nov-dic-26-2026-12-07-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Simulá una lectura de pista: seguís arriba o bajás un punto. Prepará dos transiciones cortas.",
-        "image": "edicion-nov-dic/2026-12-07-03.jpg"
+        "text": "Camino A: la pista pidió un poco más.",
+        "image": "visuales-oro/nov-dic-26-2026-12-07-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Reproducí ambos caminos con material propio y preguntá cuál elegirían.",
-        "image": "edicion-nov-dic/2026-12-07-04.jpg"
+        "text": "Camino B: bajo un cambio y vuelvo a subir.",
+        "image": "visuales-oro/nov-dic-26-2026-12-07-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-12-07-05.jpg"
+        "text": "¿A o B?",
+        "image": "visuales-oro/nov-dic-26-2026-12-07-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-07-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-07-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-07-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-08-p",
@@ -894,30 +902,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Mandaste el link el lunes. El viernes ya no abre.",
-        "image": "edicion-nov-dic/2026-12-08-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-08-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Lunes: demo enviada. Viernes: «Este enlace venció».",
-        "image": "edicion-nov-dic/2026-12-08-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-08-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Primero leé qué formato pide el sello. Cada canal tiene sus propias condiciones.",
-        "image": "edicion-nov-dic/2026-12-08-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-08-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Si te piden un link, probá en incógnito que permita reproducir y revisá cuándo vence.",
-        "image": "edicion-nov-dic/2026-12-08-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-08-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-08-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-08-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-08-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-08-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-09-h",
@@ -940,30 +948,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Qué te pone más nervioso de una primera cabina?",
-        "image": "edicion-nov-dic/2026-12-09-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-09-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "Ya falta poquito para tu primera cabina.",
-        "image": "edicion-nov-dic/2026-12-09-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-09-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Qué te pone más nervioso? · El equipo / Que alguien me mire",
-        "image": "edicion-nov-dic/2026-12-09-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-09-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "¿Qué te gustaría poder preguntar antes de tocar?",
-        "image": "edicion-nov-dic/2026-12-09-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-09-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-12-09-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-09-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-09-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-09-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-10-p",
@@ -986,30 +994,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "«¿Y cuánto cobrás?». El audio que grabaste seis veces.",
-        "image": "edicion-nov-dic/2026-12-10-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-10-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Antes de pasar precio, averiguá qué te están pidiendo.",
-        "image": "edicion-nov-dic/2026-12-10-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-10-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "«¿Me pasás horario, duración, lugar y equipo disponible?»",
-        "image": "edicion-nov-dic/2026-12-10-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-10-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Con eso podés calcular el traslado y el tiempo total, y responder con un presupuesto claro.",
-        "image": "edicion-nov-dic/2026-12-10-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-10-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-12-10-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-10-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-10-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-10-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-11-v",
@@ -1032,30 +1040,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Cómo se ve un presskit que ya tiene sonido propio?",
-        "image": "edicion-nov-dic/2026-12-11-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-11-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Mostrá tres detalles verificables de la web de Faustino: azul eléctrico, reproductor y cabina ilustrada.",
-        "image": "edicion-nov-dic/2026-12-11-02.jpg"
+        "text": "Azul, un reproductor propio y una cabina ilustrada.",
+        "image": "visuales-oro/nov-dic-26-2026-12-11-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Contá una decisión real que hayas tomado en el diseño y usá el sitio como demostración.",
-        "image": "edicion-nov-dic/2026-12-11-03.jpg"
+        "text": "El diseño empieza por cómo se presenta el artista.",
+        "image": "visuales-oro/nov-dic-26-2026-12-11-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Cerrá con el mismo detalle abierto en celular.",
-        "image": "edicion-nov-dic/2026-12-11-04.jpg"
+        "text": "Así se ve cuando abrís la web en el celu.",
+        "image": "visuales-oro/nov-dic-26-2026-12-11-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Cerrá con el mismo detalle abierto en celular.",
-        "image": "edicion-nov-dic/2026-12-11-05.jpg"
+        "text": "Faustino Larroucau · web por Playskit.",
+        "image": "visuales-oro/nov-dic-26-2026-12-11-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-11-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-11-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-11-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-12-p",
@@ -1078,30 +1087,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Tenés el track. Te trabaste en «Hola, somos…».",
-        "image": "edicion-nov-dic/2026-12-12-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-12-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "El detalle del lanzamiento que escuchaste alcanza para abrir el mail.",
-        "image": "edicion-nov-dic/2026-12-12-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-12-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "«Hola, soy [nombre]. Escuché [release] y me quedó el groove de [tema]. Les comparto [track]. Link privado: [link]».",
-        "image": "edicion-nov-dic/2026-12-12-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-12-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "¿El sello usa formulario? Seguí sus campos. ¿Usa mail? Ajustá el mensaje al catálogo donde querés entrar.",
-        "image": "edicion-nov-dic/2026-12-12-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-12-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-12-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-12-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-12-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-12-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-14-v",
@@ -1124,30 +1133,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "En 12 segundos podés ver cómo suena y qué lleva a cabina.",
-        "image": "edicion-nov-dic/2026-12-14-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-14-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Grabación real en vertical: portada, reproductor y rider ilustrado.",
-        "image": "edicion-nov-dic/2026-12-14-02.jpg"
+        "text": "01 · Portada",
+        "image": "visuales-oro/nov-dic-26-2026-12-14-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Dejá dos segundos para que cada sección se lea en un celular.",
-        "image": "edicion-nov-dic/2026-12-14-03.jpg"
+        "text": "02 · Temas y sets",
+        "image": "visuales-oro/nov-dic-26-2026-12-14-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Cerrá con el isologo nuevo de Playskit y el enlace a la web de Faustino.",
-        "image": "edicion-nov-dic/2026-12-14-04.jpg"
+        "text": "03 · Rider técnico",
+        "image": "visuales-oro/nov-dic-26-2026-12-14-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Cerrá con el isologo nuevo de Playskit y el enlace a la web de Faustino.",
-        "image": "edicion-nov-dic/2026-12-14-05.jpg"
+        "text": "Faustino Larroucau · web por Playskit.",
+        "image": "visuales-oro/nov-dic-26-2026-12-14-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-14-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-14-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-14-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-15-p",
@@ -1170,30 +1180,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Si abrís tu perfil con el celular de otro, ¿dónde tocás primero?",
-        "image": "edicion-nov-dic/2026-12-15-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-15-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Prestale tu perfil a alguien que nunca te escuchó.",
-        "image": "edicion-nov-dic/2026-12-15-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-15-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Preguntale «¿Dónde tocarías para escuchar un set mío entero?». Mirá qué hace.",
-        "image": "edicion-nov-dic/2026-12-15-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-15-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Si tiene que adivinar, elegí un set representativo y dejalo visible desde la bio.",
-        "image": "edicion-nov-dic/2026-12-15-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-15-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá WEB y te muestro cómo queda un presskit con tu música y tu material.",
-        "image": "edicion-nov-dic/2026-12-15-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-15-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-15-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-15-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-16-v",
@@ -1216,30 +1226,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Llegué por un remix. Me quedé por todo el catálogo.",
-        "image": "edicion-nov-dic/2026-12-16-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-16-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Abrí un tema que de verdad escuches y resaltá el crédito del sello.",
-        "image": "edicion-nov-dic/2026-12-16-02.jpg"
+        "text": "El remix que me hizo abrir el perfil.",
+        "image": "visuales-oro/nov-dic-26-2026-12-16-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Pasá por dos lanzamientos de otros artistas de ese catálogo.",
-        "image": "edicion-nov-dic/2026-12-16-03.jpg"
+        "text": "El sello que aparecía en los créditos.",
+        "image": "visuales-oro/nov-dic-26-2026-12-16-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Decí qué oído te hizo guardar el sello. Mostrá la vía de demo solo si es pública y vigente.",
-        "image": "edicion-nov-dic/2026-12-16-04.jpg"
+        "text": "Dos lanzamientos después, lo guardé.",
+        "image": "visuales-oro/nov-dic-26-2026-12-16-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-16-05.jpg"
+        "text": "Comentá SELLOS para explorar más catálogos.",
+        "image": "visuales-oro/nov-dic-26-2026-12-16-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-16-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-16-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-16-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-17-p",
@@ -1262,30 +1273,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Llevaste 80 tracks. Llegó el momento y no sabés cuál va primero.",
-        "image": "edicion-nov-dic/2026-12-17-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-17-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "ABRIR · Dos temas que te dejen espacio para mirar la pista.",
-        "image": "edicion-nov-dic/2026-12-17-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-17-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "LEVANTAR · Dos temas que cambien la energía sin saltarte el camino.",
-        "image": "edicion-nov-dic/2026-12-17-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-17-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "RECUPERAR · Dos temas que conozcas de memoria y puedas mezclar con confianza.",
-        "image": "edicion-nov-dic/2026-12-17-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-17-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-12-17-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-17-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-17-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-17-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-18-h",
@@ -1308,30 +1319,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Qué parte de tu track le harías escuchar primero a alguien?",
-        "image": "edicion-nov-dic/2026-12-18-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-18-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "Si tuvieras 30 segundos para pasar tu track, ¿qué parte mostrarías?",
-        "image": "edicion-nov-dic/2026-12-18-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-18-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿El groove del arranque o la entrada del bajo?",
-        "image": "edicion-nov-dic/2026-12-18-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-18-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "Dejá el minuto exacto donde querés que escuchemos.",
-        "image": "edicion-nov-dic/2026-12-18-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-18-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Respondé esta historia con tu género y SELLOS.",
-        "image": "edicion-nov-dic/2026-12-18-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-18-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-18-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-18-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-19-v",
@@ -1354,30 +1365,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Un tema. Dos entradas. ¿Cuál hacés si la pista viene arriba?",
-        "image": "edicion-nov-dic/2026-12-19-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-19-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Grabá una entrada suave y otra más rápida con el mismo par de tracks autorizados.",
-        "image": "edicion-nov-dic/2026-12-19-02.jpg"
+        "text": "Entrada A · Dejás convivir los dos grooves.",
+        "image": "visuales-oro/nov-dic-26-2026-12-19-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Subtitulá qué cambia: en qué frase entra el segundo y cuánto conviven.",
-        "image": "edicion-nov-dic/2026-12-19-03.jpg"
+        "text": "Entrada B · Cambiás la energía en una frase.",
+        "image": "visuales-oro/nov-dic-26-2026-12-19-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Invitá a elegir en comentarios según el ambiente.",
-        "image": "edicion-nov-dic/2026-12-19-04.jpg"
+        "text": "Mismos tracks. Dos decisiones.",
+        "image": "visuales-oro/nov-dic-26-2026-12-19-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-12-19-05.jpg"
+        "text": "¿Cuál harías con la pista arriba?",
+        "image": "visuales-oro/nov-dic-26-2026-12-19-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-19-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-19-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-19-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-21-p",
@@ -1400,30 +1412,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Buscaste el nombre del sello entre 80 chats y no te acordás.",
-        "image": "edicion-nov-dic/2026-12-21-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-21-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "DMs. Correos. Notas. El mismo sello aparece en tres lugares.",
-        "image": "edicion-nov-dic/2026-12-21-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-21-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "La ficha más chica que funciona: track · sello · canal · fecha · respuesta.",
-        "image": "edicion-nov-dic/2026-12-21-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-21-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Ejemplo ficticio: Vértigo · Sello A · formulario · 21/12 · pendiente.",
-        "image": "edicion-nov-dic/2026-12-21-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-21-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-21-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-21-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-21-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-21-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-22-v",
@@ -1446,30 +1458,31 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Tu primera foto en cabina salió movida. Igual la guardaste.",
-        "image": "edicion-nov-dic/2026-12-22-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-22-v-01.jpg"
       },
       {
         "label": "Escena 1",
-        "text": "Abrí una foto tuya o autorizada cuya historia sea real.",
-        "image": "edicion-nov-dic/2026-12-22-02.jpg"
+        "text": "Salió movida. La guardé igual.",
+        "image": "visuales-oro/nov-dic-26-2026-12-22-v-02.jpg"
       },
       {
         "label": "Escena 2",
-        "text": "Contá qué estaba pasando justo fuera del cuadro. Una sola frase y un detalle concreto.",
-        "image": "edicion-nov-dic/2026-12-22-03.jpg"
+        "text": "Fuera del cuadro estaba pasando todo.",
+        "image": "visuales-oro/nov-dic-26-2026-12-22-v-03.jpg"
       },
       {
         "label": "Escena 3",
-        "text": "Cerrá con el lugar o la fecha si tenés permiso para mostrarlo.",
-        "image": "edicion-nov-dic/2026-12-22-04.jpg"
+        "text": "Mi primera foto en cabina.",
+        "image": "visuales-oro/nov-dic-26-2026-12-22-v-04.jpg"
       },
       {
         "label": "Cierre",
-        "text": "Cerrá con el lugar o la fecha si tenés permiso para mostrarlo.",
-        "image": "edicion-nov-dic/2026-12-22-05.jpg"
+        "text": "¿Todavía tenés la tuya?",
+        "image": "visuales-oro/nov-dic-26-2026-12-22-v-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-22-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-22-v-01.jpg",
+    "video": "reels-oro/nov-dic-26-2026-12-22-v.mp4"
   },
   {
     "id": "nov-dic-26-2026-12-23-p",
@@ -1492,30 +1505,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Miraste todo el catálogo y la página dice «submissions closed».",
-        "image": "edicion-nov-dic/2026-12-23-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-23-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "«Demos cerradas». Guardá ese sello con una nota y la fecha de consulta.",
-        "image": "edicion-nov-dic/2026-12-23-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-23-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Elegí un artista del catálogo y revisá en qué otros sellos editó.",
-        "image": "edicion-nov-dic/2026-12-23-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-23-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Escuchá dos de esos catálogos y anotá cuáles tienen una vía oficial activa.",
-        "image": "edicion-nov-dic/2026-12-23-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-23-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Comentá SELLOS y te paso una página de muestra del directorio según lo que producís.",
-        "image": "edicion-nov-dic/2026-12-23-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-23-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-23-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-23-p-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-24-h",
@@ -1538,30 +1551,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "¿Qué sacaste del USB cuando cambió el ambiente?",
-        "image": "edicion-nov-dic/2026-12-24-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-24-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "La pista cambió. ¿Qué sacaste del USB?",
-        "image": "edicion-nov-dic/2026-12-24-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-24-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Volviste a algo conocido o cambiaste el pulso?",
-        "image": "edicion-nov-dic/2026-12-24-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-24-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "Dejá el track y contá en qué momento lo pusiste.",
-        "image": "edicion-nov-dic/2026-12-24-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-24-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-12-24-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-24-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-24-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-24-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-25-h",
@@ -1584,30 +1597,30 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "«Ya que sos DJ, poné algo». ¿Qué elegís primero?",
-        "image": "edicion-nov-dic/2026-12-25-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-25-h-01.jpg"
       },
       {
         "label": "Historia 1",
         "text": "En Navidad te dicen «Ya que sos DJ, poné algo».",
-        "image": "edicion-nov-dic/2026-12-25-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-25-h-02.jpg"
       },
       {
         "label": "Historia 2",
         "text": "¿Algo que todos conocen o un tema para empezar a levantar?",
-        "image": "edicion-nov-dic/2026-12-25-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-25-h-03.jpg"
       },
       {
         "label": "Historia 3",
         "text": "Dejá un tema que puedas poner con tres generaciones en la mesa.",
-        "image": "edicion-nov-dic/2026-12-25-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-25-h-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Dejá tu respuesta en la caja de la última historia.",
-        "image": "edicion-nov-dic/2026-12-25-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-25-h-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-25-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-25-h-01.jpg"
   },
   {
     "id": "nov-dic-26-2026-12-26-p",
@@ -1630,29 +1643,29 @@ const SNAP_POSTS = [
       {
         "label": "Portada",
         "text": "Si solo pudieras guardar una mezcla de este año, ¿cuál sería?",
-        "image": "edicion-nov-dic/2026-12-26-01.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-26-p-01.jpg"
       },
       {
         "label": "Placa 2",
         "text": "Buscá uno de los sets que grabaste este año.",
-        "image": "edicion-nov-dic/2026-12-26-02.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-26-p-02.jpg"
       },
       {
         "label": "Placa 3",
         "text": "Elegí el minuto donde más reconocés cómo mezclás hoy.",
-        "image": "edicion-nov-dic/2026-12-26-03.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-26-p-03.jpg"
       },
       {
         "label": "Placa 4",
         "text": "Para compartir: Mi set del año · Minuto ___ · Lo guardo porque ___.",
-        "image": "edicion-nov-dic/2026-12-26-04.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-26-p-04.jpg"
       },
       {
         "label": "Cierre",
         "text": "Contame qué harías vos en comentarios.",
-        "image": "edicion-nov-dic/2026-12-26-05.jpg"
+        "image": "visuales-oro/nov-dic-26-2026-12-26-p-05.jpg"
       }
     ],
-    "img": "edicion-nov-dic/2026-12-26-01.jpg"
+    "img": "visuales-oro/nov-dic-26-2026-12-26-p-01.jpg"
   }
 ];

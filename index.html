@@ -9,8 +9,8 @@
 <style>
 /* Layout: panel oscuro tipo dashboard. Barra lateral con iconos, línea de la semana (solo los días), tarjetas con degradé celeste, tabla de la semana. En celular la barra pasa abajo. */
 :root{
-  --bg:#0d0b09;--panel:#0d0b09;--panel2:#0d0b09;--line:#1a1612;--ink:#f3eadb;--muted:#86949b;
-  --cy:#c49a3e;--cy2:#8a6a24;--sky:#e5d2be;--paper:#f3eadb;--cardink:#0d0b09;--ok:#3ddc84;--warn:#f0b34a;
+  --bg:#0d0b09;--panel:#0d0b09;--panel2:#0d0b09;--line:#1a1612;--ink:#f3eadb;--muted:#c89f59;
+  --cy:#c49a3e;--cy2:#8a6a24;--sky:#e5d2be;--paper:#f3eadb;--cardink:#0d0b09;--ok:#c69b53;--warn:#f0b34a;
   --g1:linear-gradient(135deg,#1a1612 0%,#2b2419 55%,#8a6a24 100%);--g2:linear-gradient(135deg,#1a1612 0%,#4a3712 60%,#c49a3e 100%);--g3:linear-gradient(135deg,#1a1612 0%,#1a1612 100%);
   --f-d:"Instrument Serif","Times New Roman",serif;--f-b:"DM Sans",system-ui,sans-serif;--f-m:"DM Mono",ui-monospace,monospace;color-scheme:dark}
 *{box-sizing:border-box}
@@ -70,7 +70,7 @@ h2.s{font:400 18.9px var(--f-d);margin:0 0 12px;display:flex;align-items:center;
 .tk .row{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin-top:auto}
 .tk .ver{font:500 12.5px var(--f-b);color:var(--cy)}
 .ck{margin-left:auto;width:38px;height:38px;border-radius:50%;border:2px solid currentColor;background:transparent;color:inherit;font-size:20px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:.9}
-.ck[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#04210f;opacity:1}
+.ck[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#1b150a;opacity:1}
 .ck:disabled{cursor:default}
 .tk.done{opacity:.55}.tk.done h3{text-decoration:line-through;text-decoration-thickness:2px}
 .empty{color:var(--muted);padding:22px;border:1px dashed var(--line);border-radius:20px;text-align:center}
@@ -82,9 +82,9 @@ td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
 tr:last-child td{border-bottom:0}
 tr.cl{cursor:pointer}tr.cl:hover td{background:var(--panel2)}
 .chp{display:inline-block;font:500 10.5px var(--f-m);border-radius:99px;padding:4px 11px;background:var(--panel2);color:var(--muted);white-space:nowrap}
-.chp.v{background:rgba(196,154,62,.16);color:var(--cy)}.chp.p{background:rgba(243,234,219,.14);color:var(--paper)}.chp.h{background:rgba(229,210,190,.16);color:var(--sky)}.chp.ok{background:rgba(61,220,132,.16);color:var(--ok)}
+.chp.v{background:rgba(196,154,62,.16);color:var(--cy)}.chp.p{background:rgba(243,234,219,.14);color:var(--paper)}.chp.h{background:rgba(229,210,190,.16);color:var(--sky)}.chp.ok{background:rgba(198,155,83,.16);color:var(--ok)}
 .mini{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);background:transparent;color:transparent;font-weight:500;cursor:pointer;padding:0}
-.mini[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#04210f}.mini:disabled{cursor:default}
+.mini[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#1b150a}.mini:disabled{cursor:default}
 .dbar{height:8px;border-radius:99px;background:var(--panel2);min-width:80px;overflow:hidden}.dbar i{display:block;height:100%;border-radius:99px;background:var(--g1)}
 .num{font:400 17.7px var(--f-d)}
 /* qué funcionó */
@@ -161,7 +161,7 @@ aside{background:rgba(255,255,255,.02);backdrop-filter:blur(20px);border-right:1
 nav.bn button[aria-selected=true]{background:var(--tint);color:var(--ink)}
 .chp,.tag,.pill{background:rgba(255,255,255,.06);border:1px solid var(--glb);box-shadow:inset 0 1px 0 rgba(255,255,255,.14);backdrop-filter:blur(10px);font-family:var(--f-m);font-weight:400;letter-spacing:.06em;text-transform:uppercase;font-size:10px;color:var(--muted)}
 .chp.v{background:rgba(196,154,62,.14);border-color:rgba(196,154,62,.35);color:var(--cy)}
-.chp.p{background:rgba(255,255,255,.12);color:var(--ink)}.chp.h{background:rgba(229,210,190,.14);border-color:rgba(229,210,190,.3);color:var(--sky)}.chp.ok{background:rgba(61,220,132,.14);border-color:rgba(61,220,132,.35);color:var(--ok)}
+.chp.p{background:rgba(255,255,255,.12);color:var(--ink)}.chp.h{background:rgba(229,210,190,.14);border-color:rgba(229,210,190,.3);color:var(--sky)}.chp.ok{background:rgba(198,155,83,.14);border-color:rgba(198,155,83,.35);color:var(--ok)}
 .btn{background:var(--tint);color:var(--ink);border:1px solid rgba(196,154,62,.45);box-shadow:var(--gls);font-weight:500;border-radius:14px;backdrop-filter:blur(14px)}
 .btn.ghost{background:var(--gl);border-color:var(--glb)}
 .chip{border-radius:12px;font-weight:500}.chip[aria-pressed=true]{background:var(--tint);color:var(--ink);border-color:rgba(196,154,62,.45)}
@@ -212,7 +212,7 @@ main{margin:0 auto}
 .pc .thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .pc .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:18px;background:linear-gradient(160deg,rgba(217,178,90,.22),rgba(13,11,9,.9));color:var(--ink);text-align:left}
 .pc .ph small{font:400 10.5px var(--f-m);letter-spacing:.16em;color:var(--sky)}.pc .ph b{font:400 26px/1.1 var(--f-d)}
-.okb{position:absolute;top:10px;right:10px;font:500 11px var(--f-m);font-style:normal;background:rgba(61,220,132,.2);color:var(--ok);border:1px solid rgba(61,220,132,.4);border-radius:99px;padding:4px 10px;backdrop-filter:blur(8px)}
+.okb{position:absolute;top:10px;right:10px;font:500 11px var(--f-m);font-style:normal;background:rgba(198,155,83,.2);color:var(--ok);border:1px solid rgba(198,155,83,.4);border-radius:99px;padding:4px 10px;backdrop-filter:blur(8px)}
 .pc.done{opacity:.72}
 .pc .info{padding:13px 14px 14px;display:flex;flex-direction:column;gap:9px;min-width:0}
 .pc .fila{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
@@ -235,7 +235,7 @@ nav.bn{display:none}
 @media (prefers-reduced-motion:no-preference){.tk,.dy,.nv2{transition:transform .12s,background .15s}.tk:active{transform:scale(.985)}}
 .brand,.hd h1,.st b,h2.s,.tk h3,.fs .bar2 h2,.sl p,.pb h3,.pasos li b,.wt strong,.pc .ph b,.pc .tema,.num,.dy i,.dn i,th,.fs h4{font-style:italic!important;font-family:var(--f-b)!important;font-weight:700!important;letter-spacing:0!important}
 /* tema claro: blanco, letras oscuras */
-:root{--bg:#f3eadb;--panel:#fff;--panel2:#f3eadb;--line:#e5d2be;--ink:#0d0b09;--muted:#55666c;--cy:#4a3712;--cy2:#2b2419;--sky:#4a3712;--paper:#fff;--cardink:#0d0b09;--ok:#16a34a;--warn:#b7791f;
+:root{--bg:#f3eadb;--panel:#fff;--panel2:#f3eadb;--line:#e5d2be;--ink:#0d0b09;--muted:#916d30;--cy:#4a3712;--cy2:#2b2419;--sky:#4a3712;--paper:#fff;--cardink:#0d0b09;--ok:#8b692e;--warn:#b7791f;
  --gl:#fff;--glb:#e5d2be;--gls:0 1px 2px rgba(13,11,9,.06),0 10px 24px -14px rgba(13,11,9,.25);--tint:linear-gradient(150deg,#f3eadb,#fff);color-scheme:light}
 body::before{background:radial-gradient(900px 500px at 80% -10%,rgba(74,55,18,.08),transparent 60%)}
 aside{background:rgba(255,255,255,.88)}
@@ -353,6 +353,16 @@ html[data-fondo=negro]{--gl:#0d0b09;--glb:#1a1612;--gls:0 12px 30px -14px rgba(0
 .extra-idea p{margin:12px 0}
 .extra-link{text-decoration:none;white-space:nowrap}
 @media(max-width:620px){.extra-list{grid-template-columns:minmax(0,1fr)}}
+.asset-frame{flex:none;margin:0;scroll-snap-align:start}
+.asset-frame .sl{scroll-snap-align:none}
+.single-download{display:block;margin-top:8px;color:var(--ink);font-size:12px}
+.reel-preview{display:grid;justify-items:start;gap:10px;margin:12px 0 22px}
+.reel-preview video{width:min(100%,275px);aspect-ratio:9/16;background:#17120e;border-radius:16px}
+.visual-thumb{display:grid;place-items:center;width:100%;padding:0;border:0;background:#19140f;cursor:pointer}
+.visual-thumb img{display:block;width:100%;max-height:390px;object-fit:contain}
+.extra-idea .visual-thumb{margin:14px 0 10px}
+.btn[hidden]{display:none}
+.adapted-sources{margin-bottom:22px}.adapted-sources button{margin-right:10px;margin-bottom:6px}.photo-credit{margin-top:15px}
 </style>
 <div class="app">
 <aside><div class="brand"><img src="playskit-estrella.jpg" alt="Playskit"><span>Calendario de contenido</span></div><div id="side"></div><div class="sp"></div><div class="fondos" id="fondos" role="group" aria-label="Color de fondo"></div><div class="who" id="who">solo lectura</div></aside>
@@ -362,7 +372,8 @@ html[data-fondo=negro]{--gl:#0d0b09;--glb:#1a1612;--gls:0 12px 30px -14px rgba(0
 </main></div>
 <nav class="bn" id="tabs" role="tablist"></nav>
 <dialog id="dlg"><div id="fi"></div></dialog>
-<script src="calendario-nov-dic.js"></script>
+<script src="calendario-nov-dic.js?v=oro"></script>
+<script src="ideas-visuales.js?v=oro"></script>
 <script>
 const cuse=n=>window.claude?window.claude.use(n):Promise.resolve(null);
 
@@ -482,31 +493,31 @@ function lamIcon(cx,k,x,y,s,col){
 }
 function lamFondo(cx,W,H,dark,n){
   const g=cx.createLinearGradient(0,0,W*.4,H);
-  if(dark){g.addColorStop(0,PE2);g.addColorStop(.55,PE);g.addColorStop(1,NE)}else{g.addColorStop(0,"#ffffff");g.addColorStop(1,"#e4eef0")}
+  if(dark){g.addColorStop(0,PE2);g.addColorStop(.55,PE);g.addColorStop(1,NE)}else{g.addColorStop(0,"#ffffff");g.addColorStop(1,"#f0ece4")}
   cx.fillStyle=g;cx.fillRect(0,0,W,H);
   // haces de luz
   cx.save();cx.globalCompositeOperation=dark?"lighter":"multiply";
-  for(let k=0;k<4;k++){cx.save();cx.translate(W*(.1+k*.28),-80);cx.rotate(.35-(k%2)*.7+(n%3)*.06);const b=cx.createLinearGradient(-40,0,40,0);b.addColorStop(0,"rgba(95,227,234,0)");b.addColorStop(.5,dark?"rgba(95,227,234,.16)":"rgba(14,98,114,.08)");b.addColorStop(1,"rgba(95,227,234,0)");cx.fillStyle=b;cx.fillRect(-40,0,80,H*1.4);cx.restore()}
+  for(let k=0;k<4;k++){cx.save();cx.translate(W*(.1+k*.28),-80);cx.rotate(.35-(k%2)*.7+(n%3)*.06);const b=cx.createLinearGradient(-40,0,40,0);b.addColorStop(0,"rgba(210,176,119,0)");b.addColorStop(.5,dark?"rgba(210,176,119,.16)":"rgba(96,72,32,.08)");b.addColorStop(1,"rgba(210,176,119,0)");cx.fillStyle=b;cx.fillRect(-40,0,80,H*1.4);cx.restore()}
   cx.restore();
   // círculos de luz
-  [[W*.88,H*.18,380],[W*.08,H*.78,460]].forEach(([x,y,r],i)=>{const rg=cx.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,dark?"rgba(95,227,234,.28)":"rgba(14,98,114,.14)");rg.addColorStop(1,"rgba(95,227,234,0)");cx.fillStyle=rg;cx.fillRect(0,0,W,H)});
+  [[W*.88,H*.18,380],[W*.08,H*.78,460]].forEach(([x,y,r],i)=>{const rg=cx.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,dark?"rgba(210,176,119,.28)":"rgba(96,72,32,.14)");rg.addColorStop(1,"rgba(210,176,119,0)");cx.fillStyle=rg;cx.fillRect(0,0,W,H)});
   // cuadrícula fina
-  cx.strokeStyle=dark?"rgba(255,255,255,.05)":"rgba(8,56,67,.07)";cx.lineWidth=2;
+  cx.strokeStyle=dark?"rgba(255,255,255,.05)":"rgba(55,42,20,.07)";cx.lineWidth=2;
   for(let x=0;x<=W;x+=60){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}
   for(let y=0;y<=H;y+=60){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}
   // puntos de media tinta
-  cx.fillStyle=dark?"rgba(95,227,234,.20)":"rgba(14,98,114,.16)";
+  cx.fillStyle=dark?"rgba(210,176,119,.20)":"rgba(96,72,32,.16)";
   for(let i=0;i<14;i++)for(let j=0;j<9;j++){const r=Math.max(0,4.5-j*.5);if(r>0){cx.beginPath();cx.arc(W-90-i*26,H-420+j*26,r,0,7);cx.fill()}}
   // marcas de esquina
-  cx.strokeStyle=dark?"rgba(255,255,255,.55)":"rgba(8,56,67,.55)";cx.lineWidth=4;const m=44,l=54;
+  cx.strokeStyle=dark?"rgba(255,255,255,.55)":"rgba(55,42,20,.55)";cx.lineWidth=4;const m=44,l=54;
   [[m,m,1,1],[W-m,m,-1,1],[m,H-m,1,-1],[W-m,H-m,-1,-1]].forEach(([x,y,dx,dy])=>{cx.beginPath();cx.moveTo(x,y+dy*l);cx.lineTo(x,y);cx.lineTo(x+dx*l,y);cx.stroke()});
 }
 function lamPlaca(cx,x,y,w,h,dark){
   cx.save();cx.beginPath();cx.roundRect(x,y,w,h,44);
-  cx.fillStyle=dark?"rgba(255,255,255,.08)":"rgba(255,255,255,.75)";cx.shadowColor=dark?"rgba(0,0,0,.45)":"rgba(8,56,67,.22)";cx.shadowBlur=60;cx.shadowOffsetY=24;cx.fill();cx.shadowColor="transparent";
-  cx.strokeStyle=dark?"rgba(255,255,255,.28)":"rgba(8,56,67,.25)";cx.lineWidth=3;cx.stroke();
+  cx.fillStyle=dark?"rgba(255,255,255,.08)":"rgba(255,255,255,.75)";cx.shadowColor=dark?"rgba(0,0,0,.45)":"rgba(55,42,20,.22)";cx.shadowBlur=60;cx.shadowOffsetY=24;cx.fill();cx.shadowColor="transparent";
+  cx.strokeStyle=dark?"rgba(255,255,255,.28)":"rgba(55,42,20,.25)";cx.lineWidth=3;cx.stroke();
   cx.beginPath();cx.moveTo(x+60,y+3);cx.lineTo(x+w-60,y+3);cx.strokeStyle=dark?"rgba(255,255,255,.55)":"rgba(255,255,255,.95)";cx.stroke();
-  [[x+34,y+34],[x+w-34,y+34],[x+34,y+h-34],[x+w-34,y+h-34]].forEach(([sx,sy],i)=>{cx.beginPath();cx.arc(sx,sy,11,0,7);cx.fillStyle=dark?"rgba(255,255,255,.35)":"rgba(8,56,67,.3)";cx.fill();cx.beginPath();cx.moveTo(sx-6,sy+3*(i%2?-1:1));cx.lineTo(sx+6,sy-3*(i%2?-1:1));cx.strokeStyle=dark?"rgba(0,0,0,.55)":"rgba(255,255,255,.8)";cx.lineWidth=3;cx.stroke()});
+  [[x+34,y+34],[x+w-34,y+34],[x+34,y+h-34],[x+w-34,y+h-34]].forEach(([sx,sy],i)=>{cx.beginPath();cx.arc(sx,sy,11,0,7);cx.fillStyle=dark?"rgba(255,255,255,.35)":"rgba(55,42,20,.3)";cx.fill();cx.beginPath();cx.moveTo(sx-6,sy+3*(i%2?-1:1));cx.lineTo(sx+6,sy-3*(i%2?-1:1));cx.strokeStyle=dark?"rgba(0,0,0,.55)":"rgba(255,255,255,.8)";cx.lineWidth=3;cx.stroke()});
   cx.restore();
 }
 function lamTextoCurvo(cx,txt,x,y,r,col){
@@ -519,19 +530,19 @@ function lamTextoCurvo(cx,txt,x,y,r,col){
 /* estilo cromado multicolor: violeta, turquesa, rosa, vidrio y estrellas */
 function estrellaCro(cx,x,y,r){
   cx.save();cx.translate(x,y);
-  cx.shadowColor="rgba(150,90,255,.75)";cx.shadowBlur=70;
-  const g=cx.createLinearGradient(-r,-r,r,r);g.addColorStop(0,"#ffffff");g.addColorStop(.35,"#d9c6ff");g.addColorStop(.6,"#7ee9f5");g.addColorStop(1,"#ff9be0");
+  cx.shadowColor="rgba(214,183,131,.75)";cx.shadowBlur=70;
+  const g=cx.createLinearGradient(-r,-r,r,r);g.addColorStop(0,"#ffffff");g.addColorStop(.35,"#f0e6d5");g.addColorStop(.6,"#dcc397");g.addColorStop(1,"#ff9be0");
   cx.beginPath();cx.moveTo(0,-r);cx.quadraticCurveTo(0,0,r,0);cx.quadraticCurveTo(0,0,0,r);cx.quadraticCurveTo(0,0,-r,0);cx.quadraticCurveTo(0,0,0,-r);cx.closePath();
   cx.fillStyle=g;cx.fill();cx.shadowBlur=0;cx.strokeStyle="rgba(255,255,255,.9)";cx.lineWidth=4;cx.stroke();
   cx.beginPath();cx.moveTo(0,-r*.7);cx.quadraticCurveTo(r*.05,-r*.05,r*.7,0);cx.strokeStyle="rgba(255,255,255,.7)";cx.lineWidth=3;cx.stroke();
   cx.restore();
 }
 function lamFondoCro(cx,W,H,n){
-  const g=cx.createLinearGradient(0,0,W*.5,H);g.addColorStop(0,"#1a0a45");g.addColorStop(.5,"#4a1d9e");g.addColorStop(1,"#0b5f78");
+  const g=cx.createLinearGradient(0,0,W*.5,H);g.addColorStop(0,"#3a2c15");g.addColorStop(.5,"#8c6a2f");g.addColorStop(1,"#624a21");
   cx.fillStyle=g;cx.fillRect(0,0,W,H);
   [[W*.15,H*.16,560,"255,95,210,.55"],[W*.92,H*.42,600,"120,70,255,.65"],[W*.12,H*.86,640,"25,211,218,.55"],[W*.75,H*.97,460,"255,255,255,.22"]].forEach(([x,y,r,c])=>{const rg=cx.createRadialGradient(x,y,0,x,y,r);rg.addColorStop(0,"rgba("+c+")");rg.addColorStop(1,"rgba("+c.split(",").slice(0,3).join(",")+",0)");cx.fillStyle=rg;cx.fillRect(0,0,W,H)});
   // cintas de cromo brillante
-  [[.18,"rgba(255,255,255,.55)","rgba(126,233,245,.0)",70],[.52,"rgba(255,155,224,.5)","rgba(255,255,255,0)",54],[.86,"rgba(180,150,255,.55)","rgba(255,255,255,0)",90]].forEach(([p,c1,c2,lw],i)=>{
+  [[.18,"rgba(255,255,255,.55)","rgba(220,195,151,.0)",70],[.52,"rgba(255,155,224,.5)","rgba(255,255,255,0)",54],[.86,"rgba(227,209,178,.55)","rgba(255,255,255,0)",90]].forEach(([p,c1,c2,lw],i)=>{
     const y0=H*p+(n%3)*30;const gr=cx.createLinearGradient(0,y0-200,W,y0+200);gr.addColorStop(0,c2);gr.addColorStop(.45,c1);gr.addColorStop(1,c2);
     cx.beginPath();cx.moveTo(-100,y0);cx.bezierCurveTo(W*.3,y0-260+i*60,W*.6,y0+300-i*40,W+100,y0-120);cx.strokeStyle=gr;cx.lineWidth=lw;cx.lineCap="round";cx.stroke();
     cx.lineWidth=lw*.18;cx.strokeStyle="rgba(255,255,255,.7)";cx.stroke();
@@ -550,7 +561,7 @@ async function dibujarLaminas(idea){
   const items=[{k:"hook",t:idea.gancho}].concat(idea.pasos.map(p=>({k:"paso",t:p}))).concat([{k:"cta",t:idea.cta}]);
   items.forEach((it,n)=>{
     const c=document.createElement("canvas");c.width=W;c.height=H;const cx=c.getContext("2d");
-    const cro=window.__estiloLam==="cromado",dark=cro?true:!(it.k==="paso"&&n%2===0),ink=dark?"#ffffff":PE,acc=cro?"#a8f2ff":(dark?CE:PE2),soft=cro?"#d6c6f7":(dark?"#9fc4cb":"#4f6a72");
+    const cro=window.__estiloLam==="cromado",dark=cro?true:!(it.k==="paso"&&n%2===0),ink=dark?"#ffffff":PE,acc=cro?"#e8d9bf":(dark?CE:PE2),soft=cro?"#eee2cf":(dark?"#dabf90":"#916d30");
     if(cro){lamFondoCro(cx,W,H,n)}else lamFondo(cx,W,H,dark,n);
     // cabecera: logo y contador
     cx.beginPath();cx.arc(112,124,34,0,7);cx.strokeStyle=ink;cx.lineWidth=3;cx.stroke();lamIcon(cx,4,112,124,44,acc);
@@ -559,7 +570,7 @@ async function dibujarLaminas(idea){
     // texto vertical al costado
     cx.save();cx.translate(54,H/2);cx.rotate(-Math.PI/2);cx.textAlign="center";cx.fillStyle=soft;cx.font="500 22px 'DM Mono',monospace";cx.fillText("PRESSKIT A MEDIDA  ·  48 H  ·  @PLAYSKIT.DJ",0,0);cx.restore();
     // número fantasma
-    cx.save();cx.font="400 760px Anton,Impact,sans-serif";cx.textAlign="right";cx.strokeStyle=dark?"rgba(95,227,234,.16)":"rgba(14,98,114,.14)";cx.lineWidth=4;cx.strokeText(String(n+1).padStart(2,"0"),W-40,980);cx.restore();
+    cx.save();cx.font="400 760px Anton,Impact,sans-serif";cx.textAlign="right";cx.strokeStyle=dark?"rgba(210,176,119,.16)":"rgba(96,72,32,.14)";cx.lineWidth=4;cx.strokeText(String(n+1).padStart(2,"0"),W-40,980);cx.restore();
     // titular dentro de una placa
     const size=it.k==="paso"?104:it.k==="cta"?96:122;
     const lines=lamLines(cx,it.t.toUpperCase(),W-340,"italic "+size+"px Anton,Impact,sans-serif").slice(0,6);
@@ -579,7 +590,7 @@ async function dibujarLaminas(idea){
       cx.strokeStyle=acc;cx.lineWidth=6;cx.beginPath();cx.moveTo(100,py+ph+150);cx.lineTo(W-300,py+ph+150);cx.lineTo(W-330,py+ph+130);cx.moveTo(W-300,py+ph+150);cx.lineTo(W-330,py+ph+170);cx.stroke();
     }
     if(it.k==="paso"){
-      cx.beginPath();cx.arc(210,430,110,0,7);cx.fillStyle=dark?"rgba(95,227,234,.12)":"rgba(14,98,114,.10)";cx.fill();cx.strokeStyle=acc;cx.lineWidth=4;cx.stroke();
+      cx.beginPath();cx.arc(210,430,110,0,7);cx.fillStyle=dark?"rgba(210,176,119,.12)":"rgba(96,72,32,.10)";cx.fill();cx.strokeStyle=acc;cx.lineWidth=4;cx.stroke();
       cx.beginPath();cx.arc(210,430,134,0,7);cx.setLineDash([8,14]);cx.lineWidth=3;cx.stroke();cx.setLineDash([]);
       lamIcon(cx,n-1,210,430,130,acc);
       cx.fillStyle=ink;cx.font="400 140px Anton,Impact,sans-serif";cx.save();cx.transform(1,0,-.2,1,0,0);cx.fillText(String(n).padStart(2,"0"),430+430*.2,490);cx.restore();
@@ -594,7 +605,7 @@ async function dibujarLaminas(idea){
       ["Guardalo","Compartilo","Seguinos"].forEach((c,i)=>{cx.font="700 26px 'DM Mono',monospace";const w=cx.measureText(c).width+56,x=100+i*(w+18);cx.beginPath();cx.roundRect(x,by+200,w,54,27);cx.strokeStyle=acc;cx.lineWidth=3;cx.stroke();cx.fillStyle=ink;cx.fillText(c,x+28,by+236)});
     }
     // franja inferior tipo marquee
-    cx.fillStyle=dark?"rgba(95,227,234,.14)":"rgba(14,98,114,.12)";cx.fillRect(0,H-150,W,56);
+    cx.fillStyle=dark?"rgba(210,176,119,.14)":"rgba(96,72,32,.12)";cx.fillRect(0,H-150,W,56);
     cx.fillStyle=acc;cx.font="700 26px 'DM Mono',monospace";cx.fillText("✦ WEB  ✦ PRESSKIT  ✦ SELLOS  ✦ 48 H  ✦ WEB  ✦ PRESSKIT  ✦ SELLOS  ✦ 48 H",20,H-112);
     cx.fillStyle=soft;cx.font="700 26px 'DM Sans',sans-serif";cx.fillText("@PLAYSKIT.DJ",100,H-62);
     out.push(c.toDataURL("image/png"));
@@ -613,8 +624,8 @@ async function fotoEscena(texto,k,total,vid){
   lamFondoCro(cx,W,H,vid*7+k);
   // objeto central de vidrio con ícono
   const x=W/2,y=H*.46;
-  cx.save();cx.shadowColor="rgba(140,90,255,.7)";cx.shadowBlur=90;cx.beginPath();cx.roundRect(x-300,y-300,600,600,120);
-  const g=cx.createLinearGradient(x-300,y-300,x+300,y+300);g.addColorStop(0,"rgba(255,255,255,.34)");g.addColorStop(.5,"rgba(180,150,255,.18)");g.addColorStop(1,"rgba(126,233,245,.30)");cx.fillStyle=g;cx.fill();cx.restore();
+  cx.save();cx.shadowColor="rgba(214,183,131,.7)";cx.shadowBlur=90;cx.beginPath();cx.roundRect(x-300,y-300,600,600,120);
+  const g=cx.createLinearGradient(x-300,y-300,x+300,y+300);g.addColorStop(0,"rgba(255,255,255,.34)");g.addColorStop(.5,"rgba(227,209,178,.18)");g.addColorStop(1,"rgba(220,195,151,.30)");cx.fillStyle=g;cx.fill();cx.restore();
   cx.beginPath();cx.roundRect(x-300,y-300,600,600,120);cx.strokeStyle="rgba(255,255,255,.75)";cx.lineWidth=5;cx.stroke();
   cx.beginPath();cx.moveTo(x-220,y-298);cx.lineTo(x+220,y-298);cx.strokeStyle="rgba(255,255,255,.95)";cx.lineWidth=4;cx.stroke();
   lamIcon(cx,k,x,y,360,"#ffffff");
@@ -688,9 +699,9 @@ async function chatEnviar(){
 
 
 /* ---------- fondo: blanco, celeste, crema u oscuro (se recuerda en este navegador) ---------- */
-const FONDOS=[["blanco","#ffffff","Blanco"],["crema","#e5d2be","Crema del logo"],["negro","#0a0c0e","Negro"]];
+const FONDOS=[["crema","#e5d2be","Crema del logo"],["negro","#0e0d0a","Negro"]];
 function setFondo(k,guardar){
-  if(k==="blanco")document.documentElement.removeAttribute("data-fondo");else document.documentElement.setAttribute("data-fondo",k);
+  document.documentElement.setAttribute("data-fondo",k);
   document.querySelectorAll("#fondos button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===k));
   if(guardar){try{localStorage.ps_fondo=k}catch(e){}}
 }
@@ -808,9 +819,11 @@ function ideasExtra(){
   return `<section class="extra" id="ideas-extra" aria-labelledby="extra-title">
     <h2 class="s" id="extra-title">Ideas nuevas para probar</h2>
     <p class="note">Ideas sin fecha para cuando quieras cambiar una publicación de la semana.</p>
-    <div class="extra-list">${IDEAS_EXTRA.map(([tema,formato,titulo,dolor,ejecucion,cta,url,fuente])=>`
+    <div class="extra-list">${IDEAS_EXTRA.map(([tema,formato,titulo,dolor,ejecucion,cta,url,fuente],i)=>`
       <details class="card extra-idea">
         <summary><span class="note">${esc(tema)} · ${esc(formato)}</span><b>${esc(titulo)}</b></summary>
+        <button class="visual-thumb" data-visual="${esc(VISUALES_EXTRA[i].id)}" aria-label="Abrir las imágenes de ${esc(titulo)}"><img src="${esc(VISUALES_EXTRA[i].img)}" alt="" loading="lazy"></button>
+        <button class="btn sm" data-visual="${esc(VISUALES_EXTRA[i].id)}">Ver y descargar</button>
         <p><strong>Qué le pasa a tu público</strong><br>${esc(dolor)}</p>
         <p><strong>Cómo hacerlo</strong><br>${esc(ejecucion)}</p>
         <p><strong>Cierre</strong><br>${esc(cta)}</p>
@@ -837,6 +850,7 @@ function rCal(){
   <div class="chips" id="fk" role="group" aria-label="Tipo">${["Todos","Video","Publicación","Historias"].map(k=>`<button class="chip" data-fk="${k}" aria-pressed="${fk===k}">${k==="Todos"?"Todos los tipos":k+" ("+(k==="Video"?cnt("v"):k==="Historias"?cnt("h"):cnt("p"))+")"}</button>`).join("")}</div>
   <div class="pgrid">${list.map(pcard).join("")||'<div class="empty">No hay contenido con ese filtro.</div>'}</div>
   <div id="msg" class="note" role="status" aria-live="polite"></div>${ideasExtra()}`;
+  $("#t-cal").querySelectorAll("[data-visual]").forEach(b=>b.onclick=()=>openPiece(b.dataset.visual));
   $("#all-weeks").onclick=()=>{allWeeks=!allWeeks;fday="Todos";rCal()};
   document.querySelectorAll(".dn,.dm").forEach(b=>b.onclick=()=>openDay(b.dataset.d));
   document.querySelectorAll(".wt").forEach(b=>b.onclick=()=>{sel=b.dataset.w;allWeeks=false;fday="Todos";rCal()});
@@ -855,19 +869,24 @@ function pcard(p){const x=dt(p.fecha),tx=p.slot==="h"?"Historias":p.formato;
   return `<article class="pc ${done(p)?"done":""}" data-id="${esc(p.id)}"><button class="thumb" data-id="${esc(p.id)}" aria-label="Abrir ${esc(p.titulo)}">${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy">`:`<span class="ph"><small>HISTORIAS</small><b>${esc(p.titulo)}</b></span>`}${done(p)?'<em class="okb">✓ Subida</em>':""}</button>
   <div class="info"><div class="fila"><span class="id">${KIND[p.slot].toUpperCase()} · ${esc(tx)}</span><span class="cuando">${DS[(x.getDay()+6)%7]} ${x.getDate()}/${x.getMonth()+1} · ${HORA[p.slot]}</span></div>
   <button class="tema title-open" data-id="${esc(p.id)}">${esc(p.titulo)}</button><p class="gancho">“${esc(p.hook)}”</p><div class="fila"><span class="chp">${esc(p.tema)}</span><span class="chp ${p.slot}">${esc(p.cta)}</span></div>
-  <div class="acc3"><button class="btn sm cp2" data-id="${esc(p.id)}">Copiar texto</button>${p.img?`<button class="btn sm ghost dl" data-id="${esc(p.id)}">Descargar imagen</button>`:""}<button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}" ${owner?"":"disabled"}>✓</button></div></div></article>`}
+  <div class="acc3"><button class="btn sm cp2" data-id="${esc(p.id)}">Copiar texto</button>${p.img?`<button class="btn sm ghost dl" data-id="${esc(p.id)}">Descargar portada</button>`:""}<button class="mini" data-id="${esc(p.id)}" aria-pressed="${done(p)}" aria-label="Marcar como subida" title="${owner?"Marcar como subida":"Solo la dueña puede marcar"}" ${owner?"":"disabled"}>✓</button></div></div></article>`}
 function textOf(p){return p.slot==="h"?(p.titulo+"\n\n"+lines(p).join(NLX)):caption(p)}
-async function copyText(id,b){const p=posts.find(x=>x.id===id),c=textOf(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar";const m=$("#msg");if(m)m.textContent="Copiá a mano desde la vista completa."}setTimeout(()=>{b.textContent="Copiar texto"},1800)}
+async function copyText(id,b){const p=findPiece(id),c=textOf(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar";const m=$("#msg");if(m)m.textContent="Copiá a mano desde la vista completa."}setTimeout(()=>{b.textContent="Copiar texto"},1800)}
 async function saveBlob(name,blob){
   try{const d=await cuse("downloads");if(d){await d.save({filename:name,data:blob});return true}}catch(e){}
   try{const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return true}catch(e){return false}}
-async function dlImg(id,b){const p=posts.find(x=>x.id===id);try{const r=await fetch(p.img);if(!r.ok)throw Error(p.img);const bl=await r.blob();const ok=await saveBlob("playskit-"+p.fecha+"-"+p.slot+".jpg",bl);b.textContent=ok?"✓ Listo":"No se pudo"}catch(e){b.textContent="No se pudo"}setTimeout(()=>{b.textContent="Descargar imagen"},1800)}
+async function dlImg(id,b){const p=findPiece(id);try{const r=await fetch(p.img);if(!r.ok)throw Error(p.img);const bl=await r.blob();const ok=await saveBlob("playskit-"+(p.fecha??p.id)+"-portada.jpg",bl);b.textContent=ok?"✓ Listo":"No se pudo"}catch(e){b.textContent="No se pudo"}setTimeout(()=>{b.textContent="Descargar portada"},1800)}
 async function zipPosts(list,name,m=$("#msg")){if(typeof JSZip==="undefined"){m.textContent="No cargó el compresor. Probá de nuevo.";return}
   m.textContent="Armando el zip…";const z=new JSZip();let txt="";
   try{
     for(const p of list){
-      const base=p.fecha+"-"+p.slot;
-      txt+="=== "+p.fecha+" · "+KIND[p.slot]+" · "+p.titulo+" ===\n"+textOf(p)+"\n\n"+lines(p).join(NLX)+"\n\n";
+      const base=p.fecha?p.fecha+"-"+p.slot:p.id;
+      txt+="=== "+(p.fecha??p.formato)+" · "+KIND[p.slot]+" · "+p.titulo+" ===\n"+textOf(p)+"\n\n"+lines(p).join(NLX)+"\n\n";
+      if(p.video){
+        const response=await fetch(p.video);
+        if(!response.ok)throw Error(p.video);
+        z.file(base+"/reel.mp4",await response.blob());
+      }
       for(const [i,slide] of (p.slides??[]).entries()){
         const response=await fetch(slide.image);
         if(!response.ok)throw Error(slide.image);
@@ -904,17 +923,19 @@ function caption(p){
   return `${p.hook}\n\n${msg}${/[.!?]$/.test(msg)?"":"."}\n\n`+(kw&&KW[kw]?`👉 Comentá “${kw}” y ${KW[kw]}.`:`👉 ${p.cta}`)+`\n\n${tags}`;
 }
 let openD=null,openOnly=null;
+const findPiece=id=>posts.find(p=>p.id===id)??VISUALES_EXTRA.find(p=>p.id===id)??VISUALES_VIDEO.find(p=>p.id===id);
 function pubBlock(p){
   const L=lines(p).map(lab).filter((x,i)=>!(i===0&&p.img&&/^Slide 1$/.test(x[0])));
   const cover=p.img?`<div class="sl t0"><img src="${esc(p.img)}" alt="${esc(p.titulo)}"></div>`:"";
   const cards=L.map(([a,b],i)=>`<div class="sl t${(i+1)%4}"><small>${esc(a||p.tipo)}</small><p>${esc(b)}</p><div class="ft"><span>PLAYSKIT ✦</span><span>${i+1}/${L.length}</span></div></div>`).join("");
-  const assets=p.slides?.map(({label,text,image},i)=>`<a class="sl asset ${p.slot==="p"?"feed":""}" href="${esc(image)}" target="_blank" rel="noopener" aria-label="Ver ${esc(label)}"><img src="${esc(image)}" alt="${esc(label)}. ${esc(text)}"></a>`).join("");
+  const assets=p.slides?.map(({label,text,image},i)=>`<figure class="asset-frame"><a class="sl asset ${p.slot==="p"?"feed":""}" href="${esc(image)}" target="_blank" rel="noopener" aria-label="Ver ${esc(label)}"><img src="${esc(image)}" alt="${esc(label)}. ${esc(text)}"></a><a class="single-download" href="${esc(image)}" download aria-label="Descargar imagen ${i+1}">Descargar imagen ${i+1}</a></figure>`).join("");
   const cap=p.slot==="h"?"":caption(p);
-  return `<article class="pb ${p.slot}"><div class="pbh"><span class="chp ${p.slot}">${KIND[p.slot]} · ${esc(p.formato)}</span><span class="chp">${esc(p.tema)}</span><span class="sp2"></span><button class="btn sm ${done(p)?"ghost":""} dk" data-id="${esc(p.id)}" ${owner?"":"disabled"}>${done(p)?"✓ Subida · deshacer":"Marcar como subida"}</button></div>
+  return `<article class="pb ${p.slot}"><div class="pbh"><span class="chp ${p.slot}">${KIND[p.slot]} · ${esc(p.formato)}</span><span class="chp">${esc(p.tema)}</span><span class="sp2"></span><button ${p.fecha?"":"hidden"} class="btn sm ${done(p)?"ghost":""} dk" data-id="${esc(p.id)}" ${owner?"":"disabled"}>${done(p)?"✓ Subida · deshacer":"Marcar como subida"}</button></div>
   <h3>${esc(p.titulo)}</h3>
   <h4>${p.slot==="h"?"LAS HISTORIAS, UNA POR UNA":p.formato==="Carrusel"?"EL CARRUSEL, SLIDE POR SLIDE":p.formato==="Reel"?"EL REEL, ESCENA POR ESCENA":"EL POSTEO"}</h4>
+  ${p.video?`<div class="reel-preview"><span class="note">Reel gráfico · sin audio</span><video controls playsinline preload="none" poster="${esc(p.img)}" src="${esc(p.video)}"></video><a class="btn sm" href="${esc(p.video)}" download>Descargar MP4</a></div>`:""}
   <div class="strip">${assets??(cover+cards)}</div>
-  ${p.slides?`<button class="btn sm ghost asset-download" data-assets="${esc(p.id)}">Descargar ${p.slot==="v"?"storyboard":"placas"} (zip)</button><p class="note" data-asset-msg aria-live="polite"></p>`:""}
+  ${p.slides?`<button class="btn sm ghost asset-download" data-assets="${esc(p.id)}">Descargar ${p.video?"reel e imágenes":p.slot==="v"?"storyboard":"placas"} (ZIP)</button><p class="note" data-asset-msg aria-live="polite"></p>`:""}
   ${p.slot==="v"?'<div class="blk"><h4>GUION DE GRABACIÓN</h4><ol>'+L.map(([a,b])=>`<li>${esc(b)}</li>`).join("")+"</ol></div>":""}
   <div class="cols"><div>
    ${cap?`<div class="blk"><h4>EPÍGRAFE LISTO PARA PEGAR</h4><div class="cap" id="cap-${esc(p.id)}">${esc(cap)}</div><button class="btn sm cp" data-id="${esc(p.id)}" style="margin-top:10px">Copiar epígrafe</button></div>`:""}
@@ -922,21 +943,22 @@ function pubBlock(p){
   </div><div>
    <div class="blk"><h4>CTA</h4><span class="chp v">${esc(p.cta)}</span></div>
    ${p.win?`<div class="blk"><h4>YA FUNCIONÓ EN INSTAGRAM</h4><div class="cap">${esc(p.win)}</div></div>`:""}
-   ${p.ref?`<div class="blk"><h4>REFERENCIA</h4><a class="ref-link" href="${esc(p.ref)}" target="_blank" rel="noopener">Abrir la web de Faustino</a></div>`:""}
+   ${p.ref?`<div class="blk"><h4>REFERENCIA</h4><a class="ref-link" href="${esc(p.ref)}" target="_blank" rel="noopener">${esc(p.refLabel||"Abrir la web de Faustino")}</a></div>`:""}
   </div></div></article>`;
 }
 function renderDay(){
-  const d=openD,dd=dt(d),ps=openOnly?ofDay(d).filter(p=>p.id===openOnly):ofDay(d),sc=$("#dlg").scrollTop;
-  $("#fi").innerHTML=`<div class="fs"><div class="bar2"><div><h2>${DN[(dd.getDay()+6)%7]} ${dd.getDate()}/${dd.getMonth()+1}</h2><span class="note">${openOnly?"1 pieza":ps.length+" ideas de contenido"} · ${ps.filter(done).length} subidas</span></div><span class="sp2"></span><button class="x" id="x" aria-label="Cerrar">×</button></div>
+  const d=openD,selected=openOnly?findPiece(openOnly):null,ps=selected?[selected]:d?ofDay(d):[],sc=$("#dlg").scrollTop;
+  const dd=d&&dt(d),title=dd?DN[(dd.getDay()+6)%7]+" "+dd.getDate()+"/"+(dd.getMonth()+1):"Vista de publicación";
+  $("#fi").innerHTML=`<div class="fs"><div class="bar2"><div><h2>${title}</h2><span class="note">${openOnly?"1 pieza":ps.length+" ideas de contenido"}${d?" · "+ps.filter(done).length+" subidas":""}</span></div><span class="sp2"></span><button class="x" id="x" aria-label="Cerrar">×</button></div>
   <div class="dnav">${ps.map(p=>`<a class="chp ${p.slot}" href="#pb-${p.slot}">${KIND[p.slot]}${done(p)?" ✓":""}</a>`).join("")}</div>
   ${ps.map(p=>`<div id="pb-${p.slot}">${pubBlock(p)}</div>`).join("")||'<div class="empty">No hay contenido para este día.</div>'}</div>`;
   $("#x").onclick=closeDay;
-  document.querySelectorAll("[data-assets]").forEach(b=>b.onclick=()=>zipPosts(posts.filter(p=>p.id===b.dataset.assets),"playskit-"+d,b.closest(".pb").querySelector("[data-asset-msg]")));
+  document.querySelectorAll("[data-assets]").forEach(b=>b.onclick=()=>zipPosts([findPiece(b.dataset.assets)],"playskit-"+(d??b.dataset.assets),b.closest(".pb").querySelector("[data-asset-msg]")));
   document.querySelectorAll(".dk").forEach(b=>b.onclick=()=>tick(b.dataset.id));
-  document.querySelectorAll(".cp").forEach(b=>b.onclick=async()=>{const p=posts.find(x=>x.id===b.dataset.id),c=caption(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents($("#cap-"+p.id));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Seleccionado: copialo"}});
+  document.querySelectorAll(".cp").forEach(b=>b.onclick=async()=>{const p=findPiece(b.dataset.id),c=caption(p);try{await navigator.clipboard.writeText(c);b.textContent="✓ Copiado"}catch(e){const r=document.createRange();r.selectNodeContents($("#cap-"+p.id));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Seleccionado: copialo"}});
   $("#dlg").scrollTop=sc;
 }
-function openPiece(id){const p=posts.find(x=>x.id===id);if(!p)return;openOnly=id;openD=p.fecha;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
+function openPiece(id){const p=findPiece(id);if(!p)return;openOnly=id;openD=p.fecha??null;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
 function openDay(d){openOnly=null;openD=d;renderDay();if(!$("#dlg").open)$("#dlg").showModal();$("#dlg").scrollTop=0}
 function closeDay(){openD=null;openOnly=null;$("#dlg").close()}
 $("#dlg").addEventListener("close",()=>{openD=null;openOnly=null});
@@ -953,13 +975,13 @@ function rVid(){
 function vList(){const q=vq.toLowerCase().trim();
   const l=VIDEOS.map((v,i)=>({v,i})).filter(({v})=>(vemo==="Todas"||v[1]===vemo)&&(!q||v.join(" ").toLowerCase().includes(q)));
   $("#vn").textContent=l.length+" de "+VIDEOS.length+" ideas";
-  $("#vl").innerHTML=l.map(({v,i})=>`<article class="pc vc"><div class="info"><div class="fila"><span class="id">VIDEO ${String(i+1).padStart(2,"0")} · ${esc(v[3]).toUpperCase()}</span><span class="cuando">${esc(v[4])}</span></div>
+  $("#vl").innerHTML=l.map(({v,i})=>`<article class="pc vc"><button class="visual-thumb" data-visual="${esc(VISUALES_VIDEO[i].id)}" aria-label="Abrir las imágenes de ${esc(v[0])}"><img src="${esc(VISUALES_VIDEO[i].img)}" alt="" loading="lazy"></button><div class="info"><div class="fila"><span class="id">VIDEO ${String(i+1).padStart(2,"0")} · ${esc(v[3]).toUpperCase()}</span><span class="cuando">${esc(v[4])}</span></div>
   <p class="tema">${esc(v[0])}</p><p class="gancho">“${esc(v[2])}”</p>
   <div class="fila"><span class="chp ${v[1]==="DOLOR"?"":"v"}">${esc(v[1])}</span><span class="chp">${esc(v[7])}</span></div>
   <ol class="esc">${v[5].map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
   <p class="note"><b>Qué grabar:</b> ${esc(v[6])}</p><p class="note">${esc(v[9])}</p>
-  <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button><button class="btn sm ghost fhb" data-i="${i}">Fotos para Higgsfield</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
-  document.querySelectorAll(".fhb").forEach(b=>b.onclick=()=>fotosVideo(+b.dataset.i));
+  <div class="acc3"><button class="btn sm cpv" data-i="${i}">Copiar guion</button><button class="btn sm ghost" data-visual="${esc(VISUALES_VIDEO[i].id)}">Ver y descargar</button></div></div></article>`).join("")||'<div class="empty">No hay ideas con ese filtro.</div>';
+  $("#vl").querySelectorAll("[data-visual]").forEach(b=>b.onclick=()=>openPiece(b.dataset.visual));
   document.querySelectorAll(".cpv").forEach(b=>b.onclick=async()=>{const v=VIDEOS[+b.dataset.i];const x="VIDEO: "+v[0]+"\nGANCHO: "+v[2]+"\nFORMATO: "+v[3]+" · "+v[4]+"\n\nESCENAS:\n"+v[5].map((s,k)=>(k+1)+". "+s).join(NLX)+"\n\nQUÉ GRABAR: "+v[6]+"\nCTA: Comentá "+v[7];try{await navigator.clipboard.writeText(x);b.textContent="✓ Copiado"}catch(e){b.textContent="No se pudo copiar"}setTimeout(()=>{b.textContent="Copiar guion"},1800)});
 }
 /* ---------- Qué funcionó ---------- */
@@ -968,12 +990,39 @@ function rFx(){
   $("#sub").textContent="Lo que ya funcionó en Instagram, para replicarlo con Playskit";
   const max=Math.max(...cuentas.map(c=>c.coms||0),1);
   $("#t-fx").innerHTML=`
+  <section class="adapted-sources" aria-labelledby="adapted-title">
+    <h2 id="adapted-title" class="s">Referencias adaptadas a Playskit</h2>
+    <div class="extra-list">
+      <article class="card">
+        <b>Una pregunta que se resuelve al deslizar</b>
+        <p>Del quiz de cabina y las referencias de Cuenca sale una versión para productores: tres destinos posibles y una segunda vuelta cuando la opción correcta no aparece.</p>
+        <button class="btn sm" data-visual="nov-dic-26-2026-11-16-p">Abrir quiz de demos</button>
+        <a class="ref-link" href="https://www.instagram.com/p/DdUBPv-kdwF/" rel="noopener" target="_blank">Referencia de Cuenca</a>
+      </article>
+      <article class="card">
+        <b>El sonido como parte del relato</b>
+        <p>Las listas de música y los desgloses de sets inspiran una comparación de dos entradas: la persona que mira elige cuál usaría.</p>
+        <button class="btn sm" data-visual="nov-dic-26-2026-12-19-v">Abrir dos entradas A/B</button>
+        <a class="ref-link" href="https://www.v-rma.com/blog/instagram-carousel-ideas-for-djs/" rel="noopener" target="_blank">Formatos de carrusel para DJs</a>
+      </article>
+      <article class="card">
+        <b>Que el ejemplo haga la demostración</b>
+        <p>En lugar de hablar de enviar demos en general, mostramos la condición real de Elektrax y dos decisiones que puede tomar el productor.</p>
+        <button class="btn sm" data-visual="extra-06">Abrir el ejemplo de dos tracks</button>
+        <a class="ref-link" href="https://www.elektraxmusic.com/demos/" rel="noopener" target="_blank">Reglas de Elektrax</a>
+      </article>
+    </div>
+    <details class="photo-credit"><summary>Créditos de imágenes</summary>
+      <p>Fotos de apoyo de <a class="ref-link" href="https://unsplash.com/photos/a-dj-playing-music-on-a-turntable-in-a-dark-room-2eGEI7PMiHY" rel="noopener" target="_blank">Nereid Ndreu</a> y <a class="ref-link" href="https://unsplash.com/photos/a-dj-mixing-music-on-a-turntable-at-a-party-F8BVO02n_LE" rel="noopener" target="_blank">Yaw Afari</a> en Unsplash. Otras escenas se ilustraron para Playskit. Las piezas de Faustino usan sus materiales cuando corresponde.</p>
+    </details>
+  </section>
   <div class="stats"><div class="st a"><span>Publicaciones</span><b>${cuentas.length}</b></div><div class="st b"><span>Mejor comentarios</span><b>${Math.max(...cuentas.map(c=>c.coms||0)).toLocaleString("es-AR")}</b></div><div class="st c"><span>Más comentarios que likes</span><b>${cuentas.filter(c=>(c.coms||0)>(c.likes||0)).length}<small>/${cuentas.length}</small></b></div></div>
   <div class="bar"><input id="fq" type="search" placeholder="Buscar: cuenta, palabra clave, tipo, tema…" value="${esc(fq)}"><select id="fs" style="width:auto"><option value="coms">Más comentarios</option><option value="likes">Más likes</option><option value="ratio">Más comentarios por like</option><option value="nuevo">Más nuevas</option></select></div>
   <div class="chips" id="c1">${["Todas","Reel","Carrusel","Post"].map(t=>`<button class="chip" data-t="${t}" aria-pressed="${t===ftipo}">${t}</button>`).join("")}<span style="width:10px"></span>${["Todas","Alexis Asad","Cuenca","Presskits y webs"].map(t=>`<button class="chip" data-f="${t}" aria-pressed="${t===ffuente}">${t}</button>`).join("")}</div>
   <p class="note" id="fn"></p><div class="tw"><table class="tbl-m"><thead><tr><th>CUENTA</th><th>QUÉ PUBLICÓ</th><th>TIPO</th><th>LIKES</th><th>COMENTARIOS</th><th></th></tr></thead><tbody id="fl"></tbody></table></div>
   <div class="two" style="margin-top:18px"><div class="card"><h2 class="s">Que Claude busque nuevas</h2><p class="note">Dejá un pedido y, cuando le digas a Claude “mirá los pedidos”, suma lo que esté funcionando ahora en Instagram.</p><label for="pq">Qué buscar</label><input id="pq" placeholder="Ej: reels de DJs con palabra clave, webs de DJs, carruseles de Alexis"><div style="margin-top:10px"><button class="btn" id="pgo" ${owner?"":"disabled"}>Pedir búsqueda</button></div><p class="note" id="pm"></p><div id="pl"></div></div>
   <div class="card"><h2 class="s">Sumar una que encontraste</h2><label for="n-u">Cuenta</label><input id="n-u" placeholder="@usuario"><label for="n-t">Qué publicó</label><input id="n-t"><div class="two"><div><label for="n-l">Likes</label><input id="n-l" type="number" min="0"></div><div><label for="n-c">Comentarios</label><input id="n-c" type="number" min="0"></div></div><label for="n-k">Tipo</label><select id="n-k"><option>Reel</option><option>Carrusel</option><option>Post</option></select><label for="n-p">Por qué funcionó</label><input id="n-p"><label for="n-url">Link</label><input id="n-url" placeholder="https://www.instagram.com/..."><button class="btn" id="nsave" style="margin-top:12px" ${owner?"":"disabled"}>Guardar</button><p class="note" id="nm"></p></div></div>`;
+  $(".adapted-sources").querySelectorAll("[data-visual]").forEach(b=>b.onclick=()=>openPiece(b.dataset.visual));
   $("#fs").value=fsort;
   $("#fq").oninput=e=>{fq=e.target.value;fxList()};$("#fs").onchange=e=>{fsort=e.target.value;fxList()};
   document.querySelectorAll("#c1 [data-t]").forEach(b=>b.onclick=()=>{ftipo=b.dataset.t;rFx()});document.querySelectorAll("#c1 [data-f]").forEach(b=>b.onclick=()=>{ffuente=b.dataset.f;rFx()});
