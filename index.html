@@ -374,6 +374,7 @@ html[data-fondo=negro]{--gl:#0d0b09;--glb:#1a1612;--gls:0 12px 30px -14px rgba(0
 <dialog id="dlg"><div id="fi"></div></dialog>
 <script src="calendario-nov-dic.js?v=oro"></script>
 <script src="ideas-visuales.js?v=oro"></script>
+<script src="adaptaciones.js?v=1"></script>
 <script>
 const cuse=n=>window.claude?window.claude.use(n):Promise.resolve(null);
 
@@ -394,11 +395,40 @@ const ANGL=[
 ];
 let adN2=0;
 function adaptLocal(c){
-  const m=(c.titulo+" "+(c.porque||"")).match(/palabra clave ([A-ZÁÉÍÓÚÑ]{3,})/i);
-  const k=m?m[1].toUpperCase():KWL[HH(c.id)%KWL.length];
-  const a=ANGL[(HH(c.id)+adN2++)%ANGL.length](k,{id:c.id,o:"bio"});
-  const fmt=c.tipo==="Reel"?"Reel de 20 s":c.tipo==="Carrusel"?"Carrusel de 6 láminas":"Posteo con una imagen";
-  return "Formato: "+fmt+"\nGancho (0-5 s): "+a.g+"\nEstructura:\n"+a.e.map((s,i)=>(i+1)+". "+s).join(NLX)+"\nCTA: "+a.c+"\nBase: lo que funcionó en "+c.u+" (“"+c.titulo+"”), adaptado a Playskit.";
+  const originalHook=c.gancho?.trim()||c.titulo;
+  const originalCta=c.ctaOriginal?.trim();
+  const known=Object.hasOwn(ADAPTACIONES,c.titulo)?ADAPTACIONES[c.titulo]:null;
+  const notes=(c.porque||"").trim();
+  const source=[originalHook,notes,originalCta].filter(Boolean).join(" ");
+  const keyword=source.match(/(?:coment[aáe]|palabra clave)\s+[«“"']?([\p{L}\p{N}_-]{2,})/iu)?.[1];
+  const direct=/\b(?:dm|privado|escribime)\b/i.test(originalCta||notes);
+  const producer=/\b(?:demo|demos|sello|sellos|track|tracks|sample|beat|midi|productor|producci[oó]n musical)\b/i.test(source);
+  const visual=/\b(?:visual|visuales|foto|fotos|portada|portadas|diseño)\b/i.test(source);
+  const comparison=/\b(?:vs|versus|antes y despu[eé]s|comparaci[oó]n)\b/i.test(source);
+  const list=/\b([2-9])\b/.exec(originalHook)?.[1];
+  const object=producer?"una demo lista para enviar":visual?"la portada de tu set":"tu primer set grabado";
+  const fallback={
+    publico:producer?"Productores independientes":visual?"DJs que publican sus sets":"DJs que recién empiezan",
+    mecanica:notes||"A partir del título registrado. Falta información sobre el gancho y el CTA originales.",
+    gancho:comparison?`Antes y después de preparar ${object}.`:list?`${list} decisiones que tomaría antes de mostrar ${object}.`:
+      `¿En qué te fijás antes de mostrar ${object}?`,
+    guion:`Tomá la referencia «${originalHook}». Mostrá un ejemplo de ${object} y cerrá con una decisión que el público pueda repetir.`,
+    cta:direct?`Mandame ${producer?"tu género":"el tipo de set que tocás"} por DM y te paso un ejemplo.`:
+      keyword?`Comentá ${keyword.toUpperCase()} y te paso un ejemplo de cómo preparar ${object}.`:
+      /guard[aá]|guardar/i.test(originalCta||notes)?`Guardalo para cuando tengas ${object}.`:`¿Qué cambiarías antes de mostrar ${object}? Contame en comentarios.`,
+  };
+  const a=known??fallback;
+  const fmt=c.tipo==="Reel"?"Reel":c.tipo==="Carrusel"?"Carrusel":"Post de una imagen";
+  return [
+    "REFERENCIA · "+originalHook,
+    "Qué se adapta · "+a.mecanica,
+    ...(originalCta?["CTA original · "+originalCta]:[]),
+    "",
+    "PARA PLAYSKIT · "+fmt+" · "+a.publico,
+    "Gancho · "+a.gancho,
+    "Cómo mostrarlo · "+a.guion,
+    "CTA · "+a.cta,
+  ].join(NLX);
 }
 function guionLocal(){
   const tema=$("#g-tema").value.trim()||"webs presskit para DJs",fmt=$("#g-fmt").value,emo=$("#g-emo").value;
@@ -1021,7 +1051,7 @@ function rFx(){
   <div class="chips" id="c1">${["Todas","Reel","Carrusel","Post"].map(t=>`<button class="chip" data-t="${t}" aria-pressed="${t===ftipo}">${t}</button>`).join("")}<span style="width:10px"></span>${["Todas","Alexis Asad","Cuenca","Presskits y webs"].map(t=>`<button class="chip" data-f="${t}" aria-pressed="${t===ffuente}">${t}</button>`).join("")}</div>
   <p class="note" id="fn"></p><div class="tw"><table class="tbl-m"><thead><tr><th>CUENTA</th><th>QUÉ PUBLICÓ</th><th>TIPO</th><th>LIKES</th><th>COMENTARIOS</th><th></th></tr></thead><tbody id="fl"></tbody></table></div>
   <div class="two" style="margin-top:18px"><div class="card"><h2 class="s">Que Claude busque nuevas</h2><p class="note">Dejá un pedido y, cuando le digas a Claude “mirá los pedidos”, suma lo que esté funcionando ahora en Instagram.</p><label for="pq">Qué buscar</label><input id="pq" placeholder="Ej: reels de DJs con palabra clave, webs de DJs, carruseles de Alexis"><div style="margin-top:10px"><button class="btn" id="pgo" ${owner?"":"disabled"}>Pedir búsqueda</button></div><p class="note" id="pm"></p><div id="pl"></div></div>
-  <div class="card"><h2 class="s">Sumar una que encontraste</h2><label for="n-u">Cuenta</label><input id="n-u" placeholder="@usuario"><label for="n-t">Qué publicó</label><input id="n-t"><div class="two"><div><label for="n-l">Likes</label><input id="n-l" type="number" min="0"></div><div><label for="n-c">Comentarios</label><input id="n-c" type="number" min="0"></div></div><label for="n-k">Tipo</label><select id="n-k"><option>Reel</option><option>Carrusel</option><option>Post</option></select><label for="n-p">Por qué funcionó</label><input id="n-p"><label for="n-url">Link</label><input id="n-url" placeholder="https://www.instagram.com/..."><button class="btn" id="nsave" style="margin-top:12px" ${owner?"":"disabled"}>Guardar</button><p class="note" id="nm"></p></div></div>`;
+  <div class="card"><h2 class="s">Sumar una que encontraste</h2><label for="n-u">Cuenta</label><input id="n-u" placeholder="@usuario"><label for="n-t">Qué publicó</label><input id="n-t"><div class="two"><div><label for="n-l">Likes</label><input id="n-l" type="number" min="0"></div><div><label for="n-c">Comentarios</label><input id="n-c" type="number" min="0"></div></div><label for="n-k">Tipo</label><select id="n-k"><option>Reel</option><option>Carrusel</option><option>Post</option></select><label for="n-p">Por qué funcionó</label><input id="n-p"><label for="n-hook">Gancho original (opcional)</label><input id="n-hook"><label for="n-cta">CTA original (opcional)</label><input id="n-cta"><label for="n-url">Link</label><input id="n-url" placeholder="https://www.instagram.com/..."><button class="btn" id="nsave" style="margin-top:12px" ${owner?"":"disabled"}>Guardar</button><p class="note" id="nm"></p></div></div>`;
   $(".adapted-sources").querySelectorAll("[data-visual]").forEach(b=>b.onclick=()=>openPiece(b.dataset.visual));
   $("#fs").value=fsort;
   $("#fq").oninput=e=>{fq=e.target.value;fxList()};$("#fs").onchange=e=>{fsort=e.target.value;fxList()};
@@ -1037,13 +1067,16 @@ function fxList(){
   $("#fl").innerHTML=l.map(c=>`<tr><td><b>${esc(c.u)}</b><div class="note">${esc(fuente(c))}</div></td><td style="min-width:220px">${esc(c.titulo)}<div class="note">${esc(c.porque||"")}</div></td><td><span class="chp ${c.tipo==="Reel"?"v":c.tipo==="Carrusel"?"h":"p"}">${esc(c.tipo)}</span></td><td style="min-width:120px"><span class="num">${(c.likes||0).toLocaleString("es-AR")}</span><div class="dbar"><i style="width:${Math.max(3,(c.likes||0)/maxL*100)}%"></i></div></td><td style="min-width:130px"><span class="num">${(c.coms||0).toLocaleString("es-AR")}</span>${(c.coms||0)>(c.likes||0)?' <span class="chp ok">más que likes</span>':""}<div class="dbar"><i style="width:${Math.max(3,(c.coms||0)/max*100)}%"></i></div></td><td style="white-space:nowrap">${c.url?`<a class="btn ghost sm" href="${esc(c.url)}" target="_blank" rel="noopener" style="text-decoration:none">Abrir</a> `:""}<button class="btn sm" data-ad="${esc(c.id)}">Adaptar</button></td></tr><tr id="adr-${esc(c.id)}" hidden><td colspan="6"><div class="res" id="ad-${esc(c.id)}"></div></td></tr>`).join("")||`<tr><td colspan="6"><div class="empty">No hay resultados. Probá con otra palabra.</div></td></tr>`;
   document.querySelectorAll("[data-ad]").forEach(b=>b.onclick=()=>adaptar(b.dataset.ad));
 }
-async function adaptar(id){const c=cuentas.find(x=>x.id===id),out=$("#ad-"+id);$("#adr-"+id).hidden=false;out.textContent="Pensando…";
-  try{const s=await cuse("sample");if(!s){out.textContent=adaptLocal(c);return}
-   await s(`Adaptá esta idea que funcionó en Instagram a Playskit (webs presskit a medida para DJs, entrega en 48 h, venta por chat; y un ebook de US$20 para escribirle a los sellos). Español rioplatense, corto, sin relleno. Idea: “${c.titulo}” de ${c.u} (${c.tipo}, ${c.likes} likes, ${c.coms} comentarios). Por qué funciona: ${c.porque}. Reglas: gancho que habla de un dolor, una emoción o un deseo del DJ; los primeros 5 segundos directos; CTA de una palabra con beneficio para el otro. Salida: GANCHO VERBAL, TEXTO EN PANTALLA, VISUAL, 4 VIÑETAS DE GUION, CTA.`,{onText:({text})=>{out.textContent=text}})}
-  catch(e){out.textContent="⚠️ "+(e.message||"No se pudo adaptar.")}}
+function adaptar(id){
+  const source=cuentas.find(ref=>ref.id===id);
+  const result=document.getElementById("ad-"+id);
+  if(!source||!result)return;
+  document.getElementById("adr-"+id).hidden=false;
+  result.textContent=adaptLocal(source);
+}
 async function guardarCuenta(){const m=$("#nm");if(!db||!owner){m.textContent="⚠️ Solo la dueña puede sumar.";return}const u=$("#n-u").value.trim(),t=$("#n-t").value.trim();if(!u||!t){m.textContent="Falta la cuenta o lo que publicó.";return}
-  const d={u:u.startsWith("@")?u:"@"+u,red:"Instagram",tipo:$("#n-k").value,titulo:t,likes:+$("#n-l").value||0,coms:+$("#n-c").value||0,porque:$("#n-p").value.trim(),url:$("#n-url").value.trim(),tags:(u+" "+t).toLowerCase(),fecha:iso(new Date())};
-  try{await db.collection("cuentas").add(d);m.textContent="✅ Guardada.";["n-u","n-t","n-l","n-c","n-p","n-url"].forEach(i=>$("#"+i).value="")}catch(e){m.textContent="⚠️ No se pudo guardar."}}
+  const d={u:u.startsWith("@")?u:"@"+u,red:"Instagram",tipo:$("#n-k").value,titulo:t,likes:+$("#n-l").value||0,coms:+$("#n-c").value||0,porque:$("#n-p").value.trim(),gancho:$("#n-hook").value.trim(),ctaOriginal:$("#n-cta").value.trim(),url:$("#n-url").value.trim(),tags:(u+" "+t).toLowerCase(),fecha:iso(new Date())};
+  try{await db.collection("cuentas").add(d);m.textContent="✅ Guardada.";["n-u","n-t","n-l","n-c","n-p","n-hook","n-cta","n-url"].forEach(i=>$("#"+i).value="")}catch(e){m.textContent="⚠️ No se pudo guardar."}}
 async function pedirBusqueda(){const m=$("#pm"),t=$("#pq").value.trim()||"lo nuevo que esté funcionando con presskits y webs para DJs";if(!db||!owner){m.textContent="⚠️ Solo la dueña puede pedir.";return}
   try{await db.collection("pedidos").add({texto:"Buscar en Instagram y sumar a Qué funcionó: "+t,estado:"nuevo",respuesta:"",creado:Date.now()});m.textContent="✅ Pedido enviado. Decile a Claude: “mirá los pedidos”.";$("#pq").value=""}catch(e){m.textContent="⚠️ No se pudo enviar."}}
 function pedList(){const el=$("#pl");if(!el)return;el.innerHTML=pedidos.slice(0,5).map(p=>`<div class="hr" style="margin-top:8px"><small>${p.estado==="listo"?"RESPONDIDO":"ESPERANDO"}</small>${esc(p.texto)}${p.respuesta?`<div class="note">${esc(p.respuesta)}</div>`:""}</div>`).join("")}
